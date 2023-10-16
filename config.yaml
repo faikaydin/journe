@@ -1,0 +1,2 @@
+database_path: /data/journe_core/journe_core.db
+data_structure_sql_path: /src/data/journe_data_structure.sql
