@@ -1,4 +1,6 @@
-from src.data import journe_core
+from src.data.journe_core import *
 
 # create the core-db
-journe_core.create_new_journe_core()
+journe = JourneConnection()
+journe.create_new_journe_core()
+

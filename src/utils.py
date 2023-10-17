@@ -8,8 +8,8 @@ def read_config(config_path):
     return config
 
 
-# function to read the journe_data_structure.sql
-def read_data_structure_sql(file_path):
+# function to parse sql command
+def read_sql_command(file_path):
     with open(file_path, 'r') as sql_file:
         sql_content = sql_file.read()
     return sql_content
