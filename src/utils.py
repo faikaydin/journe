@@ -13,3 +13,8 @@ def read_sql_command(file_path):
     with open(file_path, 'r') as sql_file:
         sql_content = sql_file.read()
     return sql_content
+
+
+# logging things that are being created
+def log_creation(obj):
+    print(f'created: {str(obj)}')
