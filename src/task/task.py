@@ -22,4 +22,13 @@ class Task:
     def __str__(self):
         return f"task - {self.task_title}"
 
+    # creates a dictionary payload - used to send to dbs and front ends
+    def to_payload(self):
+        return {
+            'task_id': self.task_id,
+            'task_pot_id': self.task_pot_id,
+            'task_title': self.task_title,
+            'task_duration': self.task_duration
+                }
+
 
