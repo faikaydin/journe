@@ -18,6 +18,7 @@ class Task:
         except ValueError:
             raise InvalidTaskDurationError("Task duration must be an int value - representing minutes")
         log_creation(self)  # successful creation of object
+        # after creation of the task, it must exist in the journe db
 
     def __str__(self):
         return f"task - {self.task_title}"
@@ -29,6 +30,4 @@ class Task:
             'task_pot_id': self.task_pot_id,
             'task_title': self.task_title,
             'task_duration': self.task_duration
-                }
-
-
+            }
