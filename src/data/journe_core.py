@@ -33,3 +33,18 @@ class JourneConnection:
         self.cursor.execute(task_payload_sql, task.to_payload())  # execute
         self.conn.commit()
         print(f"{task.to_payload()['task_title']} sent to journe core!")
+
+    def read_tasks(self):
+        # retrieve sql command for core creation
+        sql = read_sql_command(JOURNE_CORE_READ_TASKS)
+        # execute
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()
+
+    def read_pots(self):
+        # retrieve sql command for core creation
+        sql = read_sql_command(JOURNE_CORE_READ_POTS)
+        # execute
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()
+

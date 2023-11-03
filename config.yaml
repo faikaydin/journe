@@ -1,3 +1,5 @@
 database_path: /data/journe_core/journe_core.db
 data_structure_sql_path: /src/data/journe_data_structure.sql
 task_payload_sql_path: /src/data/journe_task_payload.sql
+read_tasks: /src/data/journe_read_tasks.sql
+read_pots: /src/data/journe_read_pots.sql

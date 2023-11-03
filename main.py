@@ -1,8 +1,9 @@
-from src.task import Task
-from src.data.journe_core import *
+from src.data.journe_app import *
 
-# create the core-db
-journe = JourneConnection()
-journe.create_new_journe_core()
-task = Task('pat cat', 15)
-journe.task_payload_to_core(task)
+journe = Journe()  # create Journe App Instance
+journe.reset_db()  # reset db ... nuke!
+print(journe.read_pots_from_db())
+print(journe.read_tasks_from_db())
+journe.add_task('pat cat', 24)
+print(journe.read_pots_from_db())
+print(journe.read_tasks_from_db())
