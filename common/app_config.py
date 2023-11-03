@@ -18,3 +18,5 @@ config = utils.read_config(CONFIG_FILE)
 DATABASE_PATH = ROOT + config['database_path']  # where the db will be
 JOURNE_CORE_CREATE_SQL_PATH = ROOT + config['data_structure_sql_path']  # sql file to create/nuke db
 JOURNE_CORE_TASK_PAYLOAD_SQL_PATH = ROOT + config['task_payload_sql_path']  # sql to insert task payload to db
+JOURNE_CORE_READ_TASKS = ROOT + config['read_tasks']  # read all tasks
+JOURNE_CORE_READ_POTS = ROOT + config['read_pots']  # read all pots
