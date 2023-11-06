@@ -19,12 +19,12 @@ class Journe:
     def add_task(self, task_title, task_duration=10, task_pot=0):
         task_obj = Task(task_title, task_duration, task_pot)  # init task object
         self.journe_connection.task_payload_to_core(task_obj)  # send object to payload
-        self.tasks[task_obj.task_id] = task_obj # create a copy of the task object in memory
+        self.tasks[task_obj.task_id] = task_obj  # create a copy of the task object in memory
 
-    def read_tasks_from_db(self):
+    def read_tasks(self):
         return self.journe_connection.read_tasks()
 
-    def read_pots_from_db(self):
+    def read_pots(self):
         return self.journe_connection.read_pots()
 
 
