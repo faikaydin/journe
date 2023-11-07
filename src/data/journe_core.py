@@ -24,15 +24,23 @@ class JourneConnection:
         core_sql = read_sql_command(JOURNE_CORE_CREATE_SQL_PATH)
         # execute
         self.cursor.executescript(core_sql)
-        print(f"{DATABASE_PATH} created with empty TASK & POT tables")
+        print("Fresh Journe db created")
 
     def task_payload_to_core(self, task):
-        # retrieve sql command for core creation
+        # retrieve sql command
         task_payload_sql = read_sql_command(JOURNE_CORE_TASK_PAYLOAD_SQL_PATH)
         # execute
         self.cursor.execute(task_payload_sql, task.to_payload())  # execute
         self.conn.commit()
         print(f"{task.to_payload()['task_title']} sent to journe core!")
+
+    def pot_payload_to_core(self, pot):
+        # retrieve sql command
+        pot_payload_sql = read_sql_command(JOURNE_CORE_POT_PAYLOAD_SQL_PATH)
+        # execute
+        self.cursor.execute(pot_payload_sql, pot.to_payload())  # execute
+        self.conn.commit()
+        print(f"{pot.to_payload()['pot_title']} sent to journe core!")
 
     def read_tasks(self):
         # retrieve sql command for core creation
@@ -47,4 +55,19 @@ class JourneConnection:
         # execute
         self.cursor.execute(sql)
         return self.cursor.fetchall()
+
+    def get_pot_id_from_pot_title(self, query_dict):
+        # retrieve sql command for core creation
+        sql = read_sql_command(JOURNE_CORE_GET_POT_ID_FROM_POT_TITLE)
+        # execute
+        self.cursor.execute(sql, query_dict)
+        return self.cursor.fetchall()
+
+    def get_pot_title_from_pot_id(self, query_dict):
+        # retrieve sql command for core creation
+        sql = read_sql_command(JOURNE_CORE_GET_POT_TITLE_FROM_POT_ID)
+        # execute
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()
+
 

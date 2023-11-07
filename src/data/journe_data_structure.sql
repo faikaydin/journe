@@ -12,9 +12,11 @@ create table task (
 -- pots
 create table pot (
   pot_id text primary key,
-  pot_name text,
-  pot_contents text[]
+  pot_title text,
+  pot_description text
 );
 
 -- Insert the default pot entry
-INSERT INTO pot (pot_id, pot_name, pot_contents) VALUES ('0', 'no_pot', NULL);
+INSERT INTO pot (pot_id, pot_title, pot_description) VALUES ('00000000-0000-0000-0000-000000000000',
+                                                            'task_platter',
+                                                            'a platter pot for unassigned tasks');

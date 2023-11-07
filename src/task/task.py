@@ -1,7 +1,9 @@
 import uuid
 from src.utils import log_creation
 
-# task is the smallest unit of work in journe
+"""
+    a task is the smallest unit of work in journe!
+"""
 
 
 class InvalidTaskDurationError(Exception):
@@ -9,7 +11,7 @@ class InvalidTaskDurationError(Exception):
 
 
 class Task:
-    def __init__(self, task_title, task_duration=10, task_pot=0):
+    def __init__(self, task_title, task_duration, task_pot):
         self.task_id = str(uuid.uuid4())  # generate a unique task ID
         self.task_pot_id = str(task_pot)  # link to pot
         self.task_title = str(task_title)  # title of the task that is being created
@@ -18,7 +20,6 @@ class Task:
         except ValueError:
             raise InvalidTaskDurationError("Task duration must be an int value - representing minutes")
         log_creation(self)  # successful creation of object
-        # after creation of the task, it must exist in the journe db
 
     def __str__(self):
         return f"task - {self.task_title}"
