@@ -26,20 +26,22 @@ class JourneConnection:
         self.cursor.executescript(core_sql)
         print("Fresh Journe db created")
 
+    def send_payload(self, payload_sql, payload_obj):
+        self.cursor.execute(payload_sql, payload_obj.to_payload())  # execute
+        self.conn.commit()
+
     def task_payload_to_core(self, task):
         # retrieve sql command
         task_payload_sql = read_sql_command(JOURNE_CORE_TASK_PAYLOAD_SQL_PATH)
         # execute
-        self.cursor.execute(task_payload_sql, task.to_payload())  # execute
-        self.conn.commit()
+        self.send_payload(task_payload_sql, task)
         print(f"{task.to_payload()['task_title']} sent to journe core!")
 
     def pot_payload_to_core(self, pot):
         # retrieve sql command
         pot_payload_sql = read_sql_command(JOURNE_CORE_POT_PAYLOAD_SQL_PATH)
         # execute
-        self.cursor.execute(pot_payload_sql, pot.to_payload())  # execute
-        self.conn.commit()
+        self.send_payload(pot_payload_sql, pot)
         print(f"{pot.to_payload()['pot_title']} sent to journe core!")
 
     def read_tasks(self):
