@@ -1,10 +1,10 @@
 database_path: /data/journe_core/journe_core.db
 data_structure_sql_path: /src/data/journe_data_structure.sql
-task_payload_sql_path: /src/data/journe_task_payload.sql
-pot_payload_sql_path: /src/data/journe_pot_payload.sql
+task_payload_sql_path: /src/data/journe_payload_task.sql
+pot_payload_sql_path: /src/data/journe_payload_pot.sql
 read_tasks: /src/data/journe_read_tasks.sql
 read_pots: /src/data/journe_read_pots.sql
-get_pot_from_title_sql_path: /src/data/journe_get_pot_from_title.sql
-get_pot_from_id_sql_path: /src/data/journe_get_pot_from_id.sql
-get_task_from_title_sql_path: /src/data/journe_get_task_from_title.sql
-get_task_from_id_sql_path: /src/data/journe_get_task_from_id.sql
+get_pot_sql_path: /src/data/journe_get_pot.sql
+get_task_sql_path: /src/data/journe_get_task.sql
+remove_pot_sql_path: /src/data/journe_remove_pot.sql
+remove_task_sql_path: /src/data/journe_remove_task.sql

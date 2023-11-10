@@ -29,20 +29,17 @@ class Journe:
         self.journe_connection.send_payload(pot_obj)  # send object payload to core
         self.pots[pot_obj.pot_id] = pot_obj  # create a copy of the pot object in memory
 
-    def read(self, journe_object_type, _id=None, _title=None, read_all=False):
+    def remove(self, journe_object_type, _id='', _title=''):
+        # removing from local
+        if _id: key = _id
+        else: key = self.read(journe_object_type, _title=_title)[0][0]
+        if journe_object_type == 'pot': self.pots.pop(key)
+        else: self.tasks.pop(key)
+        # removing from db
+        self.journe_connection.remove_payload(journe_object_type, object_id=_id, object_title=_title)
+
+    def read(self, journe_object_type, _id='', _title='', read_all=False):
         return self.journe_connection.read_payload(object_type=journe_object_type,
                                                    object_id=_id,
                                                    object_title=_title,
                                                    read_all=read_all)
-    #
-    # def get_pot_id_from_pot_title(self, pot_title):
-    #     return self.journe_connection.get_pot_id_from_pot_title({'pot_title': pot_title})
-    #
-    # def get_pot_title_from_pot_id(self, pot_id):
-    #     return self.journe_connection.get_pot_id_from_pot_title({'pot_title': pot_id})
-    #
-    # def read_pots(self):
-    #     return self.journe_connection.read_pots()
-
-
-
