@@ -7,9 +7,12 @@ from src.utils import log_creation
 
 
 class Pot:
-    def __init__(self, pot_title, pot_description):
+    def __init__(self, pot_id, pot_title, pot_description):
         self.journe_object_type = 'pot'  # type of object
-        self.pot_id = str(uuid.uuid4())  # generate a unique task ID
+        if pot_id:
+            self.pot_id = pot_id
+        else:
+            self.pot_id = str(uuid.uuid4())  # generate a unique task ID
         self.pot_title = pot_title
         self.pot_description = pot_description
         log_creation(self)  # successful creation of object

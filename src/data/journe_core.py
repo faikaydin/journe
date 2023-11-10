@@ -59,6 +59,13 @@ class JourneConnection:
     removes the queried object from db
     """
     def remove_payload(self, object_type, object_id=None, object_title=None):
+        if object_type == 'pot':  # if it is a pot we must strip the tasks associated
+            if object_id:
+                _pot_id = object_id
+            else:
+                _pot_id = self.read_payload('pot', object_title=object_title)[0][0]
+            self.rectify_pot_removal(_pot_id)
+        # removal process
         sql_command_path = payload_paths[object_type]['REMOVE']
         sql_command = read_sql_command(sql_command_path)  # getting the sql command
         query_dict = {'_id': object_id, '_title': object_title}
@@ -66,3 +73,21 @@ class JourneConnection:
         self.conn.commit()
         print(f"{object_id}{object_title} REMOVED from journe core!")
 
+    def get_table_info(self, table_name):
+        # Execute a query to get the column names
+        self.cursor.execute(f"PRAGMA table_info({table_name})")
+        # Fetch all the results
+        columns = self.cursor.fetchall()
+        return [column[1] for column in columns]
+
+    def is_pot_exists(self, pot_title):
+        sql = f'select pot_id from pot where pot_title="{pot_title}"'
+        self.cursor.execute(sql)
+        return len(self.cursor.fetchall()) > 0  # if there are one or more instances found
+
+    def rectify_pot_removal(self, pot_id):
+        default_id = self.read_payload('pot', object_title='task_platter')[0][0]
+        self.cursor.execute(f'update task set '
+                            f'task_pot_id="{default_id}" '
+                            f'where task_pot_id="{pot_id}"')
+        self.conn.commit()
