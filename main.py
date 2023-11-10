@@ -11,6 +11,7 @@ journe.add_task(None, 'feed catsmall', 231, 'cat town')
 journe.add_task(None, 'REMOVE THIS TASK', 13, 'cat town')
 journe.add_task(None, 'WRONG POT TASK', 13, 'THIS POT ISNT THERE LMAO')
 journe.add_pot(None, 'REMOVE THIS POT', 'nuke this son!')
+journe.add_task(None, 'THIS TASK NEEDS TO BE PLATTER', 313, 'REMOVE THIS POT')
 
 print(journe.read(journe_object_type='pot', read_all=True))
 print(journe.read(journe_object_type='task', read_all=True))

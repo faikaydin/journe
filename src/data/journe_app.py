@@ -51,13 +51,10 @@ class Journe:
         self.pots[pot_obj.pot_id] = pot_obj  # create a copy of the pot object in memory
 
     def remove(self, journe_object_type, _id='', _title=''):
-        # removing from local
-        if _id: key = _id
-        else: key = self.read(journe_object_type, _title=_title)[0][0]
-        if journe_object_type == 'pot': self.pots.pop(key)
-        else: self.tasks.pop(key)
         # removing from db
         self.journe_connection.remove_payload(journe_object_type, object_id=_id, object_title=_title)
+        # resync local
+        self.sync_local_with_db()
 
     def read(self, journe_object_type, _id='', _title='', read_all=False):
         return self.journe_connection.read_payload(object_type=journe_object_type,
