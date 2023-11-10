@@ -66,3 +66,9 @@ class JourneConnection:
         self.conn.commit()
         print(f"{object_id}{object_title} REMOVED from journe core!")
 
+    def get_table_info(self, table_name):
+        # Execute a query to get the column names
+        self.cursor.execute(f"PRAGMA table_info({table_name})")
+        # Fetch all the results
+        columns = self.fetchall()
+        return [column[1] for column in columns]

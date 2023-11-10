@@ -11,9 +11,12 @@ class InvalidTaskDurationError(Exception):
 
 
 class Task:
-    def __init__(self, task_title, task_duration, task_pot):
+    def __init__(self, task_id, task_title, task_duration, task_pot):
         self.journe_object_type = 'task'  # type of object
-        self.task_id = str(uuid.uuid4())  # generate a unique task ID
+        if task_id:
+            self.task_id = task_id
+        else:
+            self.task_id = str(uuid.uuid4())  # generate a unique task ID
         self.task_pot_id = str(task_pot)  # link to pot
         self.task_title = str(task_title)  # title of the task that is being created
         try:
