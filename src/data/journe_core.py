@@ -48,37 +48,21 @@ class JourneConnection:
             sql_command_path = payload_paths[object_type]['READ']['ALL']
             query_dict = {}
         else:
-            if object_id:  # if we are using id to read
-                sql_command_path = payload_paths[object_type]['READ']['ID']
-                query_dict = {'_id': object_id}
-            else: # we are using title to read
-                sql_command_path = payload_paths[object_type]['READ']['TITLE']
-                query_dict = {'_title': object_title}
-        print(sql_command_path)
+            sql_command_path = payload_paths[object_type]['READ']['UNIT']
+            query_dict = {'_id': object_id, '_title': object_title}
         # execute
         sql = read_sql_command(sql_command_path)
         self.cursor.execute(sql, query_dict)
         return self.cursor.fetchall()
 
-    # def read_pots(self):
-    #     # retrieve sql command for core creation
-    #     sql = read_sql_command(JOURNE_CORE_READ_POTS)
-    #     # execute
-    #     self.cursor.execute(sql)
-    #     return self.cursor.fetchall()
-
-    # def get_pot_id_from_pot_title(self, query_dict):
-    #     # retrieve sql command for core creation
-    #     sql = read_sql_command(JOURNE_CORE_GET_POT_ID_FROM_POT_TITLE)
-    #     # execute
-    #     self.cursor.execute(sql, query_dict)
-    #     return self.cursor.fetchall()
-    #
-    # def get_pot_title_from_pot_id(self, query_dict):
-    #     # retrieve sql command for core creation
-    #     sql = read_sql_command(JOURNE_CORE_GET_POT_TITLE_FROM_POT_ID)
-    #     # execute
-    #     self.cursor.execute(sql)
-    #     return self.cursor.fetchall()
-
+    """
+    removes the queried object from db
+    """
+    def remove_payload(self, object_type, object_id=None, object_title=None):
+        sql_command_path = payload_paths[object_type]['REMOVE']
+        sql_command = read_sql_command(sql_command_path)  # getting the sql command
+        query_dict = {'_id': object_id, '_title': object_title}
+        self.cursor.execute(sql_command, query_dict)  # execute
+        self.conn.commit()
+        print(f"{object_id}{object_title} REMOVED from journe core!")
 
