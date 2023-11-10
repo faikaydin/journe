@@ -70,5 +70,10 @@ class JourneConnection:
         # Execute a query to get the column names
         self.cursor.execute(f"PRAGMA table_info({table_name})")
         # Fetch all the results
-        columns = self.fetchall()
+        columns = self.cursor.fetchall()
         return [column[1] for column in columns]
+
+    def is_pot_exists(self, pot_title):
+        sql = f'select pot_id from pot where pot_title="{pot_title}"'
+        self.cursor.execute(sql)
+        return len(self.cursor.fetchall()) > 0  # if there are one or more instances found

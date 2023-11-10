@@ -37,7 +37,10 @@ class Journe:
         print("Local Synced With DB")
 
     def add_task(self, task_id=None, task_title='', task_duration=10, task_pot='task_platter'):
-        task_pot = self.read('pot', _title=task_pot)[0][0]  # get task's pot id from its human-readable pot title
+        if self.journe_connection.is_pot_exists(task_pot):
+            task_pot = self.read('pot', _title=task_pot)[0][0]  # get task's pot id from its human-readable pot title
+        else:
+            task_pot = self.read('pot', _title='task_platter')[0][0]  # if pot doesn't exist default to task_platter
         task_obj = Task(task_id, task_title, task_duration, task_pot)  # init task object
         self.journe_connection.send_payload(task_obj)  # send object payload to core
         self.tasks[task_obj.task_id] = task_obj  # create a copy of the task object in memory
