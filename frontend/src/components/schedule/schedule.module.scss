@@ -1,0 +1,29 @@
+.scheduleContainer {
+  padding: 2rem 4rem;
+  .displayDateContainer {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    .displayDateSelector {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      .weekNavigator {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .displayDates {
+        cursor: pointer;
+      }
+    }
+    .backToToday {
+      background: transparent;
+      border: none;
+    }
+  }
+}

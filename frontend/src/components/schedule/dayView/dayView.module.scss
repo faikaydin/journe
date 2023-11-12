@@ -1,0 +1,28 @@
+.datesContainer {
+  display: grid;
+  grid-template-columns: 80px repeat(7, 1fr);
+  div:first-child {
+    grid-column-start: 2;
+  }
+}
+.scheduleWrapper {
+  display: grid;
+  grid-template-columns: 80px calc(100% - 80px);
+  .hourGrid {
+    .hour {
+      border: 1px solid #00000010;
+      height: 28px;
+    }
+  }
+}
+.gridWrapper {
+  border: 1px solid #000;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+.event {
+  position: relative;
+  background-color: green;
+  height: 100px;
+}
