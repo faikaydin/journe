@@ -16,6 +16,7 @@ config = utils.read_config(CONFIG_FILE)
 
 # path variables
 DATABASE_PATH = ROOT + config['database_path']  # where the db will be
+DUMMY_DB_JSON_PATH = ROOT + config['dummy_db_json_path']  # dummy json!
 JOURNE_CORE_CREATE_SQL_PATH = ROOT + config['data_structure_sql_path']  # sql file to create/nuke db
 JOURNE_CORE_TASK_PAYLOAD_SQL_PATH = ROOT + config['task_payload_sql_path']  # sql to insert task payload to db
 JOURNE_CORE_POT_PAYLOAD_SQL_PATH = ROOT + config['pot_payload_sql_path']  # sql to insert pot payload to db

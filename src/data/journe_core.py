@@ -30,15 +30,20 @@ class JourneConnection:
     sends journe object or a json_payload to the db. 
     """
     def send_payload(self, payload_obj):
-        payload_sql = payload_paths[payload_obj.journe_object_type]['SEND']  # getting the sql command path
-        sql_command = read_sql_command(payload_sql)  # getting the sql command
-        if type(payload_obj) != list: # if we want to send a single journe_object
+        if type(payload_obj) != list:  # if we want to send a single journe_object
+            payload_sql = payload_paths[payload_obj.journe_object_type]['SEND']  # getting the sql command path
+            sql_command = read_sql_command(payload_sql)  # getting the sql command
             self.cursor.execute(sql_command, payload_obj.to_payload())  # execute
+            print(f"{payload_obj.to_payload()[f'{payload_obj.journe_object_type}_title']} sent to journe core!")
         else:
-            for payload in payload_obj:
-                self.cursor.execute(sql_command, payload)  # execute
+            if len(payload_obj) > 0:
+                obj_type = list(payload_obj[0].keys())[0].split("_")[0]  # getting the name of the object type by keys
+                payload_sql = payload_paths[obj_type]['SEND']  # getting the sql command path
+                sql_command = read_sql_command(payload_sql)  # getting the sql command
+                for payload in payload_obj:
+                    self.cursor.execute(sql_command, payload)  # execute
+                print(f"{len(payload_obj)} {obj_type} sent to journe core!")
         self.conn.commit()  # commit transaction
-        print(f"{payload_obj.to_payload()[f'{payload_obj.journe_object_type}_title']} sent to journe core!")
 
     """
     object_type = string - task, pot, block

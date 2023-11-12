@@ -1,6 +1,7 @@
 from src.data.journe_core import *
 from src.task import *
 from src.pot import *
+from src.utils import read_json_payload
 """
 overall app class - wrappers
 """
@@ -24,9 +25,17 @@ class Journe:
         self.tasks = {}
         self.pots = {}
 
+    def load_json(self, json_payload_path):
+        print('############# LOADING JSON #############')
+        self.reset_local()  # reset local objects in memory
+        self.reset_db()  # reset db - nuke all
+        tasks, pots = read_json_payload(json_payload_path)  # read in json objects
+        self.journe_connection.send_payload(tasks)  # sending tasks to journe db!
+        self.journe_connection.send_payload(pots)  # sending pots to journe db!
+        self.sync_local_with_db()  # sync the local with all
+
     def sync_local_with_db(self):
         _tasks = {}
-        print(self.read('task', read_all=True))
         for _task in self.read('task', read_all=True):
             _tasks[_task['task_id']] = Task(_task['task_id'],
                                             _task['task_title'],
