@@ -3,8 +3,7 @@ from common.app_config import DUMMY_DB_JSON_PATH
 
 journe = Journe()  # create Journe App Instance
 journe.load_json(json_payload_path=DUMMY_DB_JSON_PATH)  # setting up our dummy instance :)
-print(journe.tasks)
-print(journe.pots)
+print(journe)
 
 # journe.reset_db()  # reset db ... nuke!
 # journe.sync_local_with_db()  # syncing db with local

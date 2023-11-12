@@ -81,3 +81,13 @@ class Journe:
         if read_all:
             return [dict(zip(keys, value)) for value in values]
         return [dict(zip(keys, value)) for value in values][0]  # if we are after one value return the single dict
+
+    def __str__(self):
+        journe_string = ''
+        journe_string += '######TASKS###### \n'
+        for k, v in zip(self.tasks.keys(), self.tasks.values()):
+            journe_string += str(k) + " -> " + str(v) + '\n'
+        journe_string += '######POTS###### \n'
+        for k, v in zip(self.pots.keys(), self.pots.values()):
+            journe_string += str(k) + " -> " + str(v) + '\n'
+        return journe_string
