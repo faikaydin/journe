@@ -1,4 +1,8 @@
+# paths #
+# database related paths
 database_path: /data/journe_core/journe_core.db
+dummy_db_json_path: /data/dummy_db.json
+# sql command paths
 data_structure_sql_path: /src/data/journe_data_structure.sql
 task_payload_sql_path: /src/data/journe_payload_task.sql
 pot_payload_sql_path: /src/data/journe_payload_pot.sql

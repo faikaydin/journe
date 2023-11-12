@@ -1,4 +1,5 @@
 import yaml
+import json
 
 
 # function for reading the yaml config.yaml
@@ -14,6 +15,12 @@ def read_sql_command(file_path):
         sql_content = sql_file.read()
     return sql_content
 
+
+# reading json files - tasks, pots
+def read_json_payload(file_path):
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    return data.get('tasks'), data.get('pots')
 
 # logging things that are being created
 def log_creation(obj):
