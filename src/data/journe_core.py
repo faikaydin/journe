@@ -7,6 +7,7 @@ this class handles the entire database connections & payload management
     
 """
 
+
 class JourneConnection:
 
     def __init__(self):
@@ -26,13 +27,17 @@ class JourneConnection:
         print("Fresh Journe db created")
 
     """
-    sends journe object to the db. 
+    sends journe object or a json_payload to the db. 
     """
     def send_payload(self, payload_obj):
         payload_sql = payload_paths[payload_obj.journe_object_type]['SEND']  # getting the sql command path
         sql_command = read_sql_command(payload_sql)  # getting the sql command
-        self.cursor.execute(sql_command, payload_obj.to_payload())  # execute
-        self.conn.commit()
+        if type(payload_obj) != list: # if we want to send a single journe_object
+            self.cursor.execute(sql_command, payload_obj.to_payload())  # execute
+        else:
+            for payload in payload_obj:
+                self.cursor.execute(sql_command, payload)  # execute
+        self.conn.commit()  # commit transaction
         print(f"{payload_obj.to_payload()[f'{payload_obj.journe_object_type}_title']} sent to journe core!")
 
     """
@@ -40,6 +45,8 @@ class JourneConnection:
     object_id = string - passing object_id to get the object
     object_title = string - passing object_title to get the object
     read_all = bool - reads in entire object type data
+    
+    returns [{variables_1}, {variables_2}, ...]
     """
     def read_payload(self, object_type, object_id=None, object_title=None, read_all=False):
         # get all data
