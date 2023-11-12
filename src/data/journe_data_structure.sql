@@ -6,6 +6,7 @@ create table task (
   task_id text primary key,
   task_title text,
   task_duration integer,
+  task_description text,
   task_pot_id text,
   foreign key (task_pot_id) references pot(pot_id)
 );

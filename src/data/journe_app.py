@@ -37,15 +37,16 @@ class Journe:
     def sync_local_with_db(self):
         _tasks = {}
         for _task in self.read('task', read_all=True):
-            _tasks[_task['task_id']] = Task(_task['task_id'],
-                                            _task['task_title'],
-                                            _task['task_duration'],
-                                            _task['task_pot_id'])
+            _tasks[_task['task_id']] = Task(task_id=_task['task_id'],
+                                            task_title=_task['task_title'],
+                                            task_description=_task['task_description'],
+                                            task_duration=_task['task_duration'],
+                                            task_pot=_task['task_pot_id'])
         _pots = {}
         for _pot in self.read('pot', read_all=True):
-            _pots[_pot['pot_id']] = Pot(_pot['pot_id'],
-                                        _pot['pot_title'],
-                                        _pot['pot_description'])
+            _pots[_pot['pot_id']] = Pot(pot_id=_pot['pot_id'],
+                                        pot_title=_pot['pot_title'],
+                                        pot_description=_pot['pot_description'])
         # update Journe instance
         self.pots = _pots
         self.tasks = _tasks
