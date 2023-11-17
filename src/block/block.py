@@ -7,7 +7,7 @@ from src.utils import log_creation
 
 
 class Block:
-    def __init__(self, block_id, block_start_time, block_end_time):
+    def __init__(self, block_start_time, block_end_time, block_id=None):
         self.journe_object_type = 'block'  # type of object
         if block_id:
             self.block_id = block_id

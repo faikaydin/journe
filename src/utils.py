@@ -20,7 +20,7 @@ def read_sql_command(file_path):
 def read_json_payload(file_path):
     with open(file_path, 'r') as file:
         data = json.load(file)
-    return data.get('tasks'), data.get('pots')
+    return data.get('tasks'), data.get('pots'), data.get('blocks')
 
 
 # logging things that are being created

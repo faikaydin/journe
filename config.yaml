@@ -6,9 +6,13 @@ dummy_db_json_path: /data/dummy_db.json
 data_structure_sql_path: /src/data/journe_data_structure.sql
 task_payload_sql_path: /src/data/journe_payload_task.sql
 pot_payload_sql_path: /src/data/journe_payload_pot.sql
+block_payload_sql_path: /src/data/journe_payload_block.sql
 read_tasks: /src/data/journe_read_tasks.sql
 read_pots: /src/data/journe_read_pots.sql
+read_blocks: /src/data/journe_read_blocks.sql
 get_pot_sql_path: /src/data/journe_get_pot.sql
 get_task_sql_path: /src/data/journe_get_task.sql
+get_block_sql_path: /src/data/journe_get_block.sql
 remove_pot_sql_path: /src/data/journe_remove_pot.sql
 remove_task_sql_path: /src/data/journe_remove_task.sql
+remove_block_sql_path: /src/data/journe_remove_block.sql

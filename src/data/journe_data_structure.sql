@@ -1,6 +1,8 @@
 -- nuking tables
 drop table if exists task;
 drop table if exists pot;
+drop table if exists block;
+
 -- task
 create table task (
   task_id text primary key,

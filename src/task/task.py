@@ -29,7 +29,7 @@ class Task:
 
     def __str__(self):
         return f"task - {self.task_title} : {self.task_description} :" \
-               f" duration {self.task_duration} min : pot {self.task_pot_id}"
+               f" duration {self.task_duration} min : pot {self.task_pot_id} : block {self.task_block_id}"
 
     # creates a dictionary payload - used to send to dbs and front ends
     def to_payload(self):
