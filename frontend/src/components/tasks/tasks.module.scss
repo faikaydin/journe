@@ -1,3 +1,16 @@
-.tasksContainer {
+.potsContainer {
   padding: 2rem 4rem;
+
+  .potContainer {
+    border: 1px solid #000;
+    border-top: 0px;
+    padding: 1rem;
+    height: fit-content;
+
+    border-radius: 0px 0px 16px 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
 }
