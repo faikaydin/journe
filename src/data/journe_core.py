@@ -1,4 +1,5 @@
 import sqlite3
+from os.path import exists
 from common.app_config import *
 from src.utils import read_sql_command
 
@@ -10,9 +11,19 @@ this class handles the entire database connections & payload management
 
 class JourneConnection:
 
+    """
+    there are two scenarios:
+        1) there is no db ... in which case:
+            1.1) connect_to_journe_core runs and generates an empty .db
+            1.2) following it up create_new_journe_core runs and creates the fresh journe core
+        2) there already exists a db - in which case we just connect to it!
+    """
     def __init__(self):
-        self.conn = JourneConnection.connect_to_journe_core()  # create a new db or connect to an existing one
+        create_new_journe_core = not exists(DATABASE_PATH)  # if a journe db doesn't exist create a new one
+        self.conn = JourneConnection.connect_to_journe_core()  # connect to journe core
         self.cursor = self.conn.cursor()
+        if create_new_journe_core:  # if a journe db doesn't exist create a new one
+            self.create_new_journe_core()
 
     @staticmethod
     def connect_to_journe_core():
@@ -34,7 +45,11 @@ class JourneConnection:
             payload_sql = payload_paths[payload_obj.journe_object_type]['SEND']  # getting the sql command path
             sql_command = read_sql_command(payload_sql)  # getting the sql command
             self.cursor.execute(sql_command, payload_obj.to_payload())  # execute
-            print(f"{payload_obj.to_payload()[f'{payload_obj.journe_object_type}_title']} sent to journe core!")
+            if payload_obj.journe_object_type != 'block':
+                print(f"{payload_obj.to_payload()[f'{payload_obj.journe_object_type}_title']} sent to journe core!")
+            else:
+                print(f"{payload_obj.to_payload()[f'{payload_obj.journe_object_type}_id']} sent to journe core!")
+
         else:
             if len(payload_obj) > 0:
                 obj_type = list(payload_obj[0].keys())[0].split("_")[0]  # getting the name of the object type by keys

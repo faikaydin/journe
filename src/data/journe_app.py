@@ -1,6 +1,7 @@
 from src.data.journe_core import *
 from src.task import *
 from src.pot import *
+from src.block import *
 from src.utils import read_json_payload
 """
 overall app class - wrappers
@@ -14,6 +15,7 @@ class Journe:
         self.journe_connection = JourneConnection()  # establish connection to db or create a new one if no db exists
         self.tasks = {}  # dict to store tasks in memory
         self.pots = {}  # dict to store pots in memory
+        self.blocks = {}
         # sync the db with local
         self.sync_local_with_db()
 
@@ -24,14 +26,16 @@ class Journe:
     def reset_local(self):
         self.tasks = {}
         self.pots = {}
+        self.blocks = {}
 
     def load_json(self, json_payload_path):
         print('############# LOADING JSON #############')
         self.reset_local()  # reset local objects in memory
         self.reset_db()  # reset db - nuke all
-        tasks, pots = read_json_payload(json_payload_path)  # read in json objects
+        tasks, pots, blocks = read_json_payload(json_payload_path)  # read in json objects
         self.journe_connection.send_payload(tasks)  # sending tasks to journe db!
         self.journe_connection.send_payload(pots)  # sending pots to journe db!
+        self.journe_connection.send_payload(blocks)  # sending pots to journe db!
         self.sync_local_with_db()  # sync the local with all
 
     def sync_local_with_db(self):
@@ -41,23 +45,40 @@ class Journe:
                                             task_title=_task['task_title'],
                                             task_description=_task['task_description'],
                                             task_duration=_task['task_duration'],
-                                            task_pot=_task['task_pot_id'])
+                                            task_pot=_task['task_pot_id'],
+                                            task_block=_task['task_block_id'])
         _pots = {}
         for _pot in self.read('pot', read_all=True):
             _pots[_pot['pot_id']] = Pot(pot_id=_pot['pot_id'],
                                         pot_title=_pot['pot_title'],
                                         pot_description=_pot['pot_description'])
+        _blocks = {}
+        for _block in self.read('block', read_all=True):
+            _blocks[_block['block_id']] = Block(block_id=_block['block_id'],
+                                                block_start_time=_block['block_start_time'],
+                                                block_end_time=_block['block_end_time'])
         # update Journe instance
         self.pots = _pots
         self.tasks = _tasks
+        self.blocks = _blocks
         print("Local Synced With DB")
 
-    def add_task(self, task_id=None, task_title='', task_duration=10, task_pot='task_platter'):
+    def add_task(self,
+                 task_id=None,
+                 task_title="",
+                 task_duration=10, task_pot='task_platter',
+                 task_block="",
+                 task_description=""):
         if self.journe_connection.is_pot_exists(task_pot):
             task_pot = self.read('pot', _title=task_pot)['pot_id']  # get task's pot id from human-readable pot title
         else:
             task_pot = self.read('pot', _title='task_platter')['pot_id']  # if pot doesn't exist default task_platter
-        task_obj = Task(task_id, task_title, task_duration, task_pot)  # init task object
+        task_obj = Task(task_id=task_id,
+                        task_title=task_title,
+                        task_description=task_description,
+                        task_duration=task_duration,
+                        task_block=task_block,
+                        task_pot=task_pot)  # init task object
         self.journe_connection.send_payload(task_obj)  # send object payload to core
         self.tasks[task_obj.task_id] = task_obj  # create a copy of the task object in memory
 
@@ -65,6 +86,13 @@ class Journe:
         pot_obj = Pot(pot_id, pot_title, pot_description)  # init pot object
         self.journe_connection.send_payload(pot_obj)  # send object payload to core
         self.pots[pot_obj.pot_id] = pot_obj  # create a copy of the pot object in memory
+
+    def add_block(self, block_start_time, block_end_time, block_id=None):
+        block_obj = Block(block_id=block_id,
+                          block_start_time=block_start_time,
+                          block_end_time=block_end_time)  # init block object
+        self.journe_connection.send_payload(block_obj)  # send object payload to core
+        self.blocks[block_obj.block_id] = block_obj  # create a copy of the block object in memory
 
     def remove(self, journe_object_type, _id='', _title=''):
         # removing from db
@@ -89,5 +117,8 @@ class Journe:
             journe_string += str(k) + " -> " + str(v) + '\n'
         journe_string += '######POTS###### \n'
         for k, v in zip(self.pots.keys(), self.pots.values()):
+            journe_string += str(k) + " -> " + str(v) + '\n'
+        journe_string += '######BLOCKS###### \n'
+        for k, v in zip(self.blocks.keys(), self.blocks.values()):
             journe_string += str(k) + " -> " + str(v) + '\n'
         return journe_string
