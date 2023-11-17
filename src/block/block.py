@@ -13,8 +13,8 @@ class Block:
             self.block_id = block_id
         else:
             self.block_id = str(uuid.uuid4())  # generate a unique block ID
-        self.block_start_time = block_start_time  # start timestamp YYYY-MM-DDTHH:mm:ss
-        self.block_end_time = block_end_time  # end timestamp YYYY-MM-DDTHH:mm:ss
+        self.block_start_time = block_start_time  # start timestamp YYYY-MM-DD HH:mm:ss
+        self.block_end_time = block_end_time  # end timestamp YYYY-MM-DD HH:mm:ss
         log_creation(self)  # successful creation of object
 
     def __str__(self):
