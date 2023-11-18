@@ -1,26 +1,23 @@
 /* eslint-disable react/prop-types */
-import {
-  add,
-  format,
-  isSameDay,
-  fromUnixTime,
-  differenceInMinutes,
-} from 'date-fns'
+import { add, format, isSameDay, differenceInMinutes } from 'date-fns'
 import c from './dayView.module.scss'
+import { useState, useEffect } from 'react'
 
-const DayView = ({ numberOfDisplayDays, daysValue, events }) => {
+const DayView = ({ numberOfDisplayDays, daysValue }) => {
   const nextDay = (day, number) => add(day, { days: number })
 
-  const getTaskById = (id) => {
-    return events.tasks.filter(function (data) {
-      return data.task_id == id
-    })
-  }
+  const [block, setBlock] = useState(null)
+
+  useEffect(() => {
+    fetch(`http://localhost:8080/block`, { method: 'GET' }).then((res) =>
+      res.json().then((data) => {
+        setBlock(data)
+      })
+    )
+  }, [])
+
   return (
     <div>
-      <div className={c.dayColumn}>
-        {Object.entries(events.blocks).map(([k, v], i) => {})}
-      </div>
       <div className={c.datesContainer}>
         {Array.from({ length: numberOfDisplayDays }, (v, i) => {
           const newDate = nextDay(daysValue, i)
@@ -42,40 +39,44 @@ const DayView = ({ numberOfDisplayDays, daysValue, events }) => {
             const newDate = nextDay(daysValue, i)
             return (
               <div key={i}>
-                {Object.entries(events.blocks).map(([keys, block], i) => {
-                  const eventDate = fromUnixTime(block.start_time)
-                  const top = `${
-                    eventDate.getHours() * 28 +
-                    (eventDate.getMinutes() / 60) * 28
-                  }px`
+                {block &&
+                  Object.entries(block?.block).map(([keys, block], i) => {
+                    if (block.block_id) {
+                      const eventDate = new Date(block.block_start_time)
 
-                  const height = `${
-                    (differenceInMinutes(
-                      fromUnixTime(block.end_time),
-                      fromUnixTime(block.start_time)
-                    ) /
-                      60) *
-                    28
-                  }px`
+                      const top = `${
+                        eventDate.getHours() * 28 +
+                        (eventDate.getMinutes() / 60) * 28
+                      }px`
 
-                  if (isSameDay(newDate, eventDate)) {
-                    return (
-                      <div
-                        key={i}
-                        className={c.event}
-                        style={{ top: top, height: height }}
-                      >
-                        {block.tasks.map((task) => {
-                          return (
-                            <li key={task.task_id}>
-                              {getTaskById(task.task_id)[0].task_title}
-                            </li>
-                          )
-                        })}
-                      </div>
-                    )
-                  }
-                })}
+                      const height = `${
+                        (differenceInMinutes(
+                          new Date(block.block_end_time),
+                          new Date(block.block_start_time)
+                        ) /
+                          60) *
+                        28
+                      }px`
+
+                      if (isSameDay(newDate, eventDate)) {
+                        return (
+                          <div
+                            key={i}
+                            className={c.event}
+                            style={{ top: top, height: height }}
+                          >
+                            {block?.tasks?.map((task) => {
+                              return (
+                                <li key={task.task_id}>
+                                  {getTaskById(task.task_id)[0].task_title}
+                                </li>
+                              )
+                            })}
+                          </div>
+                        )
+                      }
+                    }
+                  })}
               </div>
             )
           })}

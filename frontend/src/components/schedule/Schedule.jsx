@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Calendar from './calendar/Calendar'
 import c from './schedule.module.scss'
 import DayView from './dayView/DayView'
@@ -23,6 +23,7 @@ function Schedule() {
 
   // Show or hide date picker
   const [showMiniCalendar, setShowMiniCalendar] = useState(false)
+
   return (
     <>
       <div className={c.scheduleContainer}>
@@ -63,7 +64,6 @@ function Schedule() {
         <DayView
           numberOfDisplayDays={numberOfDisplayDays}
           daysValue={selectedDate}
-          events={events}
         ></DayView>
       </div>
     </>
