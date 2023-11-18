@@ -10,11 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "date-fns": "^2.30.0",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive-masonry": "^2.1.7",
-    "react-router-dom": "^6.15.0"
+    "react-router-dom": "^6.15.0",
+    "sqlite3": "^5.1.6"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -26,5 +29,6 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "sass": "^1.66.1",
     "vite": "^4.4.5"
-  }
+  },
+  "proxy": "http://localhost:8080/"
 }
