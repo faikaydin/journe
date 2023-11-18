@@ -13,6 +13,8 @@ import {
   getYear,
   getDaysInMonth,
 } from 'date-fns'
+import { getMonday } from '../utils'
+
 const dayOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
 const Calendar = ({
@@ -92,7 +94,7 @@ const Calendar = ({
               today={isSameDay(newDate, today)}
               displayDate={isIncludesSameDay(newDate, selectedDate)}
               onClick={() => {
-                onSelectedDateChange(newDate)
+                onSelectedDateChange(getMonday(newDate))
               }}
             >
               {date}
