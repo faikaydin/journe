@@ -1,14 +1,31 @@
 const express = require('express')
 const app = express()
+
 const cors = require('cors')
 app.use(cors())
-const sqlite3 = require('sqlite3').verbose()
 
+// Try Python
+app.get('/runPythonScript', (req, res) => {
+  // Call the Python script here
+  const { spawn } = require('child_process')
+  const pythonProcess = spawn('python3', ['./hello.py'])
+  pythonProcess.stdout.on('data', (data) => {
+    // Parse the Python script output as JSON
+
+    const result = JSON.parse(data)
+    const defaultDogName = result.DEFAULT_DOG.get_name()
+    console.log(`Default Dog Name: ${defaultDogName}`)
+  })
+
+  pythonProcess.on('close', (code) => {
+    console.log(`Python script exited with code ${code}`)
+  })
+})
+
+// Set up database
+const sqlite3 = require('sqlite3').verbose()
 const db = new sqlite3.Database('../data/journe_core/journe_core.db')
 
-// const task = db.each('SELECT * FROM TASK', (err, row) => {
-//   console.log(row.task_id + ': ' + row.task_title)
-// })
 const taskList = []
 const blockList = []
 const potList = []
@@ -23,6 +40,7 @@ db.each('SELECT * FROM POT', async (err, row) => {
   potList.push(row)
 })
 
+// Get functions
 app.get('/task', async (req, res) => {
   try {
     res.send({ task: taskList })
@@ -46,4 +64,6 @@ app.get('/block', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' })
   }
 })
+
+// Backend Port
 app.listen(8080)

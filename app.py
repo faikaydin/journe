@@ -4,7 +4,8 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 # getting the dataset
 app = Flask(__name__)
-CORS(app)  # enable CORS for all routes
+CORS(app,resources={r"/*": {"origins": "*"}})  # enable CORS for all routes
+
 journe = Journe()  # create Journe App Instance
 
 
