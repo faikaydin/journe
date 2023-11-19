@@ -15,7 +15,7 @@ class Journe:
         self.journe_connection = JourneConnection()  # establish connection to db or create a new one if no db exists
         self.tasks = {}  # dict to store tasks in memory
         self.pots = {}  # dict to store pots in memory
-        self.blocks = {}
+        self.blocks = {}  # dict to store blocks in memory
         # sync the db with local
         self.sync_local_with_db()
 
