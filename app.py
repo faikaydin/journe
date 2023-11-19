@@ -14,7 +14,7 @@ def get_all_journe_data():
     tasks = journe.tasks
     pots = journe.pots
     blocks = journe.blocks
-    return jsonify(response={'tasks': tasks, 'pots': pots, blocks: 'blocks'})
+    return jsonify(response={'tasks': tasks, 'pots': pots, 'blocks': blocks})
 
 
 @app.route('/get_all_tasks', methods=['GET'])
