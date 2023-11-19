@@ -8,6 +8,15 @@ CORS(app)  # enable CORS for all routes
 journe = Journe()  # create Journe App Instance
 
 
+@app.route('/get_all_journe_data', methods=['GET'])
+def get_all_journe_data():
+    journe.sync_local_with_db()
+    tasks = journe.tasks
+    pots = journe.pots
+    blocks = journe.blocks
+    return jsonify(response={'tasks': tasks, 'pots': pots, blocks: 'blocks'})
+
+
 @app.route('/get_all_tasks', methods=['GET'])
 def get_tasks():
     journe.sync_local_with_db()
@@ -29,7 +38,7 @@ def get_blocks():
 @app.route('/reset_db', methods=['GET'])
 def reset_db():
     journe.reset_db()
-    return jsonify(response='db reset')
+    return jsonify(response='db reset' )
 
 
 @app.route('/load_dummy_json', methods=['GET'])
