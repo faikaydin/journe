@@ -11,9 +11,10 @@ journe = Journe()  # create Journe App Instance
 @app.route('/get_all_journe_data', methods=['GET'])
 def get_all_journe_data():
     journe.sync_local_with_db()
-    tasks = journe.tasks
-    pots = journe.pots
-    blocks = journe.blocks
+    tasks, pots, blocks = [e.to_payload() for e in journe.tasks.values()], \
+                          [e.to_payload() for e in journe.pots.values()],\
+                          [e.to_payload() for e in journe.blocks.values()]
+
     return jsonify(response={'tasks': tasks, 'pots': pots, 'blocks': blocks})
 
 
