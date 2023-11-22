@@ -31,10 +31,6 @@ const Tasks = () => {
                       )
                     }
                   })}
-                  {/* <div className={c.item}>
-                  <input type="checkbox" />
-                  <span contenteditable="true"></span>
-                </div> */}
                 </div>
               )
             })}
