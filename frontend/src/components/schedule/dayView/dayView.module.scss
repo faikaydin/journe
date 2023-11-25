@@ -25,4 +25,16 @@
   position: relative;
   background-color: green;
   height: 100px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.tempModal {
+  position: absolute;
+  bottom: 100px;
+  right: 100px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 40px;
+  border-radius: 4px;
 }

@@ -1,12 +1,16 @@
 /* eslint-disable react/prop-types */
 import { add, format, isSameDay, differenceInMinutes } from 'date-fns'
+import { createPortal } from 'react-dom'
+
 import c from './dayView.module.scss'
-import { useContext } from 'react'
+import { useState, useContext } from 'react'
 import { Data } from '../../providers/DataProvider'
 
 const DayView = ({ numberOfDisplayDays, daysValue }) => {
   const nextDay = (day, number) => add(day, { days: number })
   const { blocks, tasks } = useContext(Data)
+  const [openModal, setOpenModal] = useState(false)
+
   return (
     <div>
       <div className={c.datesContainer}>
@@ -55,23 +59,34 @@ const DayView = ({ numberOfDisplayDays, daysValue }) => {
                             key={i}
                             className={c.event}
                             style={{ top: top, height: height }}
+                            onClick={() => setOpenModal(!openModal)}
                           >
-                            {tasks?.map((task, i) => {
-                              if (task.task_block_id === block.block_id) {
-                                return (
-                                  <div key={i} className={c.item}>
-                                    <input
-                                      type="checkbox"
-                                      id={task.task_title}
-                                      name={task.task_title}
-                                    />
-                                    <label htmlFor={task.task_title}>
-                                      {task.task_title}
-                                    </label>
-                                  </div>
-                                )
-                              }
-                            })}
+                            {block.block_id}
+
+                            {openModal &&
+                              createPortal(
+                                <div className={c.tempModal}>
+                                  {tasks?.map((task, i) => {
+                                    if (task.task_block_id === block.block_id) {
+                                      return (
+                                        <div key={i} className={c.item}>
+                                          <div>
+                                            <input
+                                              type="checkbox"
+                                              id={task.task_title}
+                                              name={task.task_title}
+                                            />
+                                            <label htmlFor={task.task_title}>
+                                              {task.task_title}
+                                            </label>
+                                          </div>
+                                        </div>
+                                      )
+                                    }
+                                  })}
+                                </div>,
+                                document.getElementById('root')
+                              )}
                           </div>
                         )
                       }
