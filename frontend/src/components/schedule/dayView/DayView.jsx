@@ -1,20 +1,15 @@
 /* eslint-disable react/prop-types */
 import { add, format, isSameDay, differenceInMinutes } from 'date-fns'
+import { createPortal } from 'react-dom'
+
 import c from './dayView.module.scss'
-import { useState, useEffect } from 'react'
+import { useState, useContext } from 'react'
+import { Data } from '../../providers/DataProvider'
 
 const DayView = ({ numberOfDisplayDays, daysValue }) => {
   const nextDay = (day, number) => add(day, { days: number })
-
-  const [block, setBlock] = useState(null)
-
-  useEffect(() => {
-    fetch(`http://localhost:8080/block`, { method: 'GET' }).then((res) =>
-      res.json().then((data) => {
-        setBlock(data)
-      })
-    )
-  }, [])
+  const { blocks, tasks } = useContext(Data)
+  const [openModal, setOpenModal] = useState(false)
 
   return (
     <div>
@@ -39,8 +34,8 @@ const DayView = ({ numberOfDisplayDays, daysValue }) => {
             const newDate = nextDay(daysValue, i)
             return (
               <div key={i}>
-                {block &&
-                  Object.entries(block?.block).map(([keys, block], i) => {
+                {blocks &&
+                  blocks.map((block, i) => {
                     if (block.block_id) {
                       const eventDate = new Date(block.block_start_time)
 
@@ -64,14 +59,34 @@ const DayView = ({ numberOfDisplayDays, daysValue }) => {
                             key={i}
                             className={c.event}
                             style={{ top: top, height: height }}
+                            onClick={() => setOpenModal(!openModal)}
                           >
-                            {block?.tasks?.map((task) => {
-                              return (
-                                <li key={task.task_id}>
-                                  {getTaskById(task.task_id)[0].task_title}
-                                </li>
-                              )
-                            })}
+                            {block.block_id}
+
+                            {openModal &&
+                              createPortal(
+                                <div className={c.tempModal}>
+                                  {tasks?.map((task, i) => {
+                                    if (task.task_block_id === block.block_id) {
+                                      return (
+                                        <div key={i} className={c.item}>
+                                          <div>
+                                            <input
+                                              type="checkbox"
+                                              id={task.task_title}
+                                              name={task.task_title}
+                                            />
+                                            <label htmlFor={task.task_title}>
+                                              {task.task_title}
+                                            </label>
+                                          </div>
+                                        </div>
+                                      )
+                                    }
+                                  })}
+                                </div>,
+                                document.getElementById('root')
+                              )}
                           </div>
                         )
                       }

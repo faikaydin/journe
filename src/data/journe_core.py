@@ -27,7 +27,7 @@ class JourneConnection:
 
     @staticmethod
     def connect_to_journe_core():
-        return sqlite3.connect(DATABASE_PATH)
+        return sqlite3.connect(DATABASE_PATH, check_same_thread=False)
 
     # wipes the existing journe core db/starts one from scratch and creates a brand-new schema
     def create_new_journe_core(self):

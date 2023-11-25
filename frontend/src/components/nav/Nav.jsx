@@ -5,14 +5,14 @@ const Nav = () => {
     <>
       <nav className={c.nav}>
         <ul>
-          {/* <li>
+          <li>
             <NavLink
-              to={`/chat`}
+              to={`/`}
               className={({ isActive }) => (isActive ? c.active : '')}
             >
-              Chat
+              Home
             </NavLink>
-          </li> */}
+          </li>
           <li>
             <NavLink
               to={`/schedule`}
@@ -29,14 +29,6 @@ const Nav = () => {
               Tasks
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink
-              to={`/retro`}
-              className={({ isActive }) => (isActive ? c.active : '')}
-            >
-              Retro
-            </NavLink>
-          </li> */}
         </ul>
       </nav>
     </>
