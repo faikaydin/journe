@@ -94,6 +94,10 @@ class Journe:
         self.journe_connection.send_payload(block_obj)  # send object payload to core
         self.blocks[block_obj.block_id] = block_obj  # create a copy of the block object in memory
 
+    def update(self, journe_object_type, _id=''):
+        if journe_object_type == 'task': obj = self.tasks[_id]
+        self.journe_connection.update_objects(journe_object_type, obj.to_payload())
+
     def remove(self, journe_object_type, _id='', _title=''):
         # removing from db
         self.journe_connection.remove_payload(journe_object_type, object_id=_id, object_title=_title)

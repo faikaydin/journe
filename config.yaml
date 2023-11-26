@@ -16,3 +16,4 @@ get_block_sql_path: /src/data/journe_get_block.sql
 remove_pot_sql_path: /src/data/journe_remove_pot.sql
 remove_task_sql_path: /src/data/journe_remove_task.sql
 remove_block_sql_path: /src/data/journe_remove_block.sql
+update_task: /src/data/journe_update_task.sql

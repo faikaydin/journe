@@ -34,6 +34,8 @@ JOURNE_CORE_READ_BLOCKS_SQL_PATH = ROOT + config['read_blocks']  # read all bloc
 JOURNE_CORE_REMOVE_POT_SQL_PATH = ROOT + config['remove_pot_sql_path']  # remove pot
 JOURNE_CORE_REMOVE_TASK_SQL_PATH = ROOT + config['remove_task_sql_path']  # remove task
 JOURNE_CORE_REMOVE_BLOCK_SQL_PATH = ROOT + config['remove_block_sql_path']  # remove task
+# update unit
+JOURNE_CORE_UPDATE_TASK_SQL_PATH = ROOT + config['update_task']  # update task
 
 
 # holds all send operation sql paths
@@ -42,6 +44,7 @@ payload_paths = {
                                'READ': {'ALL': JOURNE_CORE_READ_TASKS_SQL_PATH,
                                         'UNIT': JOURNE_CORE_GET_TASK_SQL_PATH
                                         },
+                               'UPDATE': JOURNE_CORE_UPDATE_TASK_SQL_PATH,
                                'REMOVE': JOURNE_CORE_REMOVE_TASK_SQL_PATH
                                },
                       'pot': {'SEND': JOURNE_CORE_POT_PAYLOAD_SQL_PATH,

@@ -4,9 +4,14 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 # getting the dataset
 app = Flask(__name__)
-CORS(app,resources={r"/*": {"origins": "*"}})  # enable CORS for all routes
+CORS(app, resources={r"/*": {"origins": "*"}})  # enable CORS for all routes
 
 journe = Journe()  # create Journe App Instance
+# journe.reset_db()
+# journe.load_json(json_payload_path=DUMMY_DB_JSON_PATH)  # setting up our dummy instance :)
+# journe.add_block("2023-11-24 13:00:00", "2023-11-24 15:30:00", "kukubuya")
+# journe.tasks["mno-345-pqr-678"].task_block_id = "kukubuya"
+# journe.update("task", "mno-345-pqr-678")
 
 
 @app.route('/get_all_journe_data', methods=['GET'])
