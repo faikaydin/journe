@@ -50,7 +50,7 @@ def get_blocks():
 
 # remove endpoint
 # object_type values can only be one of -> 'task', 'pot', 'block'
-@app.route('/remove/<string:object_type>/<string:object_id>>', methods=['DELETE'])
+@app.route('/remove/<string:object_type>/<string:object_id>', methods=['DELETE'])
 def remove(object_type, object_id):
     # Assuming you have a function to delete a task by ID
     journe.remove(journe_object_type=object_type, task_id=object_id)
