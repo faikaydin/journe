@@ -5,7 +5,19 @@ from src.utils import read_sql_command
 
 """
 this class handles the entire database connections & payload management 
-    
+
+
+ALL functions apart from create_new_journe_core follow the following pattern:
+
+    1) establish database instruction (forming sql)
+    2) execute query
+        2.1) connection generates cursor
+        2.2) execute function
+        2.3) if fetch possible, fetch result 
+        2.4) commit
+        2.5) close cursor
+    3) logging
+    4) return 
 """
 
 
@@ -39,30 +51,41 @@ class JourneConnection:
         self.conn.commit()
         cursor.close()
 
+    # responsible for part 2 of class level docstring above - execute query
+    def execute(self, sql, bindings={}, is_fetch=False):
+        cursor = self.conn.cursor()
+        cursor.execute(sql, bindings)
+        result = cursor.fetchall() if is_fetch else None
+        self.conn.commit()
+        cursor.close()
+        return result
+
     """
     sends journe object or a json_payload to the db. 
     """
     def send_payload(self, payload_obj):
-        cursor = self.conn.cursor()
         if type(payload_obj) != list:  # if we want to send a single journe_object
+            # sql prep
             payload_sql = payload_paths[payload_obj.journe_object_type]['SEND']  # getting the sql command path
             sql_command = read_sql_command(payload_sql)  # getting the sql command
-            cursor.execute(sql_command, payload_obj.to_payload())  # execute
+            # execute
+            self.execute(sql_command, bindings=payload_obj.to_payload())
+            # logging
             if payload_obj.journe_object_type != 'block':
                 print(f"{payload_obj.to_payload()[f'{payload_obj.journe_object_type}_title']} sent to journe core!")
             else:
                 print(f"{payload_obj.to_payload()[f'{payload_obj.journe_object_type}_id']} sent to journe core!")
-
         else:
             if len(payload_obj) > 0:
+                # sql prep
                 obj_type = list(payload_obj[0].keys())[0].split("_")[0]  # getting the name of the object type by keys
                 payload_sql = payload_paths[obj_type]['SEND']  # getting the sql command path
                 sql_command = read_sql_command(payload_sql)  # getting the sql command
+                # execute
                 for payload in payload_obj:
-                    cursor.execute(sql_command, payload)  # execute
+                    self.execute(sql_command, bindings=payload)
+                # logging
                 print(f"{len(payload_obj)} {obj_type} sent to journe core!")
-        self.conn.commit()  # commit transaction
-        cursor.close()
 
     """
     object_type = string - task, pot, block
@@ -73,80 +96,70 @@ class JourneConnection:
     returns [{variables_1}, {variables_2}, ...]
     """
     def read_payload(self, object_type, object_id=None, object_title=None, read_all=False):
-        cursor = self.conn.cursor()
-        # get all data
         if read_all:
-            # retrieve sql command for core creation
-            sql_command_path = payload_paths[object_type]['READ']['ALL']
+            # sql prep
+            sql_command_path = payload_paths[object_type]['READ']['ALL']  # read all
             query_dict = {}
         else:
-            sql_command_path = payload_paths[object_type]['READ']['UNIT']
+            # sql prep
+            sql_command_path = payload_paths[object_type]['READ']['UNIT']  # read single record
             query_dict = {'_id': object_id, '_title': object_title}
-        # execute
         sql = read_sql_command(sql_command_path)
-        cursor.execute(sql, query_dict)
-        result = cursor.fetchall()
-        self.conn.commit()
-        cursor.close()
-        return result
+        # execute
+        return self.execute(sql, is_fetch=True, bindings=query_dict)
 
     def update_objects(self, object_type, query_dict):
-        cursor = self.conn.cursor()
-        # retrieve sql command for update
+        # prep sql
         sql_command_path = payload_paths[object_type]['UPDATE']
-        # execute
         sql = read_sql_command(sql_command_path)
-        cursor.execute(sql, query_dict)
+        # execute
+        self.execute(sql, bindings=query_dict)
+        # log
         print(object_type + ' updated')
-        self.conn.commit()
-        cursor.close()
-        return
-
 
     """
     removes the queried object from db
     """
     def remove_payload(self, object_type, object_id=None, object_title=None):
-        cursor = self.conn.cursor()
-        if object_type == 'pot':  # if it is a pot we must strip the tasks associated
-            if object_id:
-                _pot_id = object_id
-            else:
-                _pot_id = self.read_payload('pot', object_title=object_title)[0][0]
-            self.rectify_pot_removal(_pot_id)  # THIS IS AN ALTER WE NEED TO CHANGE
+        # if we are removing a pot - all child tasks need to go to task platter
+        if object_type != 'task':  # if it is a pot or block we must strip the tasks associated
+            self.rectify_tasks_for_parent_removal(object_title, object_id)
         # removal process
+        # prep sql
         sql_command_path = payload_paths[object_type]['REMOVE']
         sql_command = read_sql_command(sql_command_path)  # getting the sql command
         query_dict = {'_id': object_id, '_title': object_title}
-        cursor.execute(sql_command, query_dict)  # execute
-        self.conn.commit()
-        cursor.close()
+        # execute
+        self.execute(sql_command, bindings=query_dict)  # execute
+        # log
         print(f"{object_id}{object_title} REMOVED from journe core!")
 
+    # Execute get the column names
     def get_table_info(self, table_name):
-        cursor = self.conn.cursor()
-        # Execute a query to get the column names
-        cursor.execute(f"PRAGMA table_info({table_name})")
-        # Fetch all the results
-        columns = cursor.fetchall()
-        self.conn.commit()
-        cursor.close()
+        # sql prep
+        sql = f"PRAGMA table_info({table_name})"
+        # execute
+        columns = self.execute(sql, is_fetch=True)
         return [column[1] for column in columns]
 
     def is_pot_exists(self, pot_title):
-        cursor = self.conn.cursor()
+        # prep sql
         sql = f'select pot_id from pot where pot_title="{pot_title}"'
-        cursor.execute(sql)
-        result = len(cursor.fetchall()) > 0
-        self.conn.commit()
-        cursor.close()
-        return result # if there are one or more instances found
+        # execute
+        result = len(self.execute(sql, is_fetch=True)) > 0
+        return result  # if there are one or more instances found
 
-    def rectify_pot_removal(self, pot_id):
+    def rectify_tasks_for_parent_removal(self, _title, _id):
+        # if passing in pot title instead of ID getting pot ID
+        if _id:
+            pass
+        else:
+            _id = self.read_payload('pot', object_title=_title)[0][0]
+        # reassigning all tasks with removed pot to task_platter-ID
         cursor = self.conn.cursor()
         default_id = self.read_payload('pot', object_title='task_platter')[0][0]
         cursor.execute(f'update task set '
                        f'task_pot_id="{default_id}" '
-                       f'where task_pot_id="{pot_id}"')
+                       f'where task_pot_id="{_id}"')
         self.conn.commit()
         cursor.close()
