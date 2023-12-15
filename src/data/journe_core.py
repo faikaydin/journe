@@ -52,7 +52,9 @@ class JourneConnection:
         cursor.close()
 
     # responsible for part 2 of class level docstring above - execute query
-    def execute(self, sql, bindings={}, is_fetch=False):
+    def execute(self, sql, bindings=None, is_fetch=False):
+        if bindings is None:
+            bindings = {}
         cursor = self.conn.cursor()
         cursor.execute(sql, bindings)
         result = cursor.fetchall() if is_fetch else None
