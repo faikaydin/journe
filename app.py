@@ -7,11 +7,15 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})  # enable CORS for all routes
 
 journe = Journe()  # create Journe App Instance
-# journe.reset_db()
-# journe.load_json(json_payload_path=DUMMY_DB_JSON_PATH)  # setting up our dummy instance :)
+journe.reset_db()
+journe.load_json(json_payload_path=DUMMY_DB_JSON_PATH)  # setting up our dummy instance :)
 # journe.add_block("2023-11-24 13:00:00", "2023-11-24 15:30:00", "kukubuya")
 # journe.tasks["mno-345-pqr-678"].task_block_id = "kukubuya"
 # journe.update("task", "mno-345-pqr-678")
+# journe.blocks["kukubuya"].block_start_time = "2023-11-24 13:31:00"
+# journe.update("block", "kukubuya")
+# journe.pots["2l3k4j5i-6h7g8f9e-a1b2c3d4e5f"].pot_title = "Creative Chaos"
+# journe.update("pot", "2l3k4j5i-6h7g8f9e-a1b2c3d4e5f")
 
 
 @app.route('/get_all_journe_data', methods=['GET'])

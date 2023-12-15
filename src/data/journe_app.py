@@ -3,6 +3,7 @@ from src.task import *
 from src.pot import *
 from src.block import *
 from src.utils import read_json_payload
+
 """
 overall app class - wrappers
 """
@@ -63,6 +64,14 @@ class Journe:
         self.blocks = _blocks
         print("Local Synced With DB")
 
+    """
+    Adding functions.... these create new objects for the app and send them to the db.
+    Each object type has its own add function:
+    1) add_task
+    2) add_pot
+    3) add_block
+    """
+
     def add_task(self,
                  task_id=None,
                  task_title="",
@@ -94,14 +103,20 @@ class Journe:
         self.journe_connection.send_payload(block_obj)  # send object payload to core
         self.blocks[block_obj.block_id] = block_obj  # create a copy of the block object in memory
 
+    """UPDATING existing objects pls"""
+
     def update(self, journe_object_type, _id=''):
-        if journe_object_type == 'task': obj = self.tasks[_id]
-        self.journe_connection.update_objects(journe_object_type, obj.to_payload())
+        self.journe_connection.update_objects(journe_object_type,
+                                              self.get_object_from_memory(journe_object_type, _id).to_payload())
+        # re-sync local -> this step isn't super required but still doing it
+        self.sync_local_with_db()
+
+    """Nuking existing objects"""
 
     def remove(self, journe_object_type, _id='', _title=''):
         # removing from db
         self.journe_connection.remove_payload(journe_object_type, object_id=_id, object_title=_title)
-        # resync local
+        # re-sync local
         self.sync_local_with_db()
 
     def read(self, journe_object_type, _id='', _title='', read_all=False):
@@ -113,6 +128,16 @@ class Journe:
         if read_all:
             return [dict(zip(keys, value)) for value in values]
         return [dict(zip(keys, value)) for value in values][0]  # if we are after one value return the single dict
+
+    # returns object that is in memory of the journe object
+    def get_object_from_memory(self, object_type, _id):
+        if object_type == 'task':
+            obj = self.tasks[_id]
+        if object_type == 'pot':
+            obj = self.pots[_id]
+        if object_type == 'block':
+            obj = self.blocks[_id]
+        return obj
 
     def __str__(self):
         journe_string = ''

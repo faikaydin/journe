@@ -97,7 +97,7 @@ class JourneConnection:
         # execute
         sql = read_sql_command(sql_command_path)
         cursor.execute(sql, query_dict)
-        print('task updated')
+        print(object_type + ' updated')
         self.conn.commit()
         cursor.close()
         return
