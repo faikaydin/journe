@@ -19,6 +19,7 @@ journe.pots["2l3k4j5i-6h7g8f9e-a1b2c3d4e5f"].pot_title = "Creative Chaos"
 journe.update("pot", "2l3k4j5i-6h7g8f9e-a1b2c3d4e5f")
 
 
+# get endpoints
 @app.route('/get_all_journe_data', methods=['GET'])
 def get_all_journe_data():
     journe.sync_local_with_db()
@@ -47,10 +48,20 @@ def get_blocks():
     return jsonify(response=journe.read(journe_object_type='block', read_all=True))
 
 
+# remove endpoint
+# object_type values can only be one of -> 'task', 'pot', 'block'
+@app.route('/remove/<string:object_type>/<string:object_id>>', methods=['DELETE'])
+def remove(object_type, object_id):
+    # Assuming you have a function to delete a task by ID
+    journe.remove(journe_object_type=object_type, task_id=object_id)
+    journe.sync_local_with_db()
+    print(f'{object_type} with ID {object_id} deleted successfully')
+
+
 @app.route('/reset_db', methods=['GET'])
 def reset_db():
     journe.reset_db()
-    return jsonify(response='db reset' )
+    return jsonify(response='db reset')
 
 
 @app.route('/load_dummy_json', methods=['GET'])
