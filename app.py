@@ -54,7 +54,6 @@ def get_blocks():
 def remove(object_type, object_id):
     # Assuming you have a function to delete a task by ID
     journe.remove(journe_object_type=object_type, task_id=object_id)
-    journe.sync_local_with_db()
     print(f'{object_type} with ID {object_id} deleted successfully')
 
 
