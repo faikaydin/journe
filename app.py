@@ -1,3 +1,5 @@
+import flask
+
 from src.data.journe_app import *
 from common.app_config import DUMMY_DB_JSON_PATH
 from flask import Flask, jsonify
@@ -46,6 +48,24 @@ def get_pots():
 def get_blocks():
     journe.sync_local_with_db()
     return jsonify(response=journe.read(journe_object_type='block', read_all=True))
+
+
+# create endpoint
+@app.route('/create/<string:object_type>', methods=['POST'])
+def create(object_type):
+    try:
+        data = flask.Request.get_json()
+        if not data:
+            print('no json!!!')
+            return jsonify({'error': 'invalid json data in request'})
+        if object_type == 'task':
+            journe.add_task(*data.values())
+        if object_type == 'pot':
+            journe.add_pot(*data.values())
+        if object_type == 'block':
+            journe.add_block(*data.values())
+    except Exception as e:
+        return str(e), 500
 
 
 # remove endpoint
