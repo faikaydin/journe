@@ -57,7 +57,7 @@ def create(object_type):
         data = flask.Request.get_json()
         if not data:
             print('no json!!!')
-            return jsonify({'error': 'invalid json data in request'})
+            return jsonify({'error': 'invalid json data in request'})  # data payload
         if object_type == 'task':
             journe.add_task(*data.values())
         if object_type == 'pot':
@@ -75,6 +75,25 @@ def remove(object_type, object_id):
     # Assuming you have a function to delete a task by ID
     journe.remove(journe_object_type=object_type, task_id=object_id)
     print(f'{object_type} with ID {object_id} deleted successfully')
+
+
+# update endpoint
+@app.route('/update/<string:object_type>/<string:object_id>', methods=['POST'])
+def update(object_type, object_id):
+    try:
+        data = flask.Request.get_json()  # update information
+        if not data:
+            print('no json!!!')
+            return jsonify({'error': 'invalid json data in request'})
+        if object_type == 'task':
+            journe.tasks[object_id] = Task(*data.values())  # create a new Task w/ updated values and overwrite local
+        if object_type == 'pot':
+            journe.pots[object_id] = Pot(*data.values())  # create a new Pot w/ updated values and overwrite local
+        if object_type == 'block':
+            journe.blocks[object_id] = Block(*data.values())  # create a new Block w/ updated values and overwrite local
+        journe.update(object_type, object_id)  # update db
+    except Exception as e:
+        return str(e), 500
 
 
 @app.route('/reset_db', methods=['GET'])
