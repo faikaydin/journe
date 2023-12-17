@@ -1,5 +1,3 @@
-import flask
-
 from src.data.journe_app import *
 from common.app_config import DUMMY_DB_JSON_PATH
 from flask import Flask, jsonify, request

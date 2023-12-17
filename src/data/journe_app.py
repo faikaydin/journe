@@ -76,7 +76,7 @@ class Journe:
                  task_id=None,
                  task_title="",
                  task_duration="10", task_pot='task_platter',
-                 task_block="",
+                 task_block="00000000-0000-0000-0000-000000000001",
                  task_description=""):
         if self.journe_connection.is_pot_exists(task_pot):
             task_pot = self.read('pot', _title=task_pot)['pot_id']  # get task's pot id from human-readable pot title
