@@ -3,6 +3,7 @@ from src.task import *
 from src.pot import *
 from src.block import *
 from src.utils import read_json_payload
+
 """
 overall app class - wrappers
 """
@@ -63,11 +64,19 @@ class Journe:
         self.blocks = _blocks
         print("Local Synced With DB")
 
+    """
+    Adding functions.... these create new objects for the app and send them to the db.
+    Each object type has its own add function:
+    1) add_task
+    2) add_pot
+    3) add_block
+    """
+
     def add_task(self,
                  task_id=None,
                  task_title="",
-                 task_duration=10, task_pot='task_platter',
-                 task_block="",
+                 task_duration="10", task_pot='task_platter',
+                 task_block="00000000-0000-0000-0000-000000000001",
                  task_description=""):
         if self.journe_connection.is_pot_exists(task_pot):
             task_pot = self.read('pot', _title=task_pot)['pot_id']  # get task's pot id from human-readable pot title
@@ -94,10 +103,20 @@ class Journe:
         self.journe_connection.send_payload(block_obj)  # send object payload to core
         self.blocks[block_obj.block_id] = block_obj  # create a copy of the block object in memory
 
+    """UPDATING existing objects pls"""
+
+    def update(self, journe_object_type, _id=''):
+        self.journe_connection.update_objects(journe_object_type,
+                                              self.get_object_from_memory(journe_object_type, _id).to_payload())
+        # re-sync local -> this step isn't super required but still doing it
+        self.sync_local_with_db()
+
+    """Nuking existing objects"""
+
     def remove(self, journe_object_type, _id='', _title=''):
         # removing from db
         self.journe_connection.remove_payload(journe_object_type, object_id=_id, object_title=_title)
-        # resync local
+        # re-sync local
         self.sync_local_with_db()
 
     def read(self, journe_object_type, _id='', _title='', read_all=False):
@@ -109,6 +128,39 @@ class Journe:
         if read_all:
             return [dict(zip(keys, value)) for value in values]
         return [dict(zip(keys, value)) for value in values][0]  # if we are after one value return the single dict
+
+    # returns object that is in memory of the journe object
+    def get_object_from_memory(self, object_type, _id):
+        obj = None
+        if object_type == 'task':
+            obj = self.tasks[_id]
+        if object_type == 'pot':
+            obj = self.pots[_id]
+        if object_type == 'block':
+            obj = self.blocks[_id]
+        return obj
+
+    @staticmethod
+    def return_task_list_from_dict(task_dict):
+        return [task_dict['task_id'],
+                task_dict["task_title"],
+                task_dict["task_duration"],
+                task_dict["task_pot"],
+                task_dict["task_block_id"],
+                task_dict["task_description"]]
+
+
+    @staticmethod
+    def return_pot_list_from_dict(pot_dict):
+        return [pot_dict['pot_id'],
+                pot_dict["pot_title"],
+                pot_dict["pot_description"]]
+
+    @staticmethod
+    def return_block_list_from_dict(block_dict):
+        return [block_dict['block_start_time'],
+                block_dict["block_end_time"],
+                block_dict["block_id"]]
 
     def __str__(self):
         journe_string = ''

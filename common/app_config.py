@@ -23,17 +23,21 @@ JOURNE_CORE_TASK_PAYLOAD_SQL_PATH = ROOT + config['task_payload_sql_path']  # sq
 JOURNE_CORE_POT_PAYLOAD_SQL_PATH = ROOT + config['pot_payload_sql_path']  # sql to insert pot payload to db
 JOURNE_CORE_BLOCK_PAYLOAD_SQL_PATH = ROOT + config['block_payload_sql_path']  # sql to insert block payload to db
 # get one unit
-JOURNE_CORE_GET_POT_SQL_PATH = ROOT + config['get_pot_sql_path']  # get pot
 JOURNE_CORE_GET_TASK_SQL_PATH = ROOT + config['get_task_sql_path']  # get task
+JOURNE_CORE_GET_POT_SQL_PATH = ROOT + config['get_pot_sql_path']  # get pot
 JOURNE_CORE_GET_BLOCK_SQL_PATH = ROOT + config['get_block_sql_path']  # get block
 # get all units
 JOURNE_CORE_READ_TASKS_SQL_PATH = ROOT + config['read_tasks']  # read all tasks
 JOURNE_CORE_READ_POTS_SQL_PATH = ROOT + config['read_pots']  # read all pots
 JOURNE_CORE_READ_BLOCKS_SQL_PATH = ROOT + config['read_blocks']  # read all blocks
 # remove unit
-JOURNE_CORE_REMOVE_POT_SQL_PATH = ROOT + config['remove_pot_sql_path']  # remove pot
 JOURNE_CORE_REMOVE_TASK_SQL_PATH = ROOT + config['remove_task_sql_path']  # remove task
+JOURNE_CORE_REMOVE_POT_SQL_PATH = ROOT + config['remove_pot_sql_path']  # remove pot
 JOURNE_CORE_REMOVE_BLOCK_SQL_PATH = ROOT + config['remove_block_sql_path']  # remove task
+# update unit
+JOURNE_CORE_UPDATE_TASK_SQL_PATH = ROOT + config['update_task']  # update task
+JOURNE_CORE_UPDATE_POT_SQL_PATH = ROOT + config['update_pot']  # update pot
+JOURNE_CORE_UPDATE_BLOCK_SQL_PATH = ROOT + config['update_block']  # update block
 
 
 # holds all send operation sql paths
@@ -42,18 +46,21 @@ payload_paths = {
                                'READ': {'ALL': JOURNE_CORE_READ_TASKS_SQL_PATH,
                                         'UNIT': JOURNE_CORE_GET_TASK_SQL_PATH
                                         },
+                               'UPDATE': JOURNE_CORE_UPDATE_TASK_SQL_PATH,
                                'REMOVE': JOURNE_CORE_REMOVE_TASK_SQL_PATH
                                },
                       'pot': {'SEND': JOURNE_CORE_POT_PAYLOAD_SQL_PATH,
                               'READ': {'ALL': JOURNE_CORE_READ_POTS_SQL_PATH,
                                        'UNIT': JOURNE_CORE_GET_POT_SQL_PATH
                                        },
+                              'UPDATE': JOURNE_CORE_UPDATE_POT_SQL_PATH,
                               'REMOVE': JOURNE_CORE_REMOVE_POT_SQL_PATH
                               },
                       'block': {'SEND': JOURNE_CORE_BLOCK_PAYLOAD_SQL_PATH,
                                 'READ': {'ALL': JOURNE_CORE_READ_BLOCKS_SQL_PATH,
                                          'UNIT': JOURNE_CORE_GET_BLOCK_SQL_PATH
                                          },
+                                'UPDATE': JOURNE_CORE_UPDATE_BLOCK_SQL_PATH,
                                 'REMOVE': JOURNE_CORE_REMOVE_BLOCK_SQL_PATH
                                 }
                      }

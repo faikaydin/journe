@@ -33,6 +33,6 @@ INSERT INTO pot (pot_id, pot_title, pot_description) VALUES ('00000000-0000-0000
                                                             'task_platter',
                                                             'a platter pot for unassigned tasks');
 -- Insert the default block entry
-INSERT INTO block (block_id, block_start_time, block_end_time) VALUES ('',
+INSERT INTO block (block_id, block_start_time, block_end_time) VALUES ('00000000-0000-0000-0000-000000000001',
                                                             '0000-01-01 00:00:00',
                                                             '9999-12-31 23:59:59');
