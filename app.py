@@ -2,7 +2,7 @@ import flask
 
 from src.data.journe_app import *
 from common.app_config import DUMMY_DB_JSON_PATH
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 # getting the dataset
 app = Flask(__name__)
@@ -54,16 +54,17 @@ def get_blocks():
 @app.route('/create/<string:object_type>', methods=['POST'])
 def create(object_type):
     try:
-        data = flask.Request.get_json()
+        data = request.get_json()
         if not data:
             print('no json!!!')
             return jsonify({'error': 'invalid json data in request'})  # data payload
         if object_type == 'task':
-            journe.add_task(*data.values())
+            journe.add_task(*journe.return_task_list_from_dict(data))
         if object_type == 'pot':
-            journe.add_pot(*data.values())
+            journe.add_pot(*journe.return_pot_list_from_dict(data))
         if object_type == 'block':
-            journe.add_block(*data.values())
+            journe.add_block(*journe.return_block_list_from_dict(data))
+        return 'object created!'
     except Exception as e:
         return str(e), 500
 
@@ -73,25 +74,27 @@ def create(object_type):
 @app.route('/remove/<string:object_type>/<string:object_id>', methods=['DELETE'])
 def remove(object_type, object_id):
     # Assuming you have a function to delete a task by ID
-    journe.remove(journe_object_type=object_type, task_id=object_id)
+    journe.remove(journe_object_type=object_type, _id=object_id)
     print(f'{object_type} with ID {object_id} deleted successfully')
+    return jsonify('successfully removed!')
 
 
 # update endpoint
 @app.route('/update/<string:object_type>/<string:object_id>', methods=['POST'])
 def update(object_type, object_id):
     try:
-        data = flask.Request.get_json()  # update information
+        data = request.get_json()  # update information
         if not data:
             print('no json!!!')
             return jsonify({'error': 'invalid json data in request'})
         if object_type == 'task':
-            journe.tasks[object_id] = Task(*data.values())  # create a new Task w/ updated values and overwrite local
+            journe.tasks[object_id] = Task(*journe.return_task_list_from_dict(data))  # create a new Task w/ update
         if object_type == 'pot':
-            journe.pots[object_id] = Pot(*data.values())  # create a new Pot w/ updated values and overwrite local
+            journe.pots[object_id] = Pot(*journe.return_task_list_from_dict(data))  # create a new Pot w/ update data
         if object_type == 'block':
-            journe.blocks[object_id] = Block(*data.values())  # create a new Block w/ updated values and overwrite local
+            journe.blocks[object_id] = Block(*journe.return_block_list_from_dict(data))  # create a new Block w/ update
         journe.update(object_type, object_id)  # update db
+        return 'object updated!'
     except Exception as e:
         return str(e), 500
 

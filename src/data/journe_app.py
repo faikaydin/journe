@@ -75,7 +75,7 @@ class Journe:
     def add_task(self,
                  task_id=None,
                  task_title="",
-                 task_duration=10, task_pot='task_platter',
+                 task_duration="10", task_pot='task_platter',
                  task_block="",
                  task_description=""):
         if self.journe_connection.is_pot_exists(task_pot):
@@ -131,6 +131,7 @@ class Journe:
 
     # returns object that is in memory of the journe object
     def get_object_from_memory(self, object_type, _id):
+        obj = None
         if object_type == 'task':
             obj = self.tasks[_id]
         if object_type == 'pot':
@@ -138,6 +139,28 @@ class Journe:
         if object_type == 'block':
             obj = self.blocks[_id]
         return obj
+
+    @staticmethod
+    def return_task_list_from_dict(task_dict):
+        return [task_dict['task_id'],
+                task_dict["task_title"],
+                task_dict["task_duration"],
+                task_dict["task_pot"],
+                task_dict["task_block_id"],
+                task_dict["task_description"]]
+
+
+    @staticmethod
+    def return_pot_list_from_dict(pot_dict):
+        return [pot_dict['pot_id'],
+                pot_dict["pot_title"],
+                pot_dict["pot_description"]]
+
+    @staticmethod
+    def return_block_list_from_dict(block_dict):
+        return [block_dict['block_start_time'],
+                block_dict["block_end_time"],
+                block_dict["block_id"]]
 
     def __str__(self):
         journe_string = ''
