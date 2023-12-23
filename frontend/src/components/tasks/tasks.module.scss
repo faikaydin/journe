@@ -12,6 +12,21 @@
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+    .potTitleRow {
+      display: flex;
+      justify-content: space-between;
+    }
+    .taskItem {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .buttonContainer {
+    display: flex;
+    & button {
+      border: none;
+      background: none;
+    }
   }
 }
 .addTaskContainer {
@@ -32,5 +47,11 @@
     padding: 40px;
     border-radius: 16px;
     border: 1px solid black;
+    form {
+      width: 50vw;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
   }
 }

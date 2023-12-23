@@ -29,12 +29,29 @@
   overflow: hidden;
   cursor: pointer;
 }
-.tempModal {
+.modalContainer {
   position: absolute;
-  bottom: 100px;
-  right: 100px;
-  background-color: white;
-  border: 1px solid black;
-  padding: 40px;
-  border-radius: 4px;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: #000000, $alpha: 0.2);
+
+  z-index: 1;
+  .modalCard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid black;
+    form {
+      width: 50vw;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+  }
 }

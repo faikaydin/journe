@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import { Data } from '../providers/DataProvider'
 import c from './home.module.scss'
 

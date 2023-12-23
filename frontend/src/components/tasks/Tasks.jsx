@@ -1,33 +1,23 @@
-import { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { createPortal } from 'react-dom'
 import { v4 as uuidv4 } from 'uuid'
-
-import data from '../../assets/sampleData.json'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import c from './tasks.module.scss'
 import { Data } from '../providers/DataProvider'
+import Icon from '../../assets/Icon'
 const Tasks = () => {
-  const { tasks, pots } = useContext(Data)
-
-  const [taskList, setTaskList] = useState(tasks)
-  const [potList, setPotList] = useState(pots)
-
-  console.log(potList)
-  // Update temp list when data is available
-  useEffect(() => {
-    setTaskList(tasks)
-    setPotList(pots)
-  }, [tasks])
-
+  const { tasks, pots, createObject, updateObject, deleteObject } =
+    useContext(Data)
+  console.log(tasks)
   // Handle tasks
   const [newTask, setNewTask] = useState({
-    task_block_id: '',
+    task_block_id: '00000000-0000-0000-0000-000000000001',
     task_description: '',
     task_duration: '',
     task_id: '',
-    task_pot_id: '',
     task_title: '',
   })
+
   const handleTaskInputChange = (e) => {
     const { name, value } = e.target
     setNewTask((prevTask) => ({
@@ -38,31 +28,43 @@ const Tasks = () => {
 
   const handleAddTask = (e) => {
     e.preventDefault()
-    setTaskList([
-      ...taskList,
-      {
+
+    if (newTask.task_id) {
+      updateObject('task', newTask.task_id, {
         ...newTask,
-        task_pot_id: currentPotId,
+        task_block_id: '00000000-0000-0000-0000-000000000001',
+      })
+    } else {
+      createObject('task', {
+        ...newTask,
+        task_pot: currentPotTitle,
         task_id: uuidv4(),
-      },
-    ])
+      })
+    }
+
     setNewTask({
-      task_block_id: '',
+      task_block_id: '00000000-0000-0000-0000-000000000001',
       task_description: '',
       task_duration: '',
       task_id: '',
-      task_pot_id: '',
       task_title: '',
     })
     setAddTask(false)
   }
 
   const [addTask, setAddTask] = useState(false)
-  const [currentPotId, setCurrentPotId] = useState()
+  const [currentPotTitle, setCurrentPotTitle] = useState()
 
   const addTaskHandler = (potId) => {
     setAddTask(true)
-    setCurrentPotId(potId)
+    setCurrentPotTitle(potId)
+  }
+  const updateTaskHandler = (task) => {
+    setAddTask(true)
+    setNewTask(task)
+  }
+  const deleteTaskHandler = (taskId) => {
+    deleteObject('task', taskId)
   }
 
   //Handle pots
@@ -83,14 +85,16 @@ const Tasks = () => {
 
   const handleAddPot = (e) => {
     e.preventDefault()
-    setPotList([
-      ...potList,
-      {
-        ...newPot,
 
+    if (newPot.pot_id) {
+      updateObject('pot', newPot.pot_id, newPot)
+    } else {
+      createObject('pot', {
+        ...newPot,
         pot_id: uuidv4(),
-      },
-    ])
+      })
+    }
+
     setNewPot({
       pot_description: '',
       pot_id: '',
@@ -101,6 +105,19 @@ const Tasks = () => {
   const addPotHandler = () => {
     setAddPot(true)
   }
+
+  const updatePotHandler = (pot) => {
+    setAddPot(true)
+    setNewPot({
+      pot_description: pot.pot_description,
+      pot_id: pot.pot_id,
+      pot_title: pot.pot_title,
+    })
+  }
+  const deletePotHandler = (potId) => {
+    deleteObject('pot', potId)
+  }
+
   return (
     <>
       {addTask &&
@@ -124,10 +141,13 @@ const Tasks = () => {
                 <input
                   placeholder="Task duration"
                   name="task_duration"
+                  type="number"
                   value={newTask.task_duration}
                   onChange={(e) => handleTaskInputChange(e)}
                 ></input>
-                <button onClick={(e) => handleAddTask(e)}>Add</button>
+                <button onClick={(e) => handleAddTask(e)}>
+                  {newTask.task_id ? 'Update' : 'Add'}
+                </button>
               </form>
             </div>
           </div>,
@@ -153,41 +173,79 @@ const Tasks = () => {
                   onChange={(e) => handlePotInputChange(e)}
                 ></input>
 
-                <button onClick={(e) => handleAddPot(e)}>Add</button>
+                <button onClick={(e) => handleAddPot(e)}>
+                  {newPot.pot_id ? 'Update' : 'Add'}
+                </button>
               </form>
             </div>
           </div>,
           document.getElementById('root')
         )}
       <div className={c.potsContainer}>
-        {potList && (
+        {pots && (
           <ResponsiveMasonry
             columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
           >
             <Masonry gutter={'2rem'}>
-              {potList?.map((pot) => {
+              {pots?.map((pot) => {
                 return (
                   <div key={pot.pot_id} className={c.potContainer}>
-                    <strong>{pot.pot_title}</strong>
+                    <div className={c.potTitleRow}>
+                      <strong>{pot.pot_title}</strong>
+                      <div className={c.buttonContainer}>
+                        {pot.pot_title !== 'task_platter' && (
+                          <button
+                            className={c.deleteButton}
+                            onClick={() => updatePotHandler(pot)}
+                          >
+                            <Icon.Pencil />
+                          </button>
+                        )}
+                        {pot.pot_title !== 'task_platter' && (
+                          <button
+                            className={c.deleteButton}
+                            onClick={() => deletePotHandler(pot.pot_id)}
+                          >
+                            <Icon.Trash />
+                          </button>
+                        )}
+                      </div>
+                    </div>
 
-                    {taskList?.map((task, i) => {
+                    {tasks?.map((task, i) => {
                       if (task.task_pot_id === pot.pot_id) {
                         return (
-                          <div key={i} className={c.item}>
-                            <input
-                              type="checkbox"
-                              id={task.task_title}
-                              name={task.task_title}
-                            />
-                            <label htmlFor={task.task_title}>
-                              {task.task_title}
-                            </label>
-                            <span> {task.task_duration}</span>
+                          <div key={i} className={c.taskItem}>
+                            <div>
+                              <input
+                                type="checkbox"
+                                id={task.task_title}
+                                name={task.task_title}
+                              />
+                              <label htmlFor={task.task_title}>
+                                {task.task_title}
+                              </label>
+                              <span> {task.task_duration}</span>
+                            </div>
+                            <div className={c.buttonContainer}>
+                              <button
+                                className={c.deleteButton}
+                                onClick={() => updateTaskHandler(task)}
+                              >
+                                <Icon.Pencil />
+                              </button>
+                              <button
+                                className={c.deleteButton}
+                                onClick={() => deleteTaskHandler(task.task_id)}
+                              >
+                                <Icon.Trash />
+                              </button>
+                            </div>
                           </div>
                         )
                       }
                     })}
-                    <button onClick={() => addTaskHandler(pot.pot_id)}>
+                    <button onClick={() => addTaskHandler(pot.pot_title)}>
                       Add task
                     </button>
                   </div>

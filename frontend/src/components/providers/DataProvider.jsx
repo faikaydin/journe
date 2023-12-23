@@ -1,6 +1,7 @@
 import { setDate } from 'date-fns'
 import React, { useState, useEffect, createContext } from 'react'
 
+// @ts-ignore
 export const Data = React.createContext()
 
 const DataProvider = ({ children }) => {
@@ -9,7 +10,6 @@ const DataProvider = ({ children }) => {
   const [pots, setPots] = useState(null)
   const [blocks, setBlocks] = useState(null)
   const [data, setData] = useState(null)
-
   const fetchData = async () => {
     const response = await fetch(`http://localhost:6969/get_all_journe_data`, {
       method: 'GET',
@@ -22,7 +22,6 @@ const DataProvider = ({ children }) => {
     const dataResponse = await data.response
     setData(dataResponse)
   }
-
   // On first load
   useEffect(() => {
     fetchData()
@@ -57,6 +56,82 @@ const DataProvider = ({ children }) => {
     await fetchData()
   }
 
+  // Create new object
+  async function createObject(objectType, body) {
+    try {
+      const response = await fetch(
+        `http://localhost:6969/create/${objectType}`,
+        {
+          method: 'POST',
+          mode: 'cors',
+          body: JSON.stringify(body),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      if (response.ok) {
+        await fetchData()
+        // Handle success if needed
+      } else {
+        console.error('Request failed:', response.status, response.statusText)
+        // Handle errors if needed
+      }
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  }
+
+  // Update an object
+  async function updateObject(objectType, id, body) {
+    try {
+      const response = await fetch(
+        `http://localhost:6969/update/${objectType}/${id}`,
+        {
+          method: 'POST',
+          mode: 'cors',
+          body: JSON.stringify(body),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      if (response.ok) {
+        await fetchData()
+        // Handle success if needed
+      } else {
+        console.error('Request failed:', response.status, response.statusText)
+        // Handle errors if needed
+      }
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  }
+
+  // Delete an object
+  async function deleteObject(objectType, id) {
+    try {
+      const response = await fetch(
+        `http://localhost:6969/remove/${objectType}/${id}`,
+        {
+          method: 'DELETE',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      if (response.ok) {
+        await fetchData()
+        // Handle success if needed
+      } else {
+        console.error('Request failed:', response.status, response.statusText)
+        // Handle errors if needed
+      }
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  }
   return (
     <Data.Provider
       value={{
@@ -65,6 +140,9 @@ const DataProvider = ({ children }) => {
         blocks,
         clearDB,
         loadDummy,
+        createObject,
+        deleteObject,
+        updateObject,
       }}
     >
       {children}
