@@ -107,6 +107,7 @@ const Tasks = () => {
   }
 
   const updatePotHandler = (pot) => {
+    console.log(pot)
     setAddPot(true)
     setNewPot({
       pot_description: pot.pot_description,

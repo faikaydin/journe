@@ -88,7 +88,8 @@ def update(object_type, object_id):
         if object_type == 'task':
             journe.tasks[object_id] = Task(*journe.return_task_list_from_dict(data))  # create a new Task w/ update
         if object_type == 'pot':
-            journe.pots[object_id] = Pot(*journe.return_task_list_from_dict(data))  # create a new Pot w/ update data
+            print(data)
+            journe.pots[object_id] = Pot(*journe.return_pot_list_from_dict(data))  # create a new Pot w/ update data
         if object_type == 'block':
             journe.blocks[object_id] = Block(*journe.return_block_list_from_dict(data))  # create a new Block w/ update
         journe.update(object_type, object_id)  # update db
