@@ -8,7 +8,6 @@ import Icon from '../../assets/Icon'
 const Tasks = () => {
   const { tasks, pots, createObject, updateObject, deleteObject } =
     useContext(Data)
-  console.log(tasks)
   // Handle tasks
   const [newTask, setNewTask] = useState({
     task_block_id: '00000000-0000-0000-0000-000000000001',
@@ -107,7 +106,6 @@ const Tasks = () => {
   }
 
   const updatePotHandler = (pot) => {
-    console.log(pot)
     setAddPot(true)
     setNewPot({
       pot_description: pot.pot_description,
