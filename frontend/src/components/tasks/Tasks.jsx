@@ -147,6 +147,7 @@ const Tasks = () => {
                 <button onClick={(e) => handleAddTask(e)}>
                   {newTask.task_id ? 'Update' : 'Add'}
                 </button>
+                <button onClick={() => setAddTask(false)}>Close</button>
               </form>
             </div>
           </div>,
@@ -175,6 +176,7 @@ const Tasks = () => {
                 <button onClick={(e) => handleAddPot(e)}>
                   {newPot.pot_id ? 'Update' : 'Add'}
                 </button>
+                <button onClick={() => setAddPot(false)}>Close</button>
               </form>
             </div>
           </div>,
