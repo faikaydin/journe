@@ -56,6 +56,7 @@ def create(object_type):
         if not data:
             print('no json!!!')
             return jsonify({'error': 'invalid json data in request'})  # data payload
+
         if object_type == 'task':
             journe.add_task(*journe.return_task_list_from_dict(data))
         if object_type == 'pot':

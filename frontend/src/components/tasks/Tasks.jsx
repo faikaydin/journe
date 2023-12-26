@@ -36,7 +36,7 @@ const Tasks = () => {
     } else {
       createObject('task', {
         ...newTask,
-        task_pot: currentPotTitle,
+        task_pot_id: currentPotId,
         task_id: uuidv4(),
       })
     }
@@ -52,11 +52,11 @@ const Tasks = () => {
   }
 
   const [addTask, setAddTask] = useState(false)
-  const [currentPotTitle, setCurrentPotTitle] = useState()
+  const [currentPotId, setCurrentPotId] = useState()
 
   const addTaskHandler = (potId) => {
     setAddTask(true)
-    setCurrentPotTitle(potId)
+    setCurrentPotId(potId)
   }
   const updateTaskHandler = (task) => {
     setAddTask(true)
@@ -244,7 +244,7 @@ const Tasks = () => {
                         )
                       }
                     })}
-                    <button onClick={() => addTaskHandler(pot.pot_title)}>
+                    <button onClick={() => addTaskHandler(pot.pot_id)}>
                       Add task
                     </button>
                   </div>

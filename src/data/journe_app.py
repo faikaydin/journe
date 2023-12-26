@@ -46,7 +46,7 @@ class Journe:
                                             task_title=_task['task_title'],
                                             task_description=_task['task_description'],
                                             task_duration=_task['task_duration'],
-                                            task_pot=_task['task_pot_id'],
+                                            task_pot_id=_task['task_pot_id'],
                                             task_block=_task['task_block_id'])
         _pots = {}
         for _pot in self.read('pot', read_all=True):
@@ -75,19 +75,16 @@ class Journe:
     def add_task(self,
                  task_id=None,
                  task_title="",
-                 task_duration="10", task_pot='task_platter',
+                 task_duration="10", task_pot_id='task_platter',
                  task_block="00000000-0000-0000-0000-000000000001",
                  task_description=""):
-        if self.journe_connection.is_pot_exists(task_pot):
-            task_pot = self.read('pot', _title=task_pot)['pot_id']  # get task's pot id from human-readable pot title
-        else:
-            task_pot = self.read('pot', _title='task_platter')['pot_id']  # if pot doesn't exist default task_platter
+        print('gi')
         task_obj = Task(task_id=task_id,
                         task_title=task_title,
                         task_description=task_description,
                         task_duration=task_duration,
                         task_block=task_block,
-                        task_pot=task_pot)  # init task object
+                        task_pot_id=task_pot_id)  # init task object
         self.journe_connection.send_payload(task_obj)  # send object payload to core
         self.tasks[task_obj.task_id] = task_obj  # create a copy of the task object in memory
 
@@ -145,10 +142,9 @@ class Journe:
         return [task_dict['task_id'],
                 task_dict["task_title"],
                 task_dict["task_duration"],
-                task_dict["task_pot"],
+                task_dict["task_pot_id"],
                 task_dict["task_block_id"],
                 task_dict["task_description"]]
-
 
     @staticmethod
     def return_pot_list_from_dict(pot_dict):
