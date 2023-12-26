@@ -27,25 +27,25 @@ def get_all_journe_data():
                           [e.to_payload() for e in journe.pots.values()],\
                           [e.to_payload() for e in journe.blocks.values()]
 
-    return jsonify(response={'tasks': tasks, 'pots': pots, 'blocks': blocks})
+    return jsonify(response={'tasks': tasks, 'pots': pots, 'blocks': blocks}), 200
 
 
 @app.route('/get_all_tasks', methods=['GET'])
 def get_tasks():
     journe.sync_local_with_db()
-    return jsonify(response=journe.read(journe_object_type='task', read_all=True))
+    return jsonify(response=journe.read(journe_object_type='task', read_all=True)), 200
 
 
 @app.route('/get_all_pots', methods=['GET'])
 def get_pots():
     journe.sync_local_with_db()
-    return jsonify(response=journe.read(journe_object_type='pot', read_all=True))
+    return jsonify(response=journe.read(journe_object_type='pot', read_all=True)), 200
 
 
 @app.route('/get_all_blocks', methods=['GET'])
 def get_blocks():
     journe.sync_local_with_db()
-    return jsonify(response=journe.read(journe_object_type='block', read_all=True))
+    return jsonify(response=journe.read(journe_object_type='block', read_all=True)), 200
 
 
 # create endpoint
@@ -62,7 +62,7 @@ def create(object_type):
             journe.add_pot(*journe.return_pot_list_from_dict(data))
         if object_type == 'block':
             journe.add_block(*journe.return_block_list_from_dict(data))
-        return 'object created!'
+        return jsonify(response=f'{object_type}  - updated'), 200
     except Exception as e:
         return str(e), 500
 
@@ -74,7 +74,7 @@ def remove(object_type, object_id):
     # Assuming you have a function to delete a task by ID
     journe.remove(journe_object_type=object_type, _id=object_id)
     print(f'{object_type} with ID {object_id} deleted successfully')
-    return jsonify('successfully removed!')
+    return jsonify(response=f'{object_type}  - updated'), 200
 
 
 # update endpoint
@@ -92,7 +92,7 @@ def update(object_type, object_id):
         if object_type == 'block':
             journe.blocks[object_id] = Block(*journe.return_block_list_from_dict(data))  # create a new Block w/ update
         journe.update(object_type, object_id)  # update db
-        return 'object updated!'
+        return jsonify(response=f'{object_type}  - updated'), 200
     except Exception as e:
         return str(e), 500
 
@@ -100,19 +100,19 @@ def update(object_type, object_id):
 @app.route('/reset_db', methods=['GET'])
 def reset_db():
     journe.reset_db()
-    return jsonify(response='db reset')
+    return jsonify(response='db reset'), 200
 
 
 @app.route('/load_dummy_json', methods=['GET'])
 def load_dummy_json():
     journe.load_json(json_payload_path=DUMMY_DB_JSON_PATH)  # setting up our dummy instance :)
-    return jsonify(response='dummy json loaded')
+    return jsonify(response='dummy json loaded'), 200
 
 
 @app.route('/add_token_block_test', methods=['GET'])
 def add_token_block_test():
     journe.add_block('2023-11-16 15:00:00', '2023-11-16 17:40:00')
-    return jsonify(response='added block')
+    return jsonify(response='added block'), 200
 
 
 if __name__ == '__main__':
