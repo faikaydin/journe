@@ -2,6 +2,7 @@ from src.data.journe_app import *
 from common.app_config import DUMMY_DB_JSON_PATH
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+
 # getting the dataset
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})  # enable CORS for all routes
@@ -10,11 +11,7 @@ journe = Journe()  # create Journe App Instance
 print('hi')
 journe.reset_db()
 journe.load_json(json_payload_path=DUMMY_DB_JSON_PATH)  # setting up our dummy instance :)
-journe.add_block("2023-11-24 13:00:00", "2023-11-24 15:30:00", "kukubuya")
-journe.tasks["mno-345-pqr-678"].task_block_id = "kukubuya"
 journe.update("task", "mno-345-pqr-678")
-journe.blocks["kukubuya"].block_start_time = "2023-11-24 13:31:00"
-journe.update("block", "kukubuya")
 journe.pots["2l3k4j5i-6h7g8f9e-a1b2c3d4e5f"].pot_title = "Creative Chaos"
 journe.update("pot", "2l3k4j5i-6h7g8f9e-a1b2c3d4e5f")
 
@@ -23,11 +20,10 @@ journe.update("pot", "2l3k4j5i-6h7g8f9e-a1b2c3d4e5f")
 @app.route('/get_all_journe_data', methods=['GET'])
 def get_all_journe_data():
     journe.sync_local_with_db()
-    tasks, pots, blocks = [e.to_payload() for e in journe.tasks.values()], \
-                          [e.to_payload() for e in journe.pots.values()],\
-                          [e.to_payload() for e in journe.blocks.values()]
+    tasks, pots = [e.to_payload() for e in journe.tasks.values()], \
+                  [e.to_payload() for e in journe.pots.values()]
 
-    return jsonify(response={'tasks': tasks, 'pots': pots, 'blocks': blocks}), 200
+    return jsonify(response={'tasks': tasks, 'pots': pots}), 200
 
 
 @app.route('/get_all_tasks', methods=['GET'])
@@ -40,12 +36,6 @@ def get_tasks():
 def get_pots():
     journe.sync_local_with_db()
     return jsonify(response=journe.read(journe_object_type='pot', read_all=True)), 200
-
-
-@app.route('/get_all_blocks', methods=['GET'])
-def get_blocks():
-    journe.sync_local_with_db()
-    return jsonify(response=journe.read(journe_object_type='block', read_all=True)), 200
 
 
 # create endpoint
@@ -61,15 +51,13 @@ def create(object_type):
             journe.add_task(*journe.return_task_list_from_dict(data))
         if object_type == 'pot':
             journe.add_pot(*journe.return_pot_list_from_dict(data))
-        if object_type == 'block':
-            journe.add_block(*journe.return_block_list_from_dict(data))
         return jsonify(response=f'{object_type}  - updated'), 200
     except Exception as e:
         return str(e), 500
 
 
 # remove endpoint
-# object_type values can only be one of -> 'task', 'pot', 'block'
+# object_type values can only be one of -> 'task', 'pot'
 @app.route('/remove/<string:object_type>/<string:object_id>', methods=['DELETE'])
 def remove(object_type, object_id):
     # Assuming you have a function to delete a task by ID
@@ -90,8 +78,6 @@ def update(object_type, object_id):
             journe.tasks[object_id] = Task(*journe.return_task_list_from_dict(data))  # create a new Task w/ update
         if object_type == 'pot':
             journe.pots[object_id] = Pot(*journe.return_pot_list_from_dict(data))  # create a new Pot w/ update data
-        if object_type == 'block':
-            journe.blocks[object_id] = Block(*journe.return_block_list_from_dict(data))  # create a new Block w/ update
         journe.update(object_type, object_id)  # update db
         return jsonify(response=f'{object_type}  - updated'), 200
     except Exception as e:
@@ -108,12 +94,6 @@ def reset_db():
 def load_dummy_json():
     journe.load_json(json_payload_path=DUMMY_DB_JSON_PATH)  # setting up our dummy instance :)
     return jsonify(response='dummy json loaded'), 200
-
-
-@app.route('/add_token_block_test', methods=['GET'])
-def add_token_block_test():
-    journe.add_block('2023-11-16 15:00:00', '2023-11-16 17:40:00')
-    return jsonify(response='added block'), 200
 
 
 if __name__ == '__main__':
