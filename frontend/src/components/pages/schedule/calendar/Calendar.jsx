@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import Cell from '../../cell/Cell'
 import c from './calendar.module.scss'
 import {
   differenceInDays,
@@ -14,6 +13,7 @@ import {
   getDaysInMonth,
 } from 'date-fns'
 import { getMonday } from '../utils'
+import Cell from '../../../utils/cell/Cell'
 
 const dayOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 

@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { createPortal } from 'react-dom'
 import { v4 as uuidv4 } from 'uuid'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import c from './tasks.module.scss'
-import { Data } from '../providers/DataProvider'
-import Icon from '../../assets/Icon'
+import { Data } from '../../providers/DataProvider'
+import Icon from '../../../assets/Icon'
 const Tasks = () => {
   const { tasks, pots, createObject, updateObject, deleteObject } =
     useContext(Data)

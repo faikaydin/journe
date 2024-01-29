@@ -29,6 +29,14 @@ const Nav = () => {
               Tasks
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to={`/reset`}
+              className={({ isActive }) => (isActive ? c.active : '')}
+            >
+              Reset
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </>

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { Data } from '../providers/DataProvider'
-import c from './home.module.scss'
+import { Data } from '../../providers/DataProvider'
+import c from './reset.module.scss'
 
-const Home = () => {
+const Reset = () => {
   const { clearDB, loadDummy } = useContext(Data)
 
   return (
@@ -13,4 +13,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Reset

@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import Calendar from './calendar/Calendar'
 import c from './schedule.module.scss'
 import DayView from './dayView/DayView'
-import events from '../../assets/sampleData.json'
+import events from '../../../assets/sampleData.json'
 import { format, nextSunday, sub, add } from 'date-fns'
 import { getMonday } from './utils'
-import Icon from '../../assets/Icon'
+import Icon from '../../../assets/Icon'
 
 function Schedule() {
   const [today] = useState(new Date())

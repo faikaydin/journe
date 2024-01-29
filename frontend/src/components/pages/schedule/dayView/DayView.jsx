@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom'
 // @ts-ignore
 import c from './dayView.module.scss'
 import React, { useState, useContext } from 'react'
-import { Data } from '../../providers/DataProvider'
+import { Data } from '../../../providers/DataProvider'
 
 const DayView = ({ numberOfDisplayDays, daysValue }) => {
   const nextDay = (day, number) => add(day, { days: number })
