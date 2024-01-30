@@ -73,8 +73,7 @@ class JourneConnection:
             # execute
             self.execute(sql_command, bindings=payload_obj.to_payload())
             # logging
-            if payload_obj.journe_object_type != 'block':
-                print(f"{payload_obj.to_payload()[f'{payload_obj.journe_object_type}_id']} sent to journe core!")
+            print(f"{payload_obj.to_payload()[f'{payload_obj.journe_object_type}_id']} sent to journe core!")
         else:
             if len(payload_obj) > 0:
                 # sql prep
