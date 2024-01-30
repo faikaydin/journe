@@ -1,7 +1,11 @@
 from src.data.journe_core import *
+import random
+import datetime
 from src.task import *
 from src.pot import *
 from src.utils import read_json_payload
+from common.app_config import DUMMY_DB_JSON_PATH
+
 
 """
 overall app class - wrappers
@@ -31,6 +35,13 @@ class Journe:
         self.reset_local()  # reset local objects in memory
         self.reset_db()  # reset db - nuke all
         tasks, pots = read_json_payload(json_payload_path)  # read in json objects
+        if json_payload_path == DUMMY_DB_JSON_PATH:  # checking if we are loading dummy_db_json
+            # Get the start of the week and end of Friday
+            start_of_week = self.get_start_of_week()
+            end_of_friday = self.get_end_of_friday(start_of_week)
+            for _task in tasks:  # setting up-to-date random times for the dummy events
+                random_start_time = self.random_time_in_range(start_of_week, end_of_friday)
+                _task['task_start_time'] = random_start_time
         self.journe_connection.send_payload(tasks)  # sending tasks to journe db!
         self.journe_connection.send_payload(pots)  # sending pots to journe db!
         self.sync_local_with_db()  # sync the local with all
@@ -42,6 +53,7 @@ class Journe:
                                             task_title=_task['task_title'],
                                             task_description=_task['task_description'],
                                             task_duration=_task['task_duration'],
+                                            task_start_time=_task['task_start_time'],
                                             task_pot_id=_task['task_pot_id'])
         _pots = {}
         for _pot in self.read('pot', read_all=True):
@@ -63,13 +75,14 @@ class Journe:
     def add_task(self,
                  task_id=None,
                  task_title="",
-                 task_duration="10", task_pot_id='task_platter',
+                 task_duration="10", task_start_time=None, task_pot_id='task_platter',
                  task_description=""):
         print('gi')
         task_obj = Task(task_id=task_id,
                         task_title=task_title,
                         task_description=task_description,
                         task_duration=task_duration,
+                        task_start_time=task_start_time,
                         task_pot_id=task_pot_id)  # init task object
         self.journe_connection.send_payload(task_obj)  # send object payload to core
         self.tasks[task_obj.task_id] = task_obj  # create a copy of the task object in memory
@@ -119,6 +132,7 @@ class Journe:
         return [task_dict['task_id'],
                 task_dict["task_title"],
                 task_dict["task_duration"],
+                task_dict["task_start_time"],
                 task_dict["task_pot_id"],
                 task_dict["task_description"]]
 
@@ -127,6 +141,26 @@ class Journe:
         return [pot_dict['pot_id'],
                 pot_dict["pot_title"],
                 pot_dict["pot_description"]]
+
+    @staticmethod
+    def get_start_of_week():
+        today = datetime.date.today()
+        start_of_week = today - datetime.timedelta(days=today.weekday())
+        return start_of_week
+
+    @staticmethod
+    def get_end_of_friday(start_of_week):
+        end_of_friday = start_of_week + datetime.timedelta(days=5, hours=23, minutes=59, seconds=59)
+        return end_of_friday
+
+    @staticmethod
+    def random_time_in_range(start_time, end_time):
+        random_date = random.randint(0, int((end_time - start_time).days))
+        random_hours = random.randint(0, 23)
+        random_minutes = random.randint(0, 59)
+        random_time = datetime.datetime.combine(start_time + datetime.timedelta(days=random_date),
+                                                datetime.time(random_hours, random_minutes))
+        return random_time.strftime('%Y-%m-%d %H:%M:%S')
 
     def __str__(self):
         journe_string = ''

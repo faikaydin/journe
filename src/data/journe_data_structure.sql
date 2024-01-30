@@ -9,6 +9,7 @@ create table task (
   task_title text,
   task_duration integer,
   task_description text,
+  task_start_time timestamp,
   task_pot_id text,
   foreign key (task_pot_id) references pot(pot_id)
 );

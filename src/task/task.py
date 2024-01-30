@@ -11,7 +11,7 @@ class InvalidTaskDurationError(Exception):
 
 
 class Task:
-    def __init__(self, task_id, task_title, task_duration, task_pot_id, task_description):
+    def __init__(self, task_id, task_title, task_duration, task_start_time, task_pot_id, task_description):
         self.journe_object_type = 'task'  # type of object
         if task_id:
             self.task_id = task_id
@@ -19,6 +19,7 @@ class Task:
             self.task_id = str(uuid.uuid4())  # generate a unique task ID
         self.task_pot_id = str(task_pot_id)  # link to pot
         self.task_title = str(task_title)  # title of the task that is being created
+        self.task_start_time = str(task_start_time)  # start time of the task
         self.task_description = str(task_description)  # short description of the task
         try:
             self.task_duration = int(task_duration)  # an estimate of how long a task will take to complete
@@ -37,5 +38,6 @@ class Task:
             'task_pot_id': self.task_pot_id,
             'task_title': self.task_title,
             'task_duration': self.task_duration,
+            'task_start_time': self.task_start_time,
             'task_description': self.task_description
             }

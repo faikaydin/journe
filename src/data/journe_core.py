@@ -82,6 +82,7 @@ class JourneConnection:
                 sql_command = read_sql_command(payload_sql)  # getting the sql command
                 # execute
                 for payload in payload_obj:
+                    print(payload)
                     self.execute(sql_command, bindings=payload)
                 # logging
                 print(f"{len(payload_obj)} {obj_type} sent to journe core!")
