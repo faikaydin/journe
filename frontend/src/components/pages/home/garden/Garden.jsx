@@ -73,7 +73,7 @@ const Garden = ({ data }) => {
     for (const i in data.tasks) {
       generateTask(data.tasks[i])
     }
-  }, [data.tasks, potsList])
+  }, [potsList])
 
   function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min
@@ -166,6 +166,7 @@ const Garden = ({ data }) => {
               </div>
               <div>
                 <h3>Tasks</h3>
+
                 {console.log(taskList)}
                 {taskList?.map((task, i) => {
                   if (task.task.task_pot_id === openPot.pot.pot_id) {

@@ -10,8 +10,8 @@ const Tasks = () => {
     useContext(Data)
   // Handle tasks
   const [newTask, setNewTask] = useState({
-    task_block_id: '00000000-0000-0000-0000-000000000001',
     task_description: '',
+    task_start_time: '',
     task_duration: '',
     task_id: '',
     task_title: '',
@@ -31,7 +31,6 @@ const Tasks = () => {
     if (newTask.task_id) {
       updateObject('task', newTask.task_id, {
         ...newTask,
-        task_block_id: '00000000-0000-0000-0000-000000000001',
       })
     } else {
       createObject('task', {
@@ -42,8 +41,8 @@ const Tasks = () => {
     }
 
     setNewTask({
-      task_block_id: '00000000-0000-0000-0000-000000000001',
       task_description: '',
+      task_start_time: '',
       task_duration: '',
       task_id: '',
       task_title: '',
@@ -135,6 +134,12 @@ const Tasks = () => {
                   placeholder="Task description"
                   name="task_description"
                   value={newTask.task_description}
+                  onChange={(e) => handleTaskInputChange(e)}
+                ></input>
+                <input
+                  placeholder="2024-00-00 00:00:00"
+                  name="task_start_time"
+                  value={newTask.task_start_time}
                   onChange={(e) => handleTaskInputChange(e)}
                 ></input>
                 <input
