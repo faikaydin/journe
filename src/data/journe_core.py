@@ -73,10 +73,7 @@ class JourneConnection:
             # execute
             self.execute(sql_command, bindings=payload_obj.to_payload())
             # logging
-            if payload_obj.journe_object_type != 'block':
-                print(f"{payload_obj.to_payload()[f'{payload_obj.journe_object_type}_title']} sent to journe core!")
-            else:
-                print(f"{payload_obj.to_payload()[f'{payload_obj.journe_object_type}_id']} sent to journe core!")
+            print(f"{payload_obj.to_payload()[f'{payload_obj.journe_object_type}_id']} sent to journe core!")
         else:
             if len(payload_obj) > 0:
                 # sql prep
@@ -85,12 +82,13 @@ class JourneConnection:
                 sql_command = read_sql_command(payload_sql)  # getting the sql command
                 # execute
                 for payload in payload_obj:
+                    print(payload)
                     self.execute(sql_command, bindings=payload)
                 # logging
                 print(f"{len(payload_obj)} {obj_type} sent to journe core!")
 
     """
-    object_type = string - task, pot, block
+    object_type = string - task, pot
     object_id = string - passing object_id to get the object
     object_title = string - passing object_title to get the object
     read_all = bool - reads in entire object type data
@@ -124,7 +122,7 @@ class JourneConnection:
     """
     def remove_payload(self, object_type, object_id=None, object_title=None):
         # if we are removing a pot - all child tasks need to go to task platter
-        if object_type != 'task':  # if it is a pot or block we must strip the tasks associated
+        if object_type != 'task':  # if it is a pot we must strip the tasks associated
             self.rectify_tasks_for_parent_removal(object_title, object_id)
         # removal process
         # prep sql
