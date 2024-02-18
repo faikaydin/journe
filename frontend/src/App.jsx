@@ -1,8 +1,8 @@
-import c from './App.module.scss'
-import { Outlet } from 'react-router-dom'
+import c from "./App.module.scss";
+import { Outlet } from "react-router-dom";
 
-import Nav from './components/utils/nav/Nav'
-import DataProvider from './components/providers/DataProvider'
+import Nav from "./components/utils/nav/Nav";
+import DataProvider from "./components/providers/DataProvider";
 
 function App() {
   return (
@@ -11,6 +11,6 @@ function App() {
         <Nav /> <Outlet />
       </div>
     </DataProvider>
-  )
+  );
 }
-export default App
+export default App;

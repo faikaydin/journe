@@ -18,6 +18,9 @@
     .potTitleRow {
       display: flex;
       justify-content: space-between;
+      &:first-child {
+        flex: 1;
+      }
     }
     .taskItem {
       display: flex;

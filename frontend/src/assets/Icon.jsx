@@ -1,16 +1,211 @@
-import React from 'react'
+import React from "react";
 
 export const Icon = ({ children }) => {
   // render
-  return <>{children}</>
-}
+  return <>{children}</>;
+};
 
-export default Icon
+export default Icon;
 
 // icons - - -
 
+// Garden
+Icon.Garden = ({ color = "currentColor", size = 24 }) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g clipPath="url(#clip0_182_7114)">
+      <path
+        d="M7 15H17V19C17 19.5304 16.7893 20.0391 16.4142 20.4142C16.0391 20.7893 15.5304 21 15 21H9C8.46957 21 7.96086 20.7893 7.58579 20.4142C7.21071 20.0391 7 19.5304 7 19V15Z"
+        fill="#A25623"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 9C12 7.4087 11.3679 5.88258 10.2426 4.75736C9.11742 3.63214 7.5913 3 6 3H3V5C3 6.5913 3.63214 8.11742 4.75736 9.24264C5.88258 10.3679 7.4087 11 9 11H12"
+        fill="#E25D33"
+      />
+      <path
+        d="M12 9C12 7.4087 11.3679 5.88258 10.2426 4.75736C9.11742 3.63214 7.5913 3 6 3H3V5C3 6.5913 3.63214 8.11742 4.75736 9.24264C5.88258 10.3679 7.4087 11 9 11H12"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 11C12 9.4087 12.6321 7.88258 13.7574 6.75736C14.8826 5.63214 16.4087 5 18 5H21V6C21 7.5913 20.3679 9.11742 19.2426 10.2426C18.1174 11.3679 16.5913 12 15 12H12"
+        fill="#DFC55A"
+      />
+      <path
+        d="M12 11C12 9.4087 12.6321 7.88258 13.7574 6.75736C14.8826 5.63214 16.4087 5 18 5H21V6C21 7.5913 20.3679 9.11742 19.2426 10.2426C18.1174 11.3679 16.5913 12 15 12H12"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 15V9"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_182_7114">
+        <rect width="24" height="24" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+// Schedule
+Icon.Schedule = ({ color = "currentColor", size = 24 }) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g clipPath="url(#clip0_182_7121)">
+      <path
+        d="M4 7C4 6.46957 4.21071 5.96086 4.58579 5.58579C4.96086 5.21071 5.46957 5 6 5H18C18.5304 5 19.0391 5.21071 19.4142 5.58579C19.7893 5.96086 20 6.46957 20 7V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H6C5.46957 21 4.96086 20.7893 4.58579 20.4142C4.21071 20.0391 4 19.5304 4 19V7Z"
+        fill="white"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4 5.75C4 5.55109 4.21071 5.36032 4.58579 5.21967C4.96086 5.07902 5.46957 5 6 5H18C18.5304 5 19.0391 5.07902 19.4142 5.21967C19.7893 5.36032 20 5.55109 20 5.75V10.25C20 10.4489 19.7893 10.6397 19.4142 10.7803C19.0391 10.921 18.5304 11 18 11H6C5.46957 11 4.96086 10.921 4.58579 10.7803C4.21071 10.6397 4 10.4489 4 10.25V5.75Z"
+        fill="#E25D33"
+      />
+      <path
+        d="M4 7C4 6.46957 4.21071 5.96086 4.58579 5.58579C4.96086 5.21071 5.46957 5 6 5H18C18.5304 5 19.0391 5.21071 19.4142 5.58579C19.7893 5.96086 20 6.46957 20 7V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H6C5.46957 21 4.96086 20.7893 4.58579 20.4142C4.21071 20.0391 4 19.5304 4 19V7Z"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16 3V7"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 3V7"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4 11H20"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M11 15H12"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 15V18"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_182_7121">
+        <rect width="24" height="24" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+// Task
+Icon.Task = ({ color = "currentColor", size = 24 }) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g clipPath="url(#clip0_187_6141)">
+      <path
+        d="M9 5H7C6.46957 5 5.96086 5.21071 5.58579 5.58579C5.21071 5.96086 5 6.46957 5 7V19C5 19.5304 5.21071 20.0391 5.58579 20.4142C5.96086 20.7893 6.46957 21 7 21H17C17.5304 21 18.0391 20.7893 18.4142 20.4142C18.7893 20.0391 19 19.5304 19 19V7C19 6.46957 18.7893 5.96086 18.4142 5.58579C18.0391 5.21071 17.5304 5 17 5H15"
+        fill="white"
+      />
+      <path
+        d="M9 5H7C6.46957 5 5.96086 5.21071 5.58579 5.58579C5.21071 5.96086 5 6.46957 5 7V19C5 19.5304 5.21071 20.0391 5.58579 20.4142C5.96086 20.7893 6.46957 21 7 21H17C17.5304 21 18.0391 20.7893 18.4142 20.4142C18.7893 20.0391 19 19.5304 19 19V7C19 6.46957 18.7893 5.96086 18.4142 5.58579C18.0391 5.21071 17.5304 5 17 5H15"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 5C8 4.46957 8.21071 3.96086 8.58579 3.58579C8.96086 3.21071 9.46957 3 10 3H14C14.5304 3 15.0391 3.21071 15.4142 3.58579C15.7893 3.96086 16 4.46957 16 5C16 5.53043 15.7893 6.03914 15.4142 6.41421C15.0391 6.78929 14.5304 7 14 7H10C9.46957 7 8.96086 6.78929 8.58579 6.41421C8.21071 6.03914 8 5.53043 8 5Z"
+        fill="#AF9ED7"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 12H9.01"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M13 12H15"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 16H9.01"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M13 16H15"
+        stroke="#101010"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_187_6141">
+        <rect width="24" height="24" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
 // Add
-Icon.Add = ({ color = 'currentColor', size = 24 }) => (
+Icon.Add = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -25,10 +220,10 @@ Icon.Add = ({ color = 'currentColor', size = 24 }) => (
     <path d="M0 0h24v24H0z" stroke="none" />
     <path d="M12 5v14m-7-7h14" />
   </svg>
-)
+);
 
 // Adjustments
-Icon.Adjustments = ({ color = 'currentColor', size = 24 }) => (
+Icon.Adjustments = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -46,10 +241,10 @@ Icon.Adjustments = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="18" cy="7" r="2" />
     <path d="M6 4v4m0 4v8m6-16v10m0 4v2m6-16v1m0 4v11" />
   </svg>
-)
+);
 
 // Alert
-Icon.Alert = ({ color = 'currentColor', size = 24 }) => (
+Icon.Alert = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -65,10 +260,10 @@ Icon.Alert = ({ color = 'currentColor', size = 24 }) => (
     <line x1="12" y1="8" x2="12" y2="12" />
     <line x1="12" y1="16" x2="12.01" y2="16" />
   </svg>
-)
+);
 
 // Bell
-Icon.Bell = ({ color = 'currentColor', size = 24 }) => (
+Icon.Bell = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -84,10 +279,10 @@ Icon.Bell = ({ color = 'currentColor', size = 24 }) => (
     <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
     <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
   </svg>
-)
+);
 
 // Book
-Icon.Book = ({ color = 'currentColor', size = 24 }) => (
+Icon.Book = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -106,10 +301,10 @@ Icon.Book = ({ color = 'currentColor', size = 24 }) => (
     <line x1="12" y1="6" x2="12" y2="19" />
     <line x1="21" y1="6" x2="21" y2="19" />
   </svg>
-)
+);
 
 // Bookmark
-Icon.Bookmark = ({ color = 'currentColor', size = 24 }) => (
+Icon.Bookmark = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -124,10 +319,10 @@ Icon.Bookmark = ({ color = 'currentColor', size = 24 }) => (
     {/* <path stroke='none' d='M0 0h24v24H0z' /> */}
     <path d="M9 4h6a2 2 0 0 1 2 2v14l-5-3l-5 3v-14a2 2 0 0 1 2 -2" />
   </svg>
-)
+);
 
 // Check
-Icon.Check = ({ color = 'currentColor', size = 24 }) => (
+Icon.Check = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -141,10 +336,10 @@ Icon.Check = ({ color = 'currentColor', size = 24 }) => (
   >
     <path d="M5 12L10 17L20 7" />
   </svg>
-)
+);
 
 // ChevronDown
-Icon.ChevronDown = ({ color = 'currentColor', size = 24 }) => (
+Icon.ChevronDown = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -159,10 +354,10 @@ Icon.ChevronDown = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <polyline points="6 9 12 15 18 9" />
   </svg>
-)
+);
 
 // ChevronLeft
-Icon.ChevronLeft = ({ color = 'currentColor', size = 24 }) => (
+Icon.ChevronLeft = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -177,10 +372,10 @@ Icon.ChevronLeft = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <polyline points="15 6 9 12 15 18" />
   </svg>
-)
+);
 
 // ChevronRight
-Icon.ChevronRight = ({ color = 'currentColor', size = 24 }) => (
+Icon.ChevronRight = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -195,10 +390,10 @@ Icon.ChevronRight = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <polyline points="9 6 15 12 9 18" />
   </svg>
-)
+);
 
 // ChevronUp
-Icon.ChevronUp = ({ color = 'currentColor', size = 24 }) => (
+Icon.ChevronUp = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -213,10 +408,10 @@ Icon.ChevronUp = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <polyline points="6 15 12 9 18 15" />
   </svg>
-)
+);
 
 // Chilli
-Icon.Chilli = ({ color = 'currentColor', size = 24 }) => (
+Icon.Chilli = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -231,10 +426,10 @@ Icon.Chilli = ({ color = 'currentColor', size = 24 }) => (
     <path d="M0 0h24v24H0z" stroke="none" />
     <path d="M13 11c0 2.21-2.239 4-5 4s-5-1.79-5-4a8 8 0 1 0 16 0 3 3 0 0 0-6 0m3-3c0-2 2-4 4-4" />
   </svg>
-)
+);
 
 // Code
-Icon.Code = ({ color = 'currentColor', size = 24 }) => (
+Icon.Code = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -250,10 +445,10 @@ Icon.Code = ({ color = 'currentColor', size = 24 }) => (
     <path d="M17 8L21 12L17 16" />
     <path d="M14 4L10 20" />
   </svg>
-)
+);
 
 // Columns
-Icon.Columns = ({ color = 'currentColor', size = 24 }) => (
+Icon.Columns = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -275,10 +470,10 @@ Icon.Columns = ({ color = 'currentColor', size = 24 }) => (
     <line x1="14.5" y1="14" x2="20" y2="14" />
     <line x1="14.5" y1="18" x2="20" y2="18" />
   </svg>
-)
+);
 
 // Comment
-Icon.Comment = ({ color = 'currentColor', size = 24 }) => (
+Icon.Comment = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -293,10 +488,10 @@ Icon.Comment = ({ color = 'currentColor', size = 24 }) => (
     <path d="M0 0h24v24H0z" stroke="none" />
     <path d="M3 20l1.3-3.9A9 8 0 1 1 7.7 19L3 20m9-8v.01M8 12v.01m8-.01v.01" />
   </svg>
-)
+);
 
 // Copy
-Icon.Copy = ({ color = 'currentColor', size = 24 }) => (
+Icon.Copy = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -312,10 +507,10 @@ Icon.Copy = ({ color = 'currentColor', size = 24 }) => (
     <rect x="8" y="8" width="12" height="12" rx="2" />
     <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
   </svg>
-)
+);
 
 // DotsHorizontal
-Icon.DotsHorizontal = ({ color = 'currentColor', size = 24 }) => (
+Icon.DotsHorizontal = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -332,10 +527,10 @@ Icon.DotsHorizontal = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="12" cy="12" r="1" />
     <circle cx="19" cy="12" r="1" />
   </svg>
-)
+);
 
 // DotsVertical
-Icon.DotsVertical = ({ color = 'currentColor', size = 24 }) => (
+Icon.DotsVertical = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -352,10 +547,10 @@ Icon.DotsVertical = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="12" cy="19" r="1" />
     <circle cx="12" cy="5" r="1" />
   </svg>
-)
+);
 
 // Enter
-Icon.Enter = ({ color = 'currentColor', size = 24 }) => (
+Icon.Enter = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -371,10 +566,10 @@ Icon.Enter = ({ color = 'currentColor', size = 24 }) => (
       strokeLinejoin="round"
     />
   </svg>
-)
+);
 
 // Export
-Icon.Export = ({ color = 'currentColor', size = 24 }) => (
+Icon.Export = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -390,10 +585,10 @@ Icon.Export = ({ color = 'currentColor', size = 24 }) => (
     <path d="M14 3v4a1 1 0 0 0 1 1h4" />
     <path d="M11.5 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v5m-5 6h7m-3-3l3 3-3 3" />
   </svg>
-)
+);
 
 // External
-Icon.External = ({ color = 'currentColor', size = 24 }) => (
+Icon.External = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -424,10 +619,10 @@ Icon.External = ({ color = 'currentColor', size = 24 }) => (
       strokeWidth="1.5"
     />
   </svg>
-)
+);
 
 // Eye
-Icon.Eye = ({ color = 'currentColor', size = 24 }) => (
+Icon.Eye = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -443,10 +638,10 @@ Icon.Eye = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="12" cy="12" r="2" />
     <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
   </svg>
-)
+);
 
 // EditTabs
-Icon.EditTabs = ({ color = 'currentColor', size = 24 }) => (
+Icon.EditTabs = ({ color = "currentColor", size = 24 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
     <g clipPath="url(#clip0_6146_253863)">
       <path
@@ -498,10 +693,10 @@ Icon.EditTabs = ({ color = 'currentColor', size = 24 }) => (
       </clipPath>
     </defs>
   </svg>
-)
+);
 
 // FileSymlink
-Icon.FileSymlink = ({ color = 'currentColor', size = 24 }) => (
+Icon.FileSymlink = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -519,10 +714,10 @@ Icon.FileSymlink = ({ color = 'currentColor', size = 24 }) => (
     <path d="M14 3v4a1 1 0 0 0 1 1h4" />
     <path d="M5 11v-6a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2h-9.5" />
   </svg>
-)
+);
 
 // GridDots
-Icon.GridDots = ({ color = 'currentColor', size = 24 }) => (
+Icon.GridDots = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     id="appLauncherIcon"
@@ -546,10 +741,10 @@ Icon.GridDots = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="12" cy="19" r="1" />
     <circle cx="19" cy="19" r="1" />
   </svg>
-)
+);
 
 // Help
-Icon.Help = ({ color = 'currentColor', size = 24 }) => (
+Icon.Help = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -566,10 +761,10 @@ Icon.Help = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="12" cy="12" r="9" />
     <path d="M12 17v.01" />
   </svg>
-)
+);
 
 // Home
-Icon.Home = ({ color = 'currentColor', size = 24, fill = 'none' }) => (
+Icon.Home = ({ color = "currentColor", size = 24, fill = "none" }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -583,10 +778,10 @@ Icon.Home = ({ color = 'currentColor', size = 24, fill = 'none' }) => (
   >
     <path d="M21.7243 10.4798L21.7369 10.4902L21.75 10.5L21.075 10.5H20.325V11.25V19.8C20.325 20.2422 20.1896 20.5294 20.0216 20.7022C19.8553 20.8733 19.5915 21 19.2 21H14.325V17.55C14.325 17.2012 14.1769 16.9127 14.0177 16.7063C13.8566 16.4975 13.6508 16.3274 13.4433 16.1954C13.038 15.9375 12.5066 15.75 12 15.75C11.4884 15.75 10.9694 15.9409 10.5762 16.2072C10.219 16.4492 9.75 16.9078 9.75 17.55V21H4.95C4.23921 21 3.75 20.5108 3.75 19.8V11.25V10.5H3H2.34241L11.1219 3.28298C11.3398 3.11024 11.6697 3 12.0375 3C12.4055 3 12.7355 3.11031 12.9533 3.28316L21.7243 10.4798Z" />
   </svg>
-)
+);
 
 // HomeFilled
-Icon.HomeFilled = ({ color = 'currentColor', size = 24 }) => (
+Icon.HomeFilled = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -600,10 +795,10 @@ Icon.HomeFilled = ({ color = 'currentColor', size = 24 }) => (
   >
     <path d="M21.7243 10.4798L21.7369 10.4902L21.75 10.5L21.075 10.5H20.325V11.25V19.8C20.325 20.2422 20.1896 20.5294 20.0216 20.7022C19.8553 20.8733 19.5915 21 19.2 21H14.325V17.55C14.325 17.2012 14.1769 16.9127 14.0177 16.7063C13.8566 16.4975 13.6508 16.3274 13.4433 16.1954C13.038 15.9375 12.5066 15.75 12 15.75C11.4884 15.75 10.9694 15.9409 10.5762 16.2072C10.219 16.4492 9.75 16.9078 9.75 17.55V21H4.95C4.23921 21 3.75 20.5108 3.75 19.8V11.25V10.5H3H2.34241L11.1219 3.28298C11.3398 3.11024 11.6697 3 12.0375 3C12.4055 3 12.7355 3.11031 12.9533 3.28316L21.7243 10.4798Z" />
   </svg>
-)
+);
 
 // InfoCircle
-Icon.InfoCircle = ({ color = 'currentColor', size = 24 }) => (
+Icon.InfoCircle = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -619,10 +814,10 @@ Icon.InfoCircle = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="12" cy="12" r="9" />
     <path d="M12 8h.01M11 12h1v4h1" />
   </svg>
-)
+);
 
 // ID
-Icon.Id = ({ color = 'currentColor', size = 24 }) => (
+Icon.Id = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -641,10 +836,10 @@ Icon.Id = ({ color = 'currentColor', size = 24 }) => (
     <line x1="15" y1="12" x2="17" y2="12" />
     <line x1="7" y1="16" x2="17" y2="16" />
   </svg>
-)
+);
 
 // Layout2
-Icon.Layout2 = ({ color = 'currentColor', size = 24 }) => (
+Icon.Layout2 = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -662,10 +857,10 @@ Icon.Layout2 = ({ color = 'currentColor', size = 24 }) => (
     <rect x="14" y="4" width="6" height="7" rx="2" />
     <rect x="14" y="15" width="6" height="5" rx="2" />
   </svg>
-)
+);
 
 // Layout2Filled
-Icon.Layout2Filled = ({ color = 'currentColor', size = 24 }) => (
+Icon.Layout2Filled = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -683,10 +878,10 @@ Icon.Layout2Filled = ({ color = 'currentColor', size = 24 }) => (
     <rect x="14" y="4" width="6" height="7" rx="2" />
     <rect x="14" y="15" width="6" height="5" rx="2" />
   </svg>
-)
+);
 
 // TestPipe
-Icon.TestPipe = ({ color = 'currentColor', size = 24 }) => (
+Icon.TestPipe = ({ color = "currentColor", size = 24 }) => (
   <svg
     width={size}
     height={size}
@@ -707,10 +902,10 @@ Icon.TestPipe = ({ color = 'currentColor', size = 24 }) => (
       strokeLinejoin="round"
     />
   </svg>
-)
+);
 
 // LayoutCards
-Icon.LayoutCards = ({ color = 'currentColor', size = 24 }) => (
+Icon.LayoutCards = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -726,10 +921,10 @@ Icon.LayoutCards = ({ color = 'currentColor', size = 24 }) => (
     <rect x="4" y="4" width="6" height="16" rx="2" />
     <rect x="14" y="4" width="6" height="10" rx="2" />
   </svg>
-)
+);
 
 // LayoutColumns
-Icon.LayoutColumns = ({ color = 'currentColor', size = 24 }) => (
+Icon.LayoutColumns = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -745,10 +940,10 @@ Icon.LayoutColumns = ({ color = 'currentColor', size = 24 }) => (
     <rect x="4" y="4" width="16" height="16" rx="2" />
     <line x1="12" y1="4" x2="12" y2="20" />
   </svg>
-)
+);
 
 // LayoutList
-Icon.LayoutList = ({ color = 'currentColor', size = 24 }) => (
+Icon.LayoutList = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -764,10 +959,10 @@ Icon.LayoutList = ({ color = 'currentColor', size = 24 }) => (
     <rect x="4" y="4" width="16" height="6" rx="2" />
     <rect x="4" y="14" width="16" height="6" rx="2" />
   </svg>
-)
+);
 
 // LayoutSidebar
-Icon.LayoutSidebar = ({ color = 'currentColor', size = 24 }) => (
+Icon.LayoutSidebar = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -783,10 +978,10 @@ Icon.LayoutSidebar = ({ color = 'currentColor', size = 24 }) => (
     <rect x="4" y="4" width="16" height="16" rx="2" />
     <line x1="9" y1="4" x2="9" y2="20" />
   </svg>
-)
+);
 
 // LayoutSidebarRight
-Icon.LayoutSidebarRight = ({ color = 'currentColor', size = 24 }) => (
+Icon.LayoutSidebarRight = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -802,10 +997,10 @@ Icon.LayoutSidebarRight = ({ color = 'currentColor', size = 24 }) => (
     <rect x="4" y="4" width="16" height="16" rx="2" />
     <line x1="15" y1="4" x2="15" y2="20" />
   </svg>
-)
+);
 
 // Lock
-Icon.Lock = ({ color = 'currentColor', size = 24 }) => (
+Icon.Lock = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -822,10 +1017,10 @@ Icon.Lock = ({ color = 'currentColor', size = 24 }) => (
     <rect x="5" y="11" width="14" height="10" rx="2" />
     <circle cx="12" cy="16" r="1" />
   </svg>
-)
+);
 
 // Logout
-Icon.Logout = ({ color = 'currentColor', size = 24 }) => (
+Icon.Logout = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -841,10 +1036,10 @@ Icon.Logout = ({ color = 'currentColor', size = 24 }) => (
     <path d="M14 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-2" />
     <path d="M7 12h14l-3-3m0 6l3-3" />
   </svg>
-)
+);
 
 // Mail
-Icon.Mail = ({ color = 'currentColor', size = 24 }) => (
+Icon.Mail = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -860,10 +1055,10 @@ Icon.Mail = ({ color = 'currentColor', size = 24 }) => (
     <rect x="3" y="5" width="18" height="14" rx="2" />
     <polyline points="3 7 12 13 21 7" />
   </svg>
-)
+);
 
 // Menu
-Icon.Menu = ({ color = 'currentColor', size = 24 }) => (
+Icon.Menu = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -879,10 +1074,10 @@ Icon.Menu = ({ color = 'currentColor', size = 24 }) => (
     <line x1="4" y1="8" x2="20" y2="8" />
     <line x1="4" y1="16" x2="20" y2="16" />
   </svg>
-)
+);
 
 // Minus
-Icon.Minus = ({ color = 'currentColor', size = 24 }) => (
+Icon.Minus = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -897,10 +1092,10 @@ Icon.Minus = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <line x1="5" y1="12" x2="19" y2="12" />
   </svg>
-)
+);
 
 // Pencil
-Icon.Pencil = ({ color = 'currentColor', size = 24 }) => (
+Icon.Pencil = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -916,10 +1111,10 @@ Icon.Pencil = ({ color = 'currentColor', size = 24 }) => (
     <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
     <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
   </svg>
-)
+);
 
 // Pizza
-Icon.Pizza = ({ color = 'currentColor', size = 24 }) => (
+Icon.Pizza = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -937,10 +1132,10 @@ Icon.Pizza = ({ color = 'currentColor', size = 24 }) => (
     <path d="M13 11.01v-.01" />
     <path d="M11 14v-.01" />
   </svg>
-)
+);
 
 // Plus
-Icon.Plus = ({ color = 'currentColor', size = 24 }) => (
+Icon.Plus = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -956,10 +1151,10 @@ Icon.Plus = ({ color = 'currentColor', size = 24 }) => (
     <line x1="12" y1="5" x2="12" y2="19" />
     <line x1="5" y1="12" x2="19" y2="12" />
   </svg>
-)
+);
 
 // Pyramid
-Icon.Pyramid = ({ color = 'currentColor', size = 24 }) => (
+Icon.Pyramid = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -974,10 +1169,10 @@ Icon.Pyramid = ({ color = 'currentColor', size = 24 }) => (
     <path d="M0 0h24v24H0z" stroke="none" />
     <path d="M3 17l9 4 9-4-9-14zm9-14v18" />
   </svg>
-)
+);
 
 // QuestionMark
-Icon.QuestionMark = ({ color = 'currentColor', size = 24 }) => (
+Icon.QuestionMark = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -993,10 +1188,10 @@ Icon.QuestionMark = ({ color = 'currentColor', size = 24 }) => (
     <path d="M8 8 a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4" />
     <line x1="12" y1="19" x2="12" y2="19.01" />
   </svg>
-)
+);
 
 // Ready
-Icon.Ready = ({ color = 'currentColor', size = 24 }) => (
+Icon.Ready = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1033,10 +1228,10 @@ Icon.Ready = ({ color = 'currentColor', size = 24 }) => (
       strokeLinejoin="round"
     />
   </svg>
-)
+);
 
 // Rainbow
-Icon.Rainbow = ({ color = 'currentColor', size = 24 }) => (
+Icon.Rainbow = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1051,10 +1246,10 @@ Icon.Rainbow = ({ color = 'currentColor', size = 24 }) => (
     <path d="M0 0h24v24H0z" stroke="none" />
     <path d="M22 17c0-5.523-4.477-10-10-10S2 11.477 2 17m16 0a6 6 0 1 0-12 0m8 0a2 2 0 1 0-4 0" />
   </svg>
-)
+);
 
 // Remove
-Icon.Remove = ({ color = 'currentColor', size = 24 }) => (
+Icon.Remove = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1070,10 +1265,10 @@ Icon.Remove = ({ color = 'currentColor', size = 24 }) => (
     <line x1="18" y1="6" x2="6" y2="18" />
     <line x1="6" y1="6" x2="18" y2="18" />
   </svg>
-)
+);
 
 // Resize
-Icon.Resize = ({ color = 'currentColor', size = 24 }) => (
+Icon.Resize = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1089,10 +1284,10 @@ Icon.Resize = ({ color = 'currentColor', size = 24 }) => (
     <path d="M4 11v8a1 1 0 0 0 1 1h8m-9 -14v-1a1 1 0 0 1 1 -1h1m5 0h2m5 0h1a1 1 0 0 1 1 1v1m0 5v2m0 5v1a1 1 0 0 1 -1 1h-1" />
     <path d="M4 12h7a1 1 0 0 1 1 1v7" />
   </svg>
-)
+);
 
 // ResizeEven
-Icon.ResizeEven = ({ color = 'currentColor', size = 24 }) => (
+Icon.ResizeEven = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1108,10 +1303,10 @@ Icon.ResizeEven = ({ color = 'currentColor', size = 24 }) => (
     <rect x="4" y="4" width="16" height="16" rx="2" />
     <path d="M12 4v16" />
   </svg>
-)
+);
 
 // ResizeLeft
-Icon.ResizeLeft = ({ color = 'currentColor', size = 24 }) => (
+Icon.ResizeLeft = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1127,10 +1322,10 @@ Icon.ResizeLeft = ({ color = 'currentColor', size = 24 }) => (
     <rect x="4" y="4" width="16" height="16" rx="2" />
     <path d="M9 4v16" />
   </svg>
-)
+);
 
 // ResizeRight
-Icon.ResizeRight = ({ color = 'currentColor', size = 24 }) => (
+Icon.ResizeRight = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1146,10 +1341,10 @@ Icon.ResizeRight = ({ color = 'currentColor', size = 24 }) => (
     <rect x="4" y="4" width="16" height="16" rx="2" />
     <path d="M15 4v16" />
   </svg>
-)
+);
 
 // RowInsertBottom
-Icon.RowInsertBottom = ({ color = 'currentColor', size = 24 }) => (
+Icon.RowInsertBottom = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1166,10 +1361,10 @@ Icon.RowInsertBottom = ({ color = 'currentColor', size = 24 }) => (
     <line x1="12" y1="15" x2="12" y2="19" />
     <line x1="14" y1="17" x2="10" y2="17" />
   </svg>
-)
+);
 
 // Search
-Icon.Search = ({ color = 'currentColor', size = 24 }) => (
+Icon.Search = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1185,10 +1380,10 @@ Icon.Search = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="10" cy="10" r="7" />
     <line x1="21" y1="21" x2="15" y2="15" />
   </svg>
-)
+);
 
 // SquareMinus
-Icon.SquareMinus = ({ color = 'currentColor', size = 24 }) => (
+Icon.SquareMinus = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1204,10 +1399,10 @@ Icon.SquareMinus = ({ color = 'currentColor', size = 24 }) => (
     <rect x="4" y="4" width="16" height="16" rx="2" />
     <line x1="9" y1="12" x2="15" y2="12" />
   </svg>
-)
+);
 
 // SquarePlus
-Icon.SquarePlus = ({ color = 'currentColor', size = 24 }) => (
+Icon.SquarePlus = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1224,10 +1419,10 @@ Icon.SquarePlus = ({ color = 'currentColor', size = 24 }) => (
     <line x1="9" y1="12" x2="15" y2="12" />
     <line x1="12" y1="9" x2="12" y2="15" />
   </svg>
-)
+);
 
 // SquareX
-Icon.SquareX = ({ color = 'currentColor', size = 24 }) => (
+Icon.SquareX = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1243,10 +1438,10 @@ Icon.SquareX = ({ color = 'currentColor', size = 24 }) => (
     <rect x="4" y="4" width="16" height="16" rx="2" />
     <path d="M10 10l4 4m0 -4l-4 4" />
   </svg>
-)
+);
 
 // SquiggleyArrowLeft
-Icon.SquiggleyArrowLeft = ({ color = 'currentColor', size = 24 }) => (
+Icon.SquiggleyArrowLeft = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1262,10 +1457,10 @@ Icon.SquiggleyArrowLeft = ({ color = 'currentColor', size = 24 }) => (
     <path d="M7 9.996H3v4" />
     <path d="M21 11.996c-.887-1.285-2.48-2.033-4-2-1.52-.033-3.113.715-4 2-.887 1.284-2.48 2.033-4 2-1.52.033-3-1-4-2l-2-2" />
   </svg>
-)
+);
 
 // Star
-Icon.Star = ({ color = 'currentColor', size = 24 }) => (
+Icon.Star = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1280,10 +1475,10 @@ Icon.Star = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
   </svg>
-)
+);
 
 // StarFilled
-Icon.StarFilled = ({ color = 'currentColor', size = 24 }) => (
+Icon.StarFilled = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1298,10 +1493,10 @@ Icon.StarFilled = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
   </svg>
-)
+);
 
 // Trash
-Icon.Trash = ({ color = 'currentColor', size = 24 }) => (
+Icon.Trash = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1316,10 +1511,10 @@ Icon.Trash = ({ color = 'currentColor', size = 24 }) => (
     <path d="M0 0h24v24H0z" stroke="none" />
     <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3M4 7h16m-10 4v6m4-6v6" />
   </svg>
-)
+);
 
 // Unit
-Icon.Unit = ({ color = 'currentColor', size = 24 }) => (
+Icon.Unit = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1341,10 +1536,10 @@ Icon.Unit = ({ color = 'currentColor', size = 24 }) => (
     <line x1="4" y1="12" x2="4" y2="12.01" />
     <line x1="4" y1="16" x2="4" y2="16.01" />
   </svg>
-)
+);
 
 // User
-Icon.User = ({ color = 'currentColor', size = 24 }) => (
+Icon.User = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1360,10 +1555,10 @@ Icon.User = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="12" cy="7" r="4" />
     <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
   </svg>
-)
+);
 
 // ViewportNarrow
-Icon.ViewportNarrow = ({ color = 'currentColor', size = 24 }) => (
+Icon.ViewportNarrow = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1380,10 +1575,10 @@ Icon.ViewportNarrow = ({ color = 'currentColor', size = 24 }) => (
     <path d="M18 9L21 9L21 15L18 15" />
     <path d="M6 9L3 9L3 15L6 15" />
   </svg>
-)
+);
 
 // ViewportWide
-Icon.ViewportWide = ({ color = 'currentColor', size = 24 }) => (
+Icon.ViewportWide = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1400,10 +1595,10 @@ Icon.ViewportWide = ({ color = 'currentColor', size = 24 }) => (
     <path d="M18 3L21 3L21 21L18 21" />
     <path d="M6 3L3 3L3 21L6 21" />
   </svg>
-)
+);
 
 // X
-Icon.X = ({ color = 'currentColor', size = 24 }) => (
+Icon.X = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1419,10 +1614,10 @@ Icon.X = ({ color = 'currentColor', size = 24 }) => (
     <line x1="18" y1="6" x2="6" y2="18" />
     <line x1="6" y1="6" x2="18" y2="18" />
   </svg>
-)
+);
 
 // Message
-Icon.Message = ({ color = 'currentColor', size = 24 }) => (
+Icon.Message = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1438,10 +1633,10 @@ Icon.Message = ({ color = 'currentColor', size = 24 }) => (
     <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />
     <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
   </svg>
-)
+);
 
 // Calendar
-Icon.Calendar = ({ color = 'currentColor', size = 24 }) => (
+Icon.Calendar = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1461,10 +1656,10 @@ Icon.Calendar = ({ color = 'currentColor', size = 24 }) => (
     <line x1="11" y1="15" x2="12" y2="15" />
     <line x1="12" y1="15" x2="12" y2="18" />
   </svg>
-)
+);
 
 // Today
-Icon.Today = ({ color = 'currentColor', size = 24 }) => (
+Icon.Today = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1483,10 +1678,10 @@ Icon.Today = ({ color = 'currentColor', size = 24 }) => (
     <line x1="4" y1="11" x2="20" y2="11" />
     <rect x="8" y="15" width="2" height="2" />
   </svg>
-)
+);
 
 // Map
-Icon.Map = ({ color = 'currentColor', size = 24 }) => (
+Icon.Map = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1503,10 +1698,10 @@ Icon.Map = ({ color = 'currentColor', size = 24 }) => (
     <line x1="9" y1="4" x2="9" y2="17" />
     <line x1="15" y1="7" x2="15" y2="20" />
   </svg>
-)
+);
 
 // MapPin
-Icon.MapPin = ({ color = 'currentColor', size = 24 }) => (
+Icon.MapPin = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1522,10 +1717,10 @@ Icon.MapPin = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="12" cy="11" r="3" />
     <path d="M17.657 16.657l-4.243 4.243a2 2  0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
   </svg>
-)
+);
 
 // CurrentLocation
-Icon.CurrentLocation = ({ color = 'currentColor', size = 24 }) => (
+Icon.CurrentLocation = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1545,10 +1740,10 @@ Icon.CurrentLocation = ({ color = 'currentColor', size = 24 }) => (
     <line x1="20" y1="12" x2="22" y2="12" />
     <line x1="2" y1="12" x2="4" y2="12" />
   </svg>
-)
+);
 
 // Bell
-Icon.Bell = ({ color = 'currentColor', size = 24 }) => (
+Icon.Bell = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1564,10 +1759,10 @@ Icon.Bell = ({ color = 'currentColor', size = 24 }) => (
     <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
     <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
   </svg>
-)
+);
 
 // Setting
-Icon.Setting = ({ color = 'currentColor', size = 24 }) => (
+Icon.Setting = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1583,10 +1778,10 @@ Icon.Setting = ({ color = 'currentColor', size = 24 }) => (
     <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
     <circle cx="12" cy="12" r="3" />
   </svg>
-)
+);
 
 // Bookmark
-Icon.Bookmark = ({ color = 'currentColor', size = 24 }) => (
+Icon.Bookmark = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1601,10 +1796,10 @@ Icon.Bookmark = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M9 4h6a2 2 0 0 1 2 2v14l-5 -3l-5 3v-14a2 2 0 0 1 2 -2" />
   </svg>
-)
+);
 
 // Copy
-Icon.Copy = ({ color = 'currentColor', size = 24 }) => (
+Icon.Copy = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1620,10 +1815,10 @@ Icon.Copy = ({ color = 'currentColor', size = 24 }) => (
     <rect x="8" y="8" width="12" height="12" rx="2" />
     <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
   </svg>
-)
+);
 
 // Clock
-Icon.Clock = ({ color = 'currentColor', size = 24 }) => (
+Icon.Clock = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1639,10 +1834,10 @@ Icon.Clock = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="12" cy="12" r="9" />
     <polyline points="12 7 12 12 15 15" />
   </svg>
-)
+);
 
 // Alarm
-Icon.Alarm = ({ color = 'currentColor', size = 24 }) => (
+Icon.Alarm = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1660,10 +1855,10 @@ Icon.Alarm = ({ color = 'currentColor', size = 24 }) => (
     <line x1="7" y1="4" x2="4.25" y2="6" />
     <line x1="17" y1="4" x2="19.75" y2="6" />
   </svg>
-)
+);
 
 // Hourglass
-Icon.Hourglass = ({ color = 'currentColor', size = 24 }) => (
+Icon.Hourglass = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1694,10 +1889,10 @@ Icon.Hourglass = ({ color = 'currentColor', size = 24 }) => (
     <line x1="4.25" y1="3.25" x2="19.75" y2="3.25" />
     <line x1="4.25" y1="20.75" x2="19.75" y2="20.75" />
   </svg>
-)
+);
 
 // Mail
-Icon.Mail = ({ color = 'currentColor', size = 24 }) => (
+Icon.Mail = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1713,10 +1908,10 @@ Icon.Mail = ({ color = 'currentColor', size = 24 }) => (
     <rect x="3" y="5" width="18" height="14" rx="2" />
     <polyline points="3 7 12 13 21 7" />
   </svg>
-)
+);
 
 // MailOpened
-Icon.MailOpened = ({ color = 'currentColor', size = 24 }) => (
+Icon.MailOpened = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1734,10 +1929,10 @@ Icon.MailOpened = ({ color = 'currentColor', size = 24 }) => (
     <line x1="3" y1="19" x2="9" y2="13" />
     <line x1="15" y1="13" x2="21" y2="19" />
   </svg>
-)
+);
 
 // Ticket
-Icon.Ticket = ({ color = 'currentColor', size = 24 }) => (
+Icon.Ticket = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1755,10 +1950,10 @@ Icon.Ticket = ({ color = 'currentColor', size = 24 }) => (
     <line x1="15" y1="17" x2="15" y2="19" />
     <path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" />
   </svg>
-)
+);
 
 // Phone
-Icon.Phone = ({ color = 'currentColor', size = 24 }) => (
+Icon.Phone = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1773,10 +1968,10 @@ Icon.Phone = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
   </svg>
-)
+);
 
 // CircleX
-Icon.CircleX = ({ color = 'currentColor', size = 24 }) => (
+Icon.CircleX = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1792,10 +1987,10 @@ Icon.CircleX = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="12" cy="12" r="9" />
     <line x1="9" y1="12" x2="15" y2="12" />
   </svg>
-)
+);
 
 // SquareCheck
-Icon.SquareCheck = ({ color = 'currentColor', size = 24 }) => (
+Icon.SquareCheck = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1811,10 +2006,10 @@ Icon.SquareCheck = ({ color = 'currentColor', size = 24 }) => (
     <rect x="4" y="4" width="16" height="16" rx="2" />
     <path d="M9 12l2 2l4 -4" />
   </svg>
-)
+);
 
 // Description
-Icon.Description = ({ color = 'currentColor', size = 24 }) => (
+Icon.Description = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1831,10 +2026,10 @@ Icon.Description = ({ color = 'currentColor', size = 24 }) => (
     <line x1="4" y1="12" x2="20" y2="12" />
     <line x1="4" y1="18" x2="16" y2="18" />
   </svg>
-)
+);
 
 // Replace
-Icon.Replace = ({ color = 'currentColor', size = 24 }) => (
+Icon.Replace = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1852,10 +2047,10 @@ Icon.Replace = ({ color = 'currentColor', size = 24 }) => (
     <path d="M21 11v-3a2 2 0 0 0 -2 -2h-6l3 3m0 -6l-3 3" />
     <path d="M3 13v3a2 2 0 0 0 2 2h6l-3 -3m0 6l3 -3" />
   </svg>
-)
+);
 
 // Browser
-Icon.Browser = ({ color = 'currentColor', size = 24 }) => (
+Icon.Browser = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1872,10 +2067,10 @@ Icon.Browser = ({ color = 'currentColor', size = 24 }) => (
     <line x1="4" y1="8" x2="20" y2="8" />
     <line x1="8" y1="4" x2="8" y2="8" />
   </svg>
-)
+);
 
 // Ready
-Icon.Ready = ({ color = 'currentColor', size = 24 }) => (
+Icon.Ready = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1892,10 +2087,10 @@ Icon.Ready = ({ color = 'currentColor', size = 24 }) => (
     <path d="M8 11H11.5" />
     <path d="M20 16L16 20L14 18" />
   </svg>
-)
+);
 
 // Reject
-Icon.Reject = ({ color = 'currentColor', size = 24 }) => (
+Icon.Reject = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1913,10 +2108,10 @@ Icon.Reject = ({ color = 'currentColor', size = 24 }) => (
     <path d="M15 16L20 21" />
     <path d="M20 16L15 21" />
   </svg>
-)
+);
 
 // ArrowLeft
-Icon.ArrowLeft = ({ color = 'currentColor', size = 24 }) => (
+Icon.ArrowLeft = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1933,10 +2128,10 @@ Icon.ArrowLeft = ({ color = 'currentColor', size = 24 }) => (
     <line x1="5" y1="12" x2="11" y2="18" />
     <line x1="5" y1="12" x2="11" y2="6" />
   </svg>
-)
+);
 
 // ArrowRight
-Icon.ArrowRight = ({ color = 'currentColor', size = 24 }) => (
+Icon.ArrowRight = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1953,10 +2148,10 @@ Icon.ArrowRight = ({ color = 'currentColor', size = 24 }) => (
     <line x1="13" y1="18" x2="19" y2="12" />
     <line x1="13" y1="6" x2="19" y2="12" />
   </svg>
-)
+);
 
 // ArrowUp
-Icon.ArrowUp = ({ color = 'currentColor', size = 24 }) => (
+Icon.ArrowUp = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1973,10 +2168,10 @@ Icon.ArrowUp = ({ color = 'currentColor', size = 24 }) => (
     <line x1="18" y1="11" x2="12" y2="5" />
     <line x1="6" y1="11" x2="12" y2="5" />
   </svg>
-)
+);
 
 // ArrowDown
-Icon.ArrowDown = ({ color = 'currentColor', size = 24 }) => (
+Icon.ArrowDown = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -1993,10 +2188,10 @@ Icon.ArrowDown = ({ color = 'currentColor', size = 24 }) => (
     <line x1="18" y1="13" x2="12" y2="19" />
     <line x1="6" y1="13" x2="12" y2="19" />
   </svg>
-)
+);
 
 // ArrowsVertical
-Icon.ArrowsVertical = ({ color = 'currentColor', size = 24 }) => (
+Icon.ArrowsVertical = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2013,10 +2208,10 @@ Icon.ArrowsVertical = ({ color = 'currentColor', size = 24 }) => (
     <polyline points="8 17 12 21 16 17" />
     <line x1="12" y1="3" x2="12" y2="21" />
   </svg>
-)
+);
 
 // CaretDown
-Icon.CaretDown = ({ color = 'currentColor', size = 24 }) => (
+Icon.CaretDown = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2031,10 +2226,10 @@ Icon.CaretDown = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M18 15l-6 -6l-6 6h12" transform="rotate(180 12 12)" />
   </svg>
-)
+);
 
 // CaretUp
-Icon.CaretUp = ({ color = 'currentColor', size = 24 }) => (
+Icon.CaretUp = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2049,10 +2244,10 @@ Icon.CaretUp = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M18 15l-6 -6l-6 6h12" />
   </svg>
-)
+);
 
 // CaretLeft
-Icon.CaretLeft = ({ color = 'currentColor', size = 24 }) => (
+Icon.CaretLeft = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2067,10 +2262,10 @@ Icon.CaretLeft = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M18 15l-6 -6l-6 6h12" transform="rotate(270 12 12)" />
   </svg>
-)
+);
 
 // CaretRight
-Icon.CaretRight = ({ color = 'currentColor', size = 24 }) => (
+Icon.CaretRight = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2085,10 +2280,10 @@ Icon.CaretRight = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M18 15l-6 -6l-6 6h12" transform="rotate(90 12 12)" />
   </svg>
-)
+);
 
 // ArrowsMinimize
-Icon.ArrowsMinimize = ({ color = 'currentColor', size = 24 }) => (
+Icon.ArrowsMinimize = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2106,10 +2301,10 @@ Icon.ArrowsMinimize = ({ color = 'currentColor', size = 24 }) => (
     <path d="M6 14h4v4" />
     <path d="M10 14l-6 6" />
   </svg>
-)
+);
 
 // ArrowsMaximize
-Icon.ArrowsMaximize = ({ color = 'currentColor', size = 24 }) => (
+Icon.ArrowsMaximize = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2127,10 +2322,10 @@ Icon.ArrowsMaximize = ({ color = 'currentColor', size = 24 }) => (
     <polyline points="8 20 4 20 4 16" />
     <line x1="4" y1="20" x2="10" y2="14" />
   </svg>
-)
+);
 
 // ArrowUpRightCircle
-Icon.ArrowUpRightCircle = ({ color = 'currentColor', size = 24 }) => (
+Icon.ArrowUpRightCircle = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2147,10 +2342,10 @@ Icon.ArrowUpRightCircle = ({ color = 'currentColor', size = 24 }) => (
     <line x1="15" y1="9" x2="9" y2="15" />
     <polyline points="15 15 15 9 9 9" />
   </svg>
-)
+);
 
 // ArrowCurved
-Icon.ArrowCurved = ({ color = 'currentColor', size = 24 }) => (
+Icon.ArrowCurved = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2165,10 +2360,10 @@ Icon.ArrowCurved = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1" />
   </svg>
-)
+);
 
 // Fold
-Icon.Fold = ({ color = 'currentColor', size = 24 }) => (
+Icon.Fold = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2188,10 +2383,10 @@ Icon.Fold = ({ color = 'currentColor', size = 24 }) => (
     <line x1="14" y1="12" x2="15" y2="12" />
     <line x1="19" y1="12" x2="20" y2="12" />
   </svg>
-)
+);
 
 // Warning
-Icon.Warning = ({ color = 'currentColor', size = 24 }) => (
+Icon.Warning = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2207,10 +2402,10 @@ Icon.Warning = ({ color = 'currentColor', size = 24 }) => (
     <path d="M12 9v2m0 4v.01" />
     <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" />
   </svg>
-)
+);
 
 // World
-Icon.World = ({ color = 'currentColor', size = 24 }) => (
+Icon.World = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2229,10 +2424,10 @@ Icon.World = ({ color = 'currentColor', size = 24 }) => (
     <path d="M11.5 3a17 17 0 0 0 0 18" />
     <path d="M12.5 3a17 17 0 0 1 0 18" />
   </svg>
-)
+);
 
 // Point
-Icon.Point = ({ color = 'currentColor', size = 24 }) => (
+Icon.Point = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2247,10 +2442,10 @@ Icon.Point = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <circle cx="12" cy="12" r="4" />
   </svg>
-)
+);
 
 // Checkbox
-Icon.Checkbox = ({ color = 'currentColor', size = 24 }) => (
+Icon.Checkbox = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2266,10 +2461,10 @@ Icon.Checkbox = ({ color = 'currentColor', size = 24 }) => (
     <polyline points="9 11 12 14 20 6" />
     <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" />
   </svg>
-)
+);
 
 // ChartBar
-Icon.ChartBar = ({ color = 'currentColor', size = 24 }) => (
+Icon.ChartBar = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2287,10 +2482,10 @@ Icon.ChartBar = ({ color = 'currentColor', size = 24 }) => (
     <rect x="15" y="4" width="6" height="16" rx="1" />
     <line x1="4" y1="20" x2="18" y2="20" />
   </svg>
-)
+);
 
 // ID
-Icon.ID = ({ color = 'currentColor', size = 24 }) => (
+Icon.ID = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2309,10 +2504,10 @@ Icon.ID = ({ color = 'currentColor', size = 24 }) => (
     <line x1="15" y1="12" x2="17" y2="12" />
     <line x1="7" y1="16" x2="17" y2="16" />
   </svg>
-)
+);
 
 // Book
-Icon.Book = ({ color = 'currentColor', size = 24 }) => (
+Icon.Book = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2331,10 +2526,10 @@ Icon.Book = ({ color = 'currentColor', size = 24 }) => (
     <line x1="12" y1="6" x2="12" y2="19" />
     <line x1="21" y1="6" x2="21" y2="19" />
   </svg>
-)
+);
 
 // Feed
-Icon.Feed = ({ color = 'currentColor', size = 24 }) => (
+Icon.Feed = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2361,10 +2556,10 @@ Icon.Feed = ({ color = 'currentColor', size = 24 }) => (
     <path d="M8 17H19" />
     <path d="M8 8C8 7.44772 8.44772 7 9 7H11.5C12.0523 7 12.5 7.44772 12.5 8V11C12.5 11.5523 12.0523 12 11.5 12H9C8.44772 12 8 11.5523 8 11V8Z" />
   </svg>
-)
+);
 
 // ClipboardList
-Icon.ClipboardList = ({ color = 'currentColor', size = 24 }) => (
+Icon.ClipboardList = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2384,10 +2579,10 @@ Icon.ClipboardList = ({ color = 'currentColor', size = 24 }) => (
     <line x1="9" y1="16" x2="9.01" y2="16" />
     <line x1="13" y1="16" x2="15" y2="16" />
   </svg>
-)
+);
 
 // ClipboardX
-Icon.ClipboardX = ({ color = 'currentColor', size = 24 }) => (
+Icon.ClipboardX = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2404,10 +2599,10 @@ Icon.ClipboardX = ({ color = 'currentColor', size = 24 }) => (
     <rect x="9" y="3" width="6" height="4" rx="2" />
     <path d="M10 12l4 4m0 -4l-4 4" />
   </svg>
-)
+);
 
 // Clipboard
-Icon.Clipboard = ({ color = 'currentColor', size = 24 }) => (
+Icon.Clipboard = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2423,10 +2618,10 @@ Icon.Clipboard = ({ color = 'currentColor', size = 24 }) => (
     <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
     <rect x="9" y="3" width="6" height="4" rx="2" />
   </svg>
-)
+);
 
 // ChartLine
-Icon.ChartLine = ({ color = 'currentColor', size = 24 }) => (
+Icon.ChartLine = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2442,10 +2637,10 @@ Icon.ChartLine = ({ color = 'currentColor', size = 24 }) => (
     <line x1="4" y1="19" x2="20" y2="19" />
     <polyline points="4 15 8 9 12 11 16 6 20 10" />
   </svg>
-)
+);
 
 // TrendingUp
-Icon.TrendingUp = ({ color = 'currentColor', size = 24 }) => (
+Icon.TrendingUp = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2461,10 +2656,10 @@ Icon.TrendingUp = ({ color = 'currentColor', size = 24 }) => (
     <polyline points="3 17 9 11 13 15 21 7" />
     <polyline points="14 7 21 7 21 14" />
   </svg>
-)
+);
 
 // TrendingUp
-Icon.TrendingUp = ({ color = 'currentColor', size = 24 }) => (
+Icon.TrendingUp = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2480,10 +2675,10 @@ Icon.TrendingUp = ({ color = 'currentColor', size = 24 }) => (
     <polyline points="3 17 9 11 13 15 21 7" />
     <polyline points="14 7 21 7 21 14" />
   </svg>
-)
+);
 
 // ShieldCheck
-Icon.ShieldCheck = ({ color = 'currentColor', size = 24 }) => (
+Icon.ShieldCheck = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2499,10 +2694,10 @@ Icon.ShieldCheck = ({ color = 'currentColor', size = 24 }) => (
     <path d="M9 12l2 2l4 -4" />
     <path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3" />
   </svg>
-)
+);
 
 // CurrencyDollar
-Icon.CurrencyDollar = ({ color = 'currentColor', size = 24 }) => (
+Icon.CurrencyDollar = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2518,10 +2713,10 @@ Icon.CurrencyDollar = ({ color = 'currentColor', size = 24 }) => (
     <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
     <path d="M12 3v3m0 12v3" />
   </svg>
-)
+);
 
 // CreditCard
-Icon.CreditCard = ({ color = 'currentColor', size = 24 }) => (
+Icon.CreditCard = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2539,10 +2734,10 @@ Icon.CreditCard = ({ color = 'currentColor', size = 24 }) => (
     <line x1="7" y1="15" x2="7.01" y2="15" />
     <line x1="11" y1="15" x2="13" y2="15" />
   </svg>
-)
+);
 
 // File
-Icon.File = ({ color = 'currentColor', size = 24 }) => (
+Icon.File = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2558,10 +2753,10 @@ Icon.File = ({ color = 'currentColor', size = 24 }) => (
     <path d="M14 3v4a1 1 0 0 0 1 1h4" />
     <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
   </svg>
-)
+);
 
 // FileCertificate
-Icon.FileCertificate = ({ color = 'currentColor', size = 24 }) => (
+Icon.FileCertificate = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2579,10 +2774,10 @@ Icon.FileCertificate = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="6" cy="14" r="3" />
     <path d="M4.5 17l-1.5 5l3 -1.5l3 1.5l-1.5 -5" />
   </svg>
-)
+);
 
 // Trophy
-Icon.Trophy = ({ color = 'currentColor', size = 24 }) => (
+Icon.Trophy = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2602,10 +2797,10 @@ Icon.Trophy = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="5" cy="9" r="2" />
     <circle cx="19" cy="9" r="2" />
   </svg>
-)
+);
 
 // Wand
-Icon.Wand = ({ color = 'currentColor', size = 24 }) => (
+Icon.Wand = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2623,10 +2818,10 @@ Icon.Wand = ({ color = 'currentColor', size = 24 }) => (
     <path d="M9 3a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
     <path d="M19 13a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
   </svg>
-)
+);
 
 // UserExclamation
-Icon.UserExclamation = ({ color = 'currentColor', size = 24 }) => (
+Icon.UserExclamation = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2644,10 +2839,10 @@ Icon.UserExclamation = ({ color = 'currentColor', size = 24 }) => (
     <line x1="19" y1="7" x2="19" y2="10" />
     <line x1="19" y1="14" x2="19" y2="14.01" />
   </svg>
-)
+);
 
 // Accessible
-Icon.Accessible = ({ color = 'currentColor', size = 24 }) => (
+Icon.Accessible = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2664,10 +2859,10 @@ Icon.Accessible = ({ color = 'currentColor', size = 24 }) => (
     <path d="M10 16.5l2 -3l2 3m-2 -3v-2l3 -1m-6 0l3 1" />
     <circle cx="12" cy="7.5" r=".5" fill={color} />
   </svg>
-)
+);
 
 // Notebook
-Icon.Notebook = ({ color = 'currentColor', size = 24 }) => (
+Icon.Notebook = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2684,10 +2879,10 @@ Icon.Notebook = ({ color = 'currentColor', size = 24 }) => (
     <line x1="13" y1="8" x2="15" y2="8" />
     <line x1="13" y1="12" x2="15" y2="12" />
   </svg>
-)
+);
 
 // Activity
-Icon.Activity = ({ color = 'currentColor', size = 24 }) => (
+Icon.Activity = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2702,10 +2897,10 @@ Icon.Activity = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M3 12h4l3 8l4 -16l3 8h4" />
   </svg>
-)
+);
 
 // Key
-Icon.Key = ({ color = 'currentColor', size = 24 }) => (
+Icon.Key = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2723,10 +2918,10 @@ Icon.Key = ({ color = 'currentColor', size = 24 }) => (
     <line x1="18" y1="5" x2="20" y2="7" />
     <line x1="15" y1="8" x2="17" y2="10" />
   </svg>
-)
+);
 
 // Language
-Icon.Language = ({ color = 'currentColor', size = 24 }) => (
+Icon.Language = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2745,10 +2940,10 @@ Icon.Language = ({ color = 'currentColor', size = 24 }) => (
     <path d="M12 20l4 -9l4 9" />
     <path d="M19.1 18h-6.2" />
   </svg>
-)
+);
 
 // CircleCheck
-Icon.CircleCheck = ({ color = 'currentColor', size = 24 }) => (
+Icon.CircleCheck = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2764,10 +2959,10 @@ Icon.CircleCheck = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="12" cy="12" r="9" />
     <path d="M9 12l2 2l4 -4" />
   </svg>
-)
+);
 
 // FileUpload
-Icon.FileUpload = ({ color = 'currentColor', size = 24 }) => (
+Icon.FileUpload = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2785,10 +2980,10 @@ Icon.FileUpload = ({ color = 'currentColor', size = 24 }) => (
     <line x1="12" y1="11" x2="12" y2="17" />
     <polyline points="9 14 12 11 15 14" />
   </svg>
-)
+);
 
 // FileDownload
-Icon.FileDownload = ({ color = 'currentColor', size = 24 }) => (
+Icon.FileDownload = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2806,10 +3001,10 @@ Icon.FileDownload = ({ color = 'currentColor', size = 24 }) => (
     <line x1="12" y1="11" x2="12" y2="17" />
     <polyline points="9 14 12 17 15 14" />
   </svg>
-)
+);
 
 // Notes
-Icon.Notes = ({ color = 'currentColor', size = 24 }) => (
+Icon.Notes = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2827,10 +3022,10 @@ Icon.Notes = ({ color = 'currentColor', size = 24 }) => (
     <line x1="9" y1="11" x2="15" y2="11" />
     <line x1="9" y1="15" x2="13" y2="15" />
   </svg>
-)
+);
 
 // RowInsertBottom
-Icon.RowInsertBottom = ({ color = 'currentColor', size = 24 }) => (
+Icon.RowInsertBottom = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2847,10 +3042,10 @@ Icon.RowInsertBottom = ({ color = 'currentColor', size = 24 }) => (
     <line x1="12" y1="15" x2="12" y2="19" />
     <line x1="14" y1="17" x2="10" y2="17" />
   </svg>
-)
+);
 
 // Bug
-Icon.Bug = ({ color = 'currentColor', size = 24 }) => (
+Icon.Bug = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2873,10 +3068,10 @@ Icon.Bug = ({ color = 'currentColor', size = 24 }) => (
     <line x1="4" y1="7" x2="7.75" y2="9.4" />
     <line x1="20" y1="7" x2="16.25" y2="9.4" />
   </svg>
-)
+);
 // Burger
 
-Icon.Burger = ({ color = 'currentColor', size = 24 }) => (
+Icon.Burger = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2893,10 +3088,10 @@ Icon.Burger = ({ color = 'currentColor', size = 24 }) => (
     <line x1="4" y1="12" x2="20" y2="12" />
     <line x1="4" y1="18" x2="20" y2="18" />
   </svg>
-)
+);
 
 // PageBreak
-Icon.PageBreak = ({ color = 'currentColor', size = 24 }) => (
+Icon.PageBreak = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2914,10 +3109,10 @@ Icon.PageBreak = ({ color = 'currentColor', size = 24 }) => (
     <path d="M3 14h3m4.5 0h3m4.5 0h3" />
     <path d="M5 10v-5a2 2 0 0 1 2 -2h7l5 5v2" />
   </svg>
-)
+);
 
 // Share
-Icon.Share = ({ color = 'currentColor', size = 24 }) => (
+Icon.Share = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2936,10 +3131,10 @@ Icon.Share = ({ color = 'currentColor', size = 24 }) => (
     <line x1="8.7" y1="10.7" x2="15.3" y2="7.3" />
     <line x1="8.7" y1="13.3" x2="15.3" y2="16.7" />
   </svg>
-)
+);
 
 // Link
-Icon.Link = ({ color = 'currentColor', size = 24 }) => (
+Icon.Link = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2955,10 +3150,10 @@ Icon.Link = ({ color = 'currentColor', size = 24 }) => (
     <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
     <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
   </svg>
-)
+);
 
 // DragDrop2
-Icon.DragDrop2 = ({ color = 'currentColor', size = 24 }) => (
+Icon.DragDrop2 = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -2980,10 +3175,10 @@ Icon.DragDrop2 = ({ color = 'currentColor', size = 24 }) => (
     <line x1="4" y1="12" x2="4" y2="12.01" />
     <line x1="4" y1="16" x2="4" y2="16.01" />
   </svg>
-)
+);
 
 // LayoutGrid
-Icon.LayoutGrid = ({ color = 'currentColor', size = 24 }) => (
+Icon.LayoutGrid = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3000,10 +3195,10 @@ Icon.LayoutGrid = ({ color = 'currentColor', size = 24 }) => (
     <path d="M21 14H14V21H21V14Z" />
     <path d="M21 3H14V10H21V3Z" />
   </svg>
-)
+);
 
 // FileCode
-Icon.FileCode = ({ color = 'currentColor', size = 24 }) => (
+Icon.FileCode = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3020,10 +3215,10 @@ Icon.FileCode = ({ color = 'currentColor', size = 24 }) => (
     <path d="M10.5 12L8 14.5L10.5 17" />
     <path d="M15 2V7H20" />
   </svg>
-)
+);
 
 // Drag
-Icon.Drag = ({ color = 'currentColor', size = 24 }) => (
+Icon.Drag = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3048,10 +3243,10 @@ Icon.Drag = ({ color = 'currentColor', size = 24 }) => (
       fill={color}
     />
   </svg>
-)
+);
 
 // Data
-Icon.Data = ({ color = 'currentColor', size = 24 }) => (
+Icon.Data = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3068,10 +3263,10 @@ Icon.Data = ({ color = 'currentColor', size = 24 }) => (
     <path d="M12 8V16" />
     <path d="M8 10V16" />
   </svg>
-)
+);
 
 // ThumbsUp
-Icon.ThumbsUp = ({ color = 'currentColor', size = 24 }) => (
+Icon.ThumbsUp = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3086,10 +3281,10 @@ Icon.ThumbsUp = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3" />
   </svg>
-)
+);
 
 // ThumbsDown
-Icon.ThumbsDown = ({ color = 'currentColor', size = 24 }) => (
+Icon.ThumbsDown = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3104,10 +3299,10 @@ Icon.ThumbsDown = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3" />
   </svg>
-)
+);
 
 // SubmitFolder
-Icon.SubmitFolder = ({ color = 'currentColor', size = 24 }) => (
+Icon.SubmitFolder = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3123,10 +3318,10 @@ Icon.SubmitFolder = ({ color = 'currentColor', size = 24 }) => (
     <path d="M15 12.9934L12 10L9 13" />
     <path d="M12 10V17" />
   </svg>
-)
+);
 
 // MessageCircle
-Icon.MessageCircle = ({ color = 'currentColor', size = 24 }) => (
+Icon.MessageCircle = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3144,10 +3339,10 @@ Icon.MessageCircle = ({ color = 'currentColor', size = 24 }) => (
     <line x1="8" y1="12" x2="8" y2="12.01" />
     <line x1="16" y1="12" x2="16" y2="12.01" />
   </svg>
-)
+);
 
 // Note
-Icon.Note = ({ color = 'currentColor', size = 24 }) => (
+Icon.Note = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3163,10 +3358,10 @@ Icon.Note = ({ color = 'currentColor', size = 24 }) => (
     <line x1="13" y1="20" x2="20" y2="13" />
     <path d="M13 20v-6a1 1 0 0 1 1 -1h6v-7a2 2 0 0 0 -2 -2h-12a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7" />
   </svg>
-)
+);
 
 // Resize
-Icon.Resize = ({ color = 'currentColor', size = 24 }) => (
+Icon.Resize = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3182,10 +3377,10 @@ Icon.Resize = ({ color = 'currentColor', size = 24 }) => (
     <path d="M4 11v8a1 1 0 0 0 1 1h8m-9 -14v-1a1 1 0 0 1 1 -1h1m5 0h2m5 0h1a1 1 0 0 1 1 1v1m0 5v2m0 5v1a1 1 0 0 1 -1 1h-1" />
     <path d="M4 12h7a1 1 0 0 1 1 1v7" />
   </svg>
-)
+);
 
 // Video
-Icon.Video = ({ color = 'currentColor', size = 24 }) => (
+Icon.Video = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3201,10 +3396,10 @@ Icon.Video = ({ color = 'currentColor', size = 24 }) => (
     <path d="M15 10l4.553 -2.276a1 1 0 0 1 1.447 .894v6.764a1 1 0 0 1 -1.447 .894l-4.553 -2.276v-4z" />
     <rect x="3" y="6" width="12" height="12" rx="2" />
   </svg>
-)
+);
 
 // Location
-Icon.Location = ({ color = 'currentColor', size = 24 }) => (
+Icon.Location = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3219,10 +3414,10 @@ Icon.Location = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M21 3l-6.5 18a0.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a0.55 .55 0 0 1 0 -1l18 -6.5" />
   </svg>
-)
+);
 
 // Circle
-Icon.Circle = ({ color = 'currentColor', size = 24 }) => (
+Icon.Circle = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3237,10 +3432,10 @@ Icon.Circle = ({ color = 'currentColor', size = 24 }) => (
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <circle cx="12" cy="12" r="9" />
   </svg>
-)
+);
 
 // User
-Icon.User = ({ color = 'currentColor', size = 24 }) => (
+Icon.User = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3255,10 +3450,10 @@ Icon.User = ({ color = 'currentColor', size = 24 }) => (
     <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" />
     <path d="M6 21V19C6 17.9391 6.42143 16.9217 7.17157 16.1716C7.92172 15.4214 8.93913 15 10 15H14C15.0609 15 16.0783 15.4214 16.8284 16.1716C17.5786 16.9217 18 17.9391 18 19V21" />
   </svg>
-)
+);
 
 // ChartLine
-Icon.ChartLine = ({ color = 'currentColor', size = 24 }) => (
+Icon.ChartLine = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3273,10 +3468,10 @@ Icon.ChartLine = ({ color = 'currentColor', size = 24 }) => (
     <path d="M4 19H20" />
     <path d="M4 15L8 9L12 11L16 6L20 10" />
   </svg>
-)
+);
 
 // Setting
-Icon.Setting = ({ color = 'currentColor', size = 24 }) => (
+Icon.Setting = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3291,10 +3486,10 @@ Icon.Setting = ({ color = 'currentColor', size = 24 }) => (
     <path d="M10.325 4.317C10.751 2.561 13.249 2.561 13.675 4.317C13.7389 4.5808 13.8642 4.82578 14.0407 5.032C14.2172 5.23822 14.4399 5.39985 14.6907 5.50375C14.9414 5.60764 15.2132 5.65085 15.4838 5.62987C15.7544 5.60889 16.0162 5.5243 16.248 5.383C17.791 4.443 19.558 6.209 18.618 7.753C18.4769 7.98466 18.3924 8.24634 18.3715 8.51677C18.3506 8.78721 18.3938 9.05877 18.4975 9.30938C18.6013 9.55999 18.7627 9.78258 18.9687 9.95905C19.1747 10.1355 19.4194 10.2609 19.683 10.325C21.439 10.751 21.439 13.249 19.683 13.675C19.4192 13.7389 19.1742 13.8642 18.968 14.0407C18.7618 14.2172 18.6001 14.4399 18.4963 14.6907C18.3924 14.9414 18.3491 15.2132 18.3701 15.4838C18.3911 15.7544 18.4757 16.0162 18.617 16.248C19.557 17.791 17.791 19.558 16.247 18.618C16.0153 18.4769 15.7537 18.3924 15.4832 18.3715C15.2128 18.3506 14.9412 18.3938 14.6906 18.4975C14.44 18.6013 14.2174 18.7627 14.0409 18.9687C13.8645 19.1747 13.7391 19.4194 13.675 19.683C13.249 21.439 10.751 21.439 10.325 19.683C10.2611 19.4192 10.1358 19.1742 9.95929 18.968C9.7828 18.7618 9.56011 18.6001 9.30935 18.4963C9.05859 18.3924 8.78683 18.3491 8.51621 18.3701C8.24559 18.3911 7.98375 18.4757 7.752 18.617C6.209 19.557 4.442 17.791 5.382 16.247C5.5231 16.0153 5.60755 15.7537 5.62848 15.4832C5.64942 15.2128 5.60624 14.9412 5.50247 14.6906C5.3987 14.44 5.23726 14.2174 5.03127 14.0409C4.82529 13.8645 4.58056 13.7391 4.317 13.675C2.561 13.249 2.561 10.751 4.317 10.325C4.5808 10.2611 4.82578 10.1358 5.032 9.95929C5.23822 9.7828 5.39985 9.56011 5.50375 9.30935C5.60764 9.05859 5.65085 8.78683 5.62987 8.51621C5.60889 8.24559 5.5243 7.98375 5.383 7.752C4.443 6.209 6.209 4.442 7.753 5.382C8.753 5.99 10.049 5.452 10.325 4.317Z" />
     <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" />
   </svg>
-)
+);
 
 // Link
-Icon.Link = ({ color = 'currentColor', size = 24 }) => (
+Icon.Link = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3309,11 +3504,11 @@ Icon.Link = ({ color = 'currentColor', size = 24 }) => (
     <path d="M10 14C10.3259 14.3326 10.7148 14.5968 11.1441 14.7772C11.5734 14.9576 12.0344 15.0505 12.5 15.0505C12.9656 15.0505 13.4266 14.9576 13.8559 14.7772C14.2852 14.5968 14.6741 14.3326 15 14L19 10C19.663 9.33697 20.0355 8.43769 20.0355 7.50001C20.0355 6.56233 19.663 5.66305 19 5.00001C18.337 4.33697 17.4377 3.96448 16.5 3.96448C15.5623 3.96448 14.663 4.33697 14 5.00001L13.5 5.50001" />
     <path d="M13.9999 9.99997C13.674 9.66738 13.285 9.40315 12.8558 9.22276C12.4265 9.04238 11.9655 8.94946 11.4999 8.94946C11.0343 8.94946 10.5733 9.04238 10.144 9.22276C9.71474 9.40315 9.32577 9.66738 8.99989 9.99997L4.99989 14C4.33685 14.663 3.96436 15.5623 3.96436 16.5C3.96436 17.4377 4.33685 18.3369 4.99989 19C5.66293 19.663 6.56221 20.0355 7.49989 20.0355C8.43757 20.0355 9.33685 19.663 9.99989 19L10.4999 18.5" />
   </svg>
-)
+);
 
 // Building Community
 
-Icon.BuildingCommunity = ({ color = 'currentColor', size = 24 }) => (
+Icon.BuildingCommunity = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3332,11 +3527,11 @@ Icon.BuildingCommunity = ({ color = 'currentColor', size = 24 }) => (
     <line x1="17" y1="11" x2="17" y2="11.01" />
     <line x1="17" y1="15" x2="17" y2="15.01" />
   </svg>
-)
+);
 
 // Wall Paper
 
-Icon.WallPaper = ({ color = 'currentColor', size = 24 }) => (
+Icon.WallPaper = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3353,9 +3548,9 @@ Icon.WallPaper = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="6" cy="18" r="2" />
     <path d="M8 18v-12a2 2 0 1 0 -4 0v12" />
   </svg>
-)
+);
 
-Icon.CurrencyDollar = ({ color = 'currentColor', size = 24 }) => (
+Icon.CurrencyDollar = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3371,9 +3566,9 @@ Icon.CurrencyDollar = ({ color = 'currentColor', size = 24 }) => (
     <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
     <path d="M12 3v3m0 12v3" />
   </svg>
-)
+);
 
-Icon.Rocket = ({ color = 'currentColor', size = 24 }) => (
+Icon.Rocket = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3390,11 +3585,11 @@ Icon.Rocket = ({ color = 'currentColor', size = 24 }) => (
     <path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3" />
     <circle cx="15" cy="9" r="1" />
   </svg>
-)
+);
 
 // Icon Sort Descending
 
-Icon.SortDescending = ({ color = 'currentColor', size = 24 }) => (
+Icon.SortDescending = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3413,11 +3608,11 @@ Icon.SortDescending = ({ color = 'currentColor', size = 24 }) => (
     <polyline points="15 15 18 18 21 15" />
     <line x1="18" y1="6" x2="18" y2="18" />
   </svg>
-)
+);
 
 // List Check
 
-Icon.ListCheck = ({ color = 'currentColor', size = 24 }) => (
+Icon.ListCheck = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3437,11 +3632,11 @@ Icon.ListCheck = ({ color = 'currentColor', size = 24 }) => (
     <line x1="11" y1="12" x2="20" y2="12" />
     <line x1="11" y1="18" x2="20" y2="18" />
   </svg>
-)
+);
 
 // Palette
 
-Icon.Palette = ({ color = 'currentColor', size = 24 }) => (
+Icon.Palette = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3459,10 +3654,10 @@ Icon.Palette = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="12" cy="7.5" r=".5" fill={color} />
     <circle cx="16.5" cy="10.5" r=".5" fill={color} />
   </svg>
-)
+);
 
 // User
-Icon.User = ({ color = 'currentColor', size = 24 }) => (
+Icon.User = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3478,10 +3673,10 @@ Icon.User = ({ color = 'currentColor', size = 24 }) => (
     <circle cx="12" cy="7" r="4" />
     <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
   </svg>
-)
+);
 
 // Accessible
-Icon.Accessible = ({ color = 'currentColor', size = 24 }) => (
+Icon.Accessible = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3498,9 +3693,9 @@ Icon.Accessible = ({ color = 'currentColor', size = 24 }) => (
     <path d="M10 16.5l2 -3l2 3m-2 -3v-2l3 -1m-6 0l3 1" />
     <circle cx="12" cy="7.5" r=".5" fill={color} />
   </svg>
-)
+);
 // Printer
-Icon.Printer = ({ color = 'currentColor', size = 24 }) => (
+Icon.Printer = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3517,10 +3712,10 @@ Icon.Printer = ({ color = 'currentColor', size = 24 }) => (
     <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
     <rect x="7" y="13" width="10" height="8" rx="2" />
   </svg>
-)
+);
 
 // Eye closed
-Icon.EyeClosed = ({ color = 'currentColor', size = 24 }) => (
+Icon.EyeClosed = ({ color = "currentColor", size = 24 }) => (
   <svg
     aria-hidden="true"
     width={size}
@@ -3539,4 +3734,4 @@ Icon.EyeClosed = ({ color = 'currentColor', size = 24 }) => (
     <path d="M9 17l.5 -4" />
     <path d="M15 17l-.5 -4" />
   </svg>
-)
+);

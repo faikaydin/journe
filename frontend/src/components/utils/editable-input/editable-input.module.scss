@@ -1,0 +1,40 @@
+@import "../../styles/color.scss";
+[data-type="text"] {
+  span {
+    display: inline-block;
+    font-weight: 400;
+    border-bottom: 1px solid $text-color;
+  }
+  input {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 1rem;
+    outline-offset: 4px;
+    border: none;
+    background-color: transparent;
+    line-height: 150%;
+    white-space: pre-wrap;
+    overflow: auto;
+    &:focus-visible {
+      border-bottom: 1px solid $text-color;
+      outline: none;
+    }
+  }
+}
+[data-type="title"] {
+  width: 100%;
+  font-weight: 800;
+  input {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-weight: 800;
+    font-size: 1rem;
+    outline-offset: 4px;
+    border: none;
+    background-color: transparent;
+    line-height: 125%;
+  }
+}

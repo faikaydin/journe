@@ -1,0 +1,48 @@
+@import "../../../styles/color.scss";
+
+.cardContainer {
+  border: 2px solid $border-color;
+  box-shadow: 0px 0px 0px 8px $card-bg-color;
+  padding: 1rem;
+  height: fit-content;
+  background-color: $card-bg-color;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  .potTitleRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.5rem;
+  }
+  .taskItem {
+    display: flex;
+    justify-content: space-between;
+  }
+  .addNewTask {
+    & button {
+      border: none;
+      background: none;
+      padding: 0;
+    }
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  & button {
+    border: none;
+    background: none;
+  }
+  .deleteButton {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    &.show {
+      opacity: 1;
+    }
+    &.hide {
+      opacity: 0;
+    }
+  }
+}
