@@ -1,6 +1,6 @@
 import React from "react";
-import TaskItem from "./task-item/TaskItem";
 import c from "./task-list.module.scss";
+import TaskItem from "../task-item/TaskItem";
 const TaskList = ({ tasks, pot }) => {
   return (
     <div className={c.listContainer}>

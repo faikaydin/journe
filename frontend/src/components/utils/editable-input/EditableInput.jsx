@@ -40,7 +40,7 @@ const EditableInput = ({ input, onInputUpdate, type }) => {
   };
 
   return (
-    <div data-type={type === "text" ? "text" : "title"}>
+    <div data-type={type === "text" || "number" ? "text" : "title"}>
       {/* If not in edit mode, display the title */}
       {!isEditing ? (
         <span tabIndex="0" onClick={handleClick} onFocus={handleClick}>
@@ -49,7 +49,7 @@ const EditableInput = ({ input, onInputUpdate, type }) => {
       ) : (
         // If in edit mode, display an input field
         <input
-          type="text"
+          type={type}
           value={currentInput}
           onChange={handleChange}
           autoFocus // Automatically focuses the input field when it appears

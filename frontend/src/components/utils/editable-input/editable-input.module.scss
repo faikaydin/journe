@@ -4,8 +4,11 @@
     display: inline-block;
     font-weight: 400;
     border-bottom: 1px solid $text-color;
+    min-width: 4ch;
+    min-height: 25px;
   }
   input {
+    min-width: 4ch;
     width: auto;
     margin: 0;
     padding: 0;
@@ -26,7 +29,9 @@
 [data-type="title"] {
   width: 100%;
   font-weight: 800;
+  min-width: 2ch;
   input {
+    min-width: 2ch;
     width: 100%;
     margin: 0;
     padding: 0;
