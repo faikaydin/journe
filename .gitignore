@@ -5,3 +5,4 @@ frontend/package-lock.json
 backend/node_modules
 backend/yarn.lock
 backend/package-lock.json
+data/journe_core/journe_core.db
