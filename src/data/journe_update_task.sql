@@ -2,6 +2,7 @@ UPDATE task
 SET
     task_id = :task_id,
     task_description = :task_description,
+    task_is_complete = :task_is_complete,
     task_duration = :task_duration,
     task_pot_id = :task_pot_id,
     task_title = :task_title,

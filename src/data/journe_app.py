@@ -52,6 +52,7 @@ class Journe:
             _tasks[_task['task_id']] = Task(task_id=_task['task_id'],
                                             task_title=_task['task_title'],
                                             task_description=_task['task_description'],
+                                            task_is_complete=_task['task_is_complete'],
                                             task_duration=_task['task_duration'],
                                             task_start_time=_task['task_start_time'],
                                             task_pot_id=_task['task_pot_id'])
@@ -75,14 +76,15 @@ class Journe:
     def add_task(self,
                  task_id=None,
                  task_title="",
-                 task_duration="10", task_start_time=None, task_pot_id='task_platter',
-                 task_description=""):
+                 task_duration="10", task_start_time=None, task_pot_id="task_platter",
+                 task_description="", task_is_complete="False"):
         print('gi')
         task_obj = Task(task_id=task_id,
                         task_title=task_title,
                         task_description=task_description,
                         task_duration=task_duration,
                         task_start_time=task_start_time,
+                        task_is_complete=task_is_complete,
                         task_pot_id=task_pot_id)  # init task object
         self.journe_connection.send_payload(task_obj)  # send object payload to core
         self.tasks[task_obj.task_id] = task_obj  # create a copy of the task object in memory
@@ -134,7 +136,8 @@ class Journe:
                 task_dict["task_duration"],
                 task_dict["task_start_time"],
                 task_dict["task_pot_id"],
-                task_dict["task_description"]]
+                task_dict["task_description"],
+                task_dict["task_is_complete"]]
 
     @staticmethod
     def return_pot_list_from_dict(pot_dict):

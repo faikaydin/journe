@@ -8,7 +8,6 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})  # enable CORS for all routes
 
 journe = Journe()  # create Journe App Instance
-print('hi')
 journe.reset_db()
 journe.load_json(json_payload_path=DUMMY_DB_JSON_PATH)  # setting up our dummy instance :)
 journe.update("task", "mno-345-pqr-678")
