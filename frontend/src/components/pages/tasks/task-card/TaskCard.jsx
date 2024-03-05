@@ -9,7 +9,6 @@ import { v4 as uuidv4 } from "uuid";
 import { Data } from "../../../providers/DataProvider";
 const TaskCard = ({ pot, tasks }) => {
   const [potTitle, setPotTitle] = useState(pot.pot_title);
-  const [addTask, setAddTask] = useState(false);
   const { createObject, updateObject, deleteObject } = useContext(Data);
 
   // Create new task object
@@ -19,13 +18,12 @@ const TaskCard = ({ pot, tasks }) => {
     task_duration: 10,
     task_id: "",
     task_title: "",
+    task_is_complete: "false",
     task_pot_id: pot.pot_id,
   });
 
-  // console.log(newTask);
   // Function to handle receiving the updated title from EditableInput
   const handleTitleUpdate = (newTitle) => {
-    console.log(newTitle, pot.pot_id);
     setPotTitle(newTitle);
     if (pot.pot_id) {
       updateObject("pot", pot.pot_id, { ...pot, pot_title: newTitle });
@@ -35,12 +33,7 @@ const TaskCard = ({ pot, tasks }) => {
   };
 
   const createEmptyTaskHandler = () => {
-    setAddTask(true);
-  };
-
-  const finishCreateTaskHandler = () => {
-    console.log("show close");
-    setAddTask(false);
+    createObject("task", { ...newTask, task_id: uuidv4() });
   };
 
   const deletePotHandler = () => {
@@ -72,13 +65,9 @@ const TaskCard = ({ pot, tasks }) => {
       </div>
       <TaskList tasks={tasks} pot={pot} />
       <div className={c.addNewTask}>
-        {addTask ? (
-          <TaskItem task={newTask} potId={pot.pot_id} />
-        ) : (
-          <button onClick={createEmptyTaskHandler}>
-            <Icon.Add size={16} />
-          </button>
-        )}
+        <button onClick={createEmptyTaskHandler}>
+          <Icon.Add size={16} />
+        </button>
       </div>
     </div>
   );

@@ -1,42 +1,42 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import './index.css'
-import ErrorPage from './components/pages/error/errorPage.jsx'
-import Schedule from './components/pages/schedule/Schedule.jsx'
-import Tasks from './components/pages/tasks/Tasks.jsx'
-import Home from './components/pages/home/Home.jsx'
-import Reset from './components/pages/reset/Reset.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import ErrorPage from "./components/pages/error/errorPage.jsx";
+import Schedule from "./components/pages/schedule/ScheduleFullCalendar.jsx";
+import Tasks from "./components/pages/tasks/Tasks.jsx";
+import Home from "./components/pages/home/Home.jsx";
+import Reset from "./components/pages/reset/Reset.jsx";
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '',
+        path: "",
         element: <Home />,
       },
 
       {
-        path: 'schedule',
+        path: "schedule",
         element: <Schedule />,
       },
       {
-        path: 'tasks',
+        path: "tasks",
         element: <Tasks />,
       },
       {
-        path: 'reset',
+        path: "reset",
         element: <Reset />,
       },
     ],
   },
-])
+]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
   <RouterProvider router={router} />
   // </React.StrictMode>
-)
+);

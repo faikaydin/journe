@@ -1,0 +1,39 @@
+.scheduleContainer {
+  height: 100vh;
+  overflow: hidden;
+  padding: 0 4rem;
+  & > div {
+    padding-top: 120px;
+    height: 100%;
+  }
+}
+.modalContainer {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: #000000, $alpha: 0.2);
+  z-index: 999;
+  .modalCard {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 50vw;
+    height: 50vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid black;
+    form {
+      width: 50vw;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+  }
+}

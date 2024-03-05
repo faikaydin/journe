@@ -8,14 +8,16 @@ import { Checkbox } from "antd";
 import { format } from "date-fns";
 import { v4 as uuidv4 } from "uuid";
 import Icon from "../../../../assets/Icon";
+import { stringToBoolean } from "./utils";
 
-const TaskItem = ({ task, potId }) => {
+const TaskItem = ({ task, potId, handleFinishInput }) => {
   const [currentTask, setCurrentTask] = useState({
     task_description: task.task_description,
     task_start_time: task.task_start_time,
     task_duration: task.task_duration,
     task_id: task.task_id,
     task_title: task.task_title,
+    task_is_complete: stringToBoolean(task.task_is_complete),
     task_pot_id: potId,
   });
 
@@ -47,6 +49,7 @@ const TaskItem = ({ task, potId }) => {
         task_pot_id: potId,
         task_id: tempId,
       });
+      handleFinishInput();
     }
   };
 
@@ -62,7 +65,7 @@ const TaskItem = ({ task, potId }) => {
   };
 
   const handleDateChange = (date) => {
-    console.log(date, format(new Date(date), "yyyy-MM-dd HH:mm:ss"));
+    // console.log(date, format(new Date(date), "yyyy-MM-dd HH:mm:ss"));
     // setSelectedDate(date);
     setCurrentTask((prevTask) => ({
       ...prevTask,
@@ -82,7 +85,14 @@ const TaskItem = ({ task, potId }) => {
   };
 
   const checkboxHandler = (e) => {
-    console.log(`checked = ${e.target.checked}`);
+    setCurrentTask((prevTask) => ({
+      ...prevTask,
+      task_is_complete: e.target.checked,
+    }));
+    updateObject("task", currentTask.task_id, {
+      ...currentTask,
+      task_is_complete: e.target.checked,
+    });
   };
 
   //Delete task
@@ -91,9 +101,16 @@ const TaskItem = ({ task, potId }) => {
   };
 
   return (
-    <div className={c.taskItem}>
+    <div
+      className={[c.taskItem, currentTask.task_is_complete && c.completed].join(
+        " "
+      )}
+    >
       <div className={c.taskContainer}>
-        <Checkbox onChange={checkboxHandler}> </Checkbox>
+        <Checkbox
+          onChange={checkboxHandler}
+          checked={currentTask.task_is_complete}
+        ></Checkbox>
         <div className={c.task}>
           <EditableInput
             input={currentTask.task_title}
