@@ -7,6 +7,7 @@ import { Data } from "../../providers/DataProvider";
 import TaskCard from "./task-card/TaskCard";
 const Tasks = () => {
   const { tasks, pots } = useContext(Data);
+
   const [addPot, setAddPot] = useState(false);
 
   const addPotHandler = () => {

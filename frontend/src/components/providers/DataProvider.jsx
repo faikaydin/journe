@@ -1,59 +1,59 @@
-import { setDate } from 'date-fns'
-import React, { useState, useEffect, createContext } from 'react'
+import { setDate } from "date-fns";
+import React, { useState, useEffect, createContext } from "react";
 
 // @ts-ignore
-export const Data = React.createContext()
+export const Data = React.createContext();
 
 const DataProvider = ({ children }) => {
   // Init all states
-  const [tasks, setTasks] = useState(null)
-  const [pots, setPots] = useState(null)
-  const [blocks, setBlocks] = useState(null)
-  const [data, setData] = useState(null)
+  const [tasks, setTasks] = useState(null);
+  const [pots, setPots] = useState(null);
+  const [blocks, setBlocks] = useState(null);
+  const [data, setData] = useState(null);
   const fetchData = async () => {
     const response = await fetch(`http://localhost:6969/get_all_journe_data`, {
-      method: 'GET',
-      mode: 'cors',
+      method: "GET",
+      mode: "cors",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-    })
-    const data = await response.json()
-    const dataResponse = await data.response
-    setData(dataResponse)
-  }
+    });
+    const data = await response.json();
+    const dataResponse = await data.response;
+    setData(dataResponse);
+  };
   // On first load
   useEffect(() => {
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   useEffect(() => {
-    setTasks(data?.tasks)
-    setPots(data?.pots)
-    setBlocks(data?.blocks)
-  }, [data])
+    setTasks(data?.tasks);
+    setPots(data?.pots);
+    setBlocks(data?.blocks);
+  }, [data]);
 
   // Clear db
   async function clearDB() {
     await fetch(`http://localhost:6969/reset_db`, {
-      method: 'GET',
-      mode: 'cors',
+      method: "GET",
+      mode: "cors",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-    })
-    await fetchData()
+    });
+    await fetchData();
   }
 
   async function loadDummy() {
     await fetch(`http://localhost:6969/load_dummy_json`, {
-      method: 'GET',
-      mode: 'cors',
+      method: "GET",
+      mode: "cors",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-    })
-    await fetchData()
+    });
+    await fetchData();
   }
 
   // Create new object
@@ -62,23 +62,23 @@ const DataProvider = ({ children }) => {
       const response = await fetch(
         `http://localhost:6969/create/${objectType}`,
         {
-          method: 'POST',
-          mode: 'cors',
+          method: "POST",
+          mode: "cors",
           body: JSON.stringify(body),
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
-      )
+      );
       if (response.ok) {
-        await fetchData()
+        await fetchData();
         // Handle success if needed
       } else {
-        console.error('Request failed:', response.status, response.statusText)
+        console.error("Request failed:", response.status, response.statusText);
         // Handle errors if needed
       }
     } catch (error) {
-      console.error('Error:', error)
+      console.error("Error:", error);
     }
   }
 
@@ -88,23 +88,23 @@ const DataProvider = ({ children }) => {
       const response = await fetch(
         `http://localhost:6969/update/${objectType}/${id}`,
         {
-          method: 'POST',
-          mode: 'cors',
+          method: "POST",
+          mode: "cors",
           body: JSON.stringify(body),
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
-      )
+      );
       if (response.ok) {
-        await fetchData()
+        await fetchData();
         // Handle success if needed
       } else {
-        console.error('Request failed:', response.status, response.statusText)
+        console.error("Request failed:", response.status, response.statusText);
         // Handle errors if needed
       }
     } catch (error) {
-      console.error('Error:', error)
+      console.error("Error:", error);
     }
   }
 
@@ -114,22 +114,22 @@ const DataProvider = ({ children }) => {
       const response = await fetch(
         `http://localhost:6969/remove/${objectType}/${id}`,
         {
-          method: 'DELETE',
-          mode: 'cors',
+          method: "DELETE",
+          mode: "cors",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
-      )
+      );
       if (response.ok) {
-        await fetchData()
+        await fetchData();
         // Handle success if needed
       } else {
-        console.error('Request failed:', response.status, response.statusText)
+        console.error("Request failed:", response.status, response.statusText);
         // Handle errors if needed
       }
     } catch (error) {
-      console.error('Error:', error)
+      console.error("Error:", error);
     }
   }
   return (
@@ -138,6 +138,7 @@ const DataProvider = ({ children }) => {
         tasks,
         pots,
         blocks,
+        setTasks,
         clearDB,
         loadDummy,
         createObject,
@@ -147,7 +148,7 @@ const DataProvider = ({ children }) => {
     >
       {children}
     </Data.Provider>
-  )
-}
+  );
+};
 
-export default DataProvider
+export default DataProvider;

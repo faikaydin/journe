@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import c from "./editable-input.module.scss";
 const EditableInput = ({ input, onInputUpdate, type }) => {
   // State to manage the current title
   const [currentInput, setCurrentInput] = useState(input);
+
+  useEffect(() => {
+    setCurrentInput(input);
+  }, [input]);
+
   // State to track whether the input field is in edit mode
   const [isEditing, setIsEditing] = useState(false);
   const [inputWidth, setInputWidth] = useState("auto");

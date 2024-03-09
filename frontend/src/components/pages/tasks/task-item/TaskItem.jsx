@@ -17,24 +17,33 @@ const TaskItem = ({ task, potId, handleFinishInput }) => {
     task_duration: task.task_duration,
     task_id: task.task_id,
     task_title: task.task_title,
-    task_is_complete: stringToBoolean(task.task_is_complete),
+    task_is_complete: stringToBoolean(task?.task_is_complete),
     task_pot_id: potId,
   });
 
+  // Make sure task display is up to date
+  useEffect(() => {
+    setCurrentTask({
+      ...task,
+      task_is_complete: stringToBoolean(task?.task_is_complete),
+    });
+  }, [task]);
+
   //Update task
-  const { createObject, updateObject, deleteObject } = useContext(Data);
+  const { setTasks, createObject, updateObject, deleteObject } =
+    useContext(Data);
 
   const [tempId, setTempId] = useState();
   useEffect(() => {
-    if (!currentTask.task_id) {
+    if (!currentTask?.task_id) {
       setTempId(uuidv4());
     }
   }, [task]);
 
   // Function to handle receiving the updated title from EditableInput
   const handleTitleUpdate = (newText) => {
-    setCurrentTask((prevTask) => ({
-      ...prevTask,
+    setCurrentTask(() => ({
+      ...task,
       task_title: newText,
     }));
 
@@ -54,8 +63,8 @@ const TaskItem = ({ task, potId, handleFinishInput }) => {
   };
 
   const handleDurationUpdate = (duration) => {
-    setCurrentTask((prevTask) => ({
-      ...prevTask,
+    setCurrentTask(() => ({
+      ...task,
       task_duration: duration,
     }));
     updateObject("task", currentTask.task_id, {
@@ -65,10 +74,8 @@ const TaskItem = ({ task, potId, handleFinishInput }) => {
   };
 
   const handleDateChange = (date) => {
-    // console.log(date, format(new Date(date), "yyyy-MM-dd HH:mm:ss"));
-    // setSelectedDate(date);
-    setCurrentTask((prevTask) => ({
-      ...prevTask,
+    setCurrentTask(() => ({
+      ...task,
       task_start_time: date,
     }));
     updateObject("task", currentTask.task_id, {
@@ -85,8 +92,8 @@ const TaskItem = ({ task, potId, handleFinishInput }) => {
   };
 
   const checkboxHandler = (e) => {
-    setCurrentTask((prevTask) => ({
-      ...prevTask,
+    setCurrentTask(() => ({
+      ...task,
       task_is_complete: e.target.checked,
     }));
     updateObject("task", currentTask.task_id, {
@@ -94,7 +101,6 @@ const TaskItem = ({ task, potId, handleFinishInput }) => {
       task_is_complete: e.target.checked,
     });
   };
-
   //Delete task
   const handleDeleteTask = () => {
     deleteObject("task", task.task_id);
@@ -102,18 +108,19 @@ const TaskItem = ({ task, potId, handleFinishInput }) => {
 
   return (
     <div
-      className={[c.taskItem, currentTask.task_is_complete && c.completed].join(
-        " "
-      )}
+      className={[
+        c.taskItem,
+        currentTask?.task_is_complete && c.completed,
+      ].join(" ")}
     >
       <div className={c.taskContainer}>
         <Checkbox
           onChange={checkboxHandler}
-          checked={currentTask.task_is_complete}
+          checked={currentTask?.task_is_complete}
         ></Checkbox>
         <div className={c.task}>
           <EditableInput
-            input={currentTask.task_title}
+            input={currentTask?.task_title}
             onInputUpdate={handleTitleUpdate}
             type="text"
           />
@@ -130,7 +137,7 @@ const TaskItem = ({ task, potId, handleFinishInput }) => {
             <DatePicker
               showTime // To show time picker as well
               format={"HH:mm DD-MM"}
-              value={dayjs(new Date(currentTask.task_start_time))}
+              value={dayjs(new Date(currentTask?.task_start_time))}
               onChange={handleDateChange}
               style={datePickerStyle}
             />
