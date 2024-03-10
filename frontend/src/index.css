@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/* @import "./components/styles/variables.scss"; */
 :root {
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
@@ -16,9 +17,13 @@
   --text-color: #101010;
   --border-color: #d9d9d9;
   --card-bg-color: #f5f5f5;
-  --text-disabled-color: rgba((var(--text-color)), 0.4);
+  --text-disabled-color: rgba(255, 255, 255, 0.1);
   --fc-button-bg-color: transparent;
-  --fc-button-border-color: none;
+  --fc-button-active-bg-color: rgba(255, 255, 255, 0.1);
+  --fc-button-border-color: rgba(255, 255, 255, 0.1);
+  --fc-button-active-border-color: rgba(255, 255, 255, 0.1);
+  --fc-button-hover-bg-color: rgba(255, 255, 255, 0.1);
+  --fc-button-hover-border-color: rgba(255, 255, 255, 0.2);
 }
 
 body {
@@ -40,4 +45,15 @@ h1 {
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+}
+.fc .fc-button {
+  padding: 0.2em 0.4em;
+}
+.fc .fc-toolbar-title {
+  color: #f5f5f5;
+}
+.fc .fc-toolbar {
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 }

@@ -11,13 +11,16 @@ const DataProvider = ({ children }) => {
   const [blocks, setBlocks] = useState(null);
   const [data, setData] = useState(null);
   const fetchData = async () => {
-    const response = await fetch(`http://localhost:6969/get_all_journe_data`, {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://canyknoxvile.pythonanywhere.com/get_all_journe_data`,
+      {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const data = await response.json();
     const dataResponse = await data.response;
     setData(dataResponse);
@@ -35,7 +38,7 @@ const DataProvider = ({ children }) => {
 
   // Clear db
   async function clearDB() {
-    await fetch(`http://localhost:6969/reset_db`, {
+    await fetch(`https://canyknoxvile.pythonanywhere.com/reset_db`, {
       method: "GET",
       mode: "cors",
       headers: {
@@ -46,7 +49,7 @@ const DataProvider = ({ children }) => {
   }
 
   async function loadDummy() {
-    await fetch(`http://localhost:6969/load_dummy_json`, {
+    await fetch(`https://canyknoxvile.pythonanywhere.com/load_dummy_json`, {
       method: "GET",
       mode: "cors",
       headers: {
@@ -60,7 +63,7 @@ const DataProvider = ({ children }) => {
   async function createObject(objectType, body) {
     try {
       const response = await fetch(
-        `http://localhost:6969/create/${objectType}`,
+        `https://canyknoxvile.pythonanywhere.com/create/${objectType}`,
         {
           method: "POST",
           mode: "cors",
@@ -86,7 +89,7 @@ const DataProvider = ({ children }) => {
   async function updateObject(objectType, id, body) {
     try {
       const response = await fetch(
-        `http://localhost:6969/update/${objectType}/${id}`,
+        `https://canyknoxvile.pythonanywhere.com/update/${objectType}/${id}`,
         {
           method: "POST",
           mode: "cors",
@@ -112,7 +115,7 @@ const DataProvider = ({ children }) => {
   async function deleteObject(objectType, id) {
     try {
       const response = await fetch(
-        `http://localhost:6969/remove/${objectType}/${id}`,
+        `https://canyknoxvile.pythonanywhere.com/remove/${objectType}/${id}`,
         {
           method: "DELETE",
           mode: "cors",

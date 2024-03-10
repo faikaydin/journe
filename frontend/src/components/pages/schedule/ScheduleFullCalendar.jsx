@@ -29,27 +29,27 @@ function Schedule() {
   const handleViewTask = (event) => {
     setOpenModal(true);
     setClickedEventId(event.id);
-    // console.log(info);
   };
   useEffect(() => {
     const calendar = new Calendar(calendarRef.current, {
       plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin], // Include required plugins here
       initialView: "timeGridWeek",
-      timeZone: "UTC",
       headerToolbar: {
-        left: "prev,next today",
-        center: "title",
-        right: "timeGridWeek,timeGridDay",
+        left: "title",
+        // center: "prev,next today",
+        // left: "prev,next today",
+        // center: "title",
+        right: "today prev,next timeGridWeek,timeGridDay",
       },
       editable: true,
       droppable: true,
       dayMaxEvents: true,
       events: tasksFullCalendar,
       allDaySlot: false,
+      nowIndicator: true,
       eventColor: "var(--background-color)",
       eventClick: function (info) {
         handleViewTask(info.event);
-        // console.log("Event: " + info.event.id);
       },
     });
 

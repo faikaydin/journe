@@ -1,7 +1,16 @@
+@import "src/components/styles/variables.scss";
+
 .scheduleContainer {
   height: 100vh;
   overflow: hidden;
   padding: 0 4rem;
+  @media screen and (max-width: $mobile-layout-width) {
+    padding: 0 1rem;
+    & > div {
+      padding-top: 80px;
+      height: 100%;
+    }
+  }
   & > div {
     padding-top: 120px;
     height: 100%;
