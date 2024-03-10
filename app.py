@@ -95,8 +95,8 @@ def load_dummy_json():
     return jsonify(response='dummy json loaded'), 200
 
 
-if __name__ == '__main__':
-    app.run(debug=True, port=6969)
+# if __name__ == '__main__':
+#     app.run(debug=True, port=6969)
 # journe.reset_db()  # reset db ... nuke!
 # journe.sync_local_with_db()  # syncing db with local
 # #####################################################
