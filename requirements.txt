@@ -1,2 +1,2 @@
-Flask @ file:///home/ktietz/src/ci/flask_1611932660458/work
+Flask==3.0.2
 Flask-Cors==4.0.0
