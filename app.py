@@ -8,11 +8,6 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})  # enable CORS for all routes
 
 journe = Journe()  # create Journe App Instance
-journe.reset_db()
-journe.load_json(json_payload_path=DUMMY_DB_JSON_PATH)  # setting up our dummy instance :)
-journe.update("task", "mno-345-pqr-678")
-journe.pots["2l3k4j5i-6h7g8f9e-a1b2c3d4e5f"].pot_title = "Creative Chaos"
-journe.update("pot", "2l3k4j5i-6h7g8f9e-a1b2c3d4e5f")
 
 
 # get endpoints
